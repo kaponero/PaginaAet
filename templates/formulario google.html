@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ens">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Inscripciones</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="styles.css") }}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">
+		<ul>
+			<li class="active form_1_progessbar">
+				<div>
+					<p>1</p>
+				</div>
+			</li>
+			<li class="form_2_progessbar">
+				<div>
+					<p>2</p>
+				</div>
+			</li>
+			<li class="form_3_progessbar">
+				<div>
+					<p>3</p>
+				</div>
+			</li>
+            <li class="form_4_progessbar">
+				<div>
+					<p>4</p>
+				</div>
+			</li>
+            <li class="form_5_progessbar">
+				<div>
+					<p>5</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+    <div class="form_wrap">
+        <form id="form1" method="POST">
+            <div class="form_1 data_info">
+			<h2>Datos del programa</h2>
+				<div class="form_container">
+					<div class="input_wrap">
+                        <label for="name" class="form-label">Nombre del programa</label>
+                        <input type="text" name="programa" class="input" id="nombre">
+					</div>
+					<div class="input_wrap">
+                        <label for="name" class="form-label">Localidad - Categoria - Canales de aire</label>
+                        <select  id="categorias" name="categoria" class="form-control valid">
+                            <option value="" disabled="" selected="">Selecciona una categoria</option>
+                            <optgroup label="Asociados">
+                                <option value="CATEGORÍA A">1º De Mayo - Categoría A</option>
+                                <option value="CATEGORÍA A">Alcaraz - Categoría A</option>
+                                <option value="CATEGORÍA A">Aldea San Antonio - Categoría A</option>
+                                <option value="CATEGORÍA A">Aldea Valle Maria - Categoría A</option>
+                                <option value="CATEGORÍA A">Aranguren - Categoría A</option>
+                                <option value="CATEGORÍA A">Basavilbaso - Categoría A</option>
+                                <option value="CATEGORÍA A">Bovril - Categoría A</option>
+                                <option value="CATEGORÍA A">Caseros - Categoría A</option>
+                                <option value="CATEGORÍA A">Ceibas - Categoría A</option>
+                                <option value="CATEGORÍA A">Cerrito - Categoría A</option>
+                                <option value="CATEGORÍA A">Colonia Avellaneda - Categoría A</option>
+                                <option value="CATEGORÍA A">Colonia Ayui - Categoría A</option>
+                                <option value="CATEGORÍA A">Colonia Elia - Categoría A</option>
+                                <option value="CATEGORÍA A">Conscripto Bernardi - Categoría A</option>
+                                <option value="CATEGORÍA A">Enrique Carbo - Categoría A</option>
+                                <option value="CATEGORÍA A">Estancia Grande - Categoría A</option>
+                                <option value="CATEGORÍA A">General Campos - Categoría A</option>
+                                <option value="CATEGORÍA A">General Galarza - Categoría A</option>
+                                <option value="CATEGORÍA A">General Ramirez - Categoría A</option>
+                                <option value="CATEGORÍA A">Gilbert - Categoría A</option>
+                                <option value="CATEGORÍA A">Gobernador Mansilla - Categoría A</option>
+                                <option value="CATEGORÍA A">Hasenkamp - Categoría A</option>
+                                <option value="CATEGORÍA A">Hernandarias - Categoría A</option>
+                                <option value="CATEGORÍA A">Hernandez - Categoría A</option>
+                                <option value="CATEGORÍA A">Herrera - Categoría A</option>
+                                <option value="CATEGORÍA A">Ibicuy - Categoría A</option>
+                                <option value="CATEGORÍA A">La Criolla - Categoría A</option>
+                                <option value="CATEGORÍA A">Larroque - Categoría A</option>
+                                <option value="CATEGORÍA A">Los Charruas - Categoría A</option>
+                                <option value="CATEGORÍA A">Los Conquistadores - Categoría A</option>
+                                <option value="CATEGORÍA A">Lucas Gonzalez - Categoría A</option>
+                                <option value="CATEGORÍA A">Macia - Categoría A</option>
+                                <option value="CATEGORÍA A">Maria Grande - Categoría A</option>
+                                <option value="CATEGORÍA A">Oro Verde - Categoría A</option>
+                                <option value="CATEGORÍA A">Piedras Blancas - Categoría A</option>
+                                <option value="CATEGORÍA A">Pronunciamiento - Categoría A</option>
+                                <option value="CATEGORÍA A">Pueblo General Belgrano - Categoría A</option>
+                                <option value="CATEGORÍA A">Puerto Yerua - Categoría A</option>
+                                <option value="CATEGORÍA A">San Benito - Categoría A</option>
+                                <option value="CATEGORÍA A">San Gustavo - Categoría A</option>
+                                <option value="CATEGORÍA A">San Jaime De La Frontera - Categoría A</option>
+                                <option value="CATEGORÍA A">San Justo - Categoría A</option>
+                                <option value="CATEGORÍA A">Santa Ana - Categoría A</option>
+                                <option value="CATEGORÍA A">Santa Anita - Categoría A</option>
+                                <option value="CATEGORÍA A">Sauce De Luna - Categoría A</option>
+                                <option value="CATEGORÍA A">Segui - Categoría A</option>
+                                <option value="CATEGORÍA A">Tabossi - Categoría A</option>
+                                <option value="CATEGORÍA A">Ubajay - Categoría A</option>
+                                <option value="CATEGORÍA A">Urdinarrain - Categoría A</option>
+                                <option value="CATEGORÍA A">Viale - Categoría A</option>
+                                <option value="CATEGORÍA A">Villa Clara - Categoría A</option>
+                                <option value="CATEGORÍA A">Villa Del Rosario - Categoría A</option>
+                                <option value="CATEGORÍA A">Villa Dominguez - Categoría A</option>
+                                <option value="CATEGORÍA A">Villa Libertador San Martin - Categoría A</option>
+                                <option value="CATEGORÍA A">Villa Mantero - Categoría A</option>
+                                <option value="CATEGORÍA A">Villa Paranacito - Categoría A</option>
+                                <option value="CATEGORÍA A">Villa Urquiza - Categoría A</option>
+                                <option value="CATEGORÍA B">Villa Elisa - Categoría B</option>
+                                <option value="CATEGORÍA B">San Jose De Feliciano - Categoría B</option>
+                                <option value="CATEGORÍA B">San Salvador - Categoría B</option>
+                                <option value="CATEGORÍA B">Rosario Del Tala - Categoría B</option>
+                                <option value="CATEGORÍA B">Federacion - Categoría B</option>
+                                <option value="CATEGORÍA B">Santa Elena - Categoría B</option>
+                                <option value="CATEGORÍA B">Federal - Categoría B</option>
+                                <option value="CATEGORÍA B">San Jose - Categoría B</option>
+                                <option value="CATEGORÍA B">Diamante - Categoría B</option>
+                                <option value="CATEGORÍA C">Crespo - Categoría C</option>
+                                <option value="CATEGORÍA C">Nogoya - Categoría C</option>
+                                <option value="CATEGORÍA C">Colon - Categoría C</option>
+                                <option value="CATEGORÍA C">La Paz - Categoría C</option>
+                                <option value="CATEGORÍA C">Victoria - Categoría C</option>
+                                <option value="CATEGORÍA C">Villaguay - Categoría C</option>
+                                <option value="CATEGORÍA C">Chajari - Categoría C</option>
+                                <option value="CATEGORÍA D">Gualeguay - Categoría D</option>
+                                <option value="CATEGORÍA D">Concepcion Del Uruguay - Categoría D</option>
+                                <option value="CATEGORÍA D">Gualeguaychu - Categoría D</option>
+                                <option value="CATEGORÍA D">Concordia - Categoría D</option>
+                                <option value="CATEGORÍA D">Parana - Categoría D</option>
+                            </optgroup>
+                            <optgroup label="Canales abiertos">
+                                <option value="CATEGORÍA E">Canales abiertos - Categoría E</option>
+                            </optgroup>
+                            <optgroup label="Productoras independientes">
+                                <option value="CATEGORÍA F">Productoras independientes - Categoría F</option>
+                            </optgroup>
+                            <optgroup label="Categoría única">
+                                <option value="TRANSMISIONES EN VIVO">TRANSMISIONES EN VIVO</option>
+                            </optgroup>
+                            <optgroup label="Categoría única">
+                                <option value="TURF">TURF</option>
+                            </optgroup>
+                        </select>
+					</div>
+					<div class="input_wrap">
+						<label for="name" class="form-label">Genero</label>
+						<select name="genero" class="form-control">
+                            <option value="" disabled="" selected="">Selecciona un genero</option>
+                            <option value="NOTICIERO">NOTICIERO</option>
+                            <option value="PERIODÍSTICO DE OPINIÓN Y/O POLÍTICO">PERIODÍSTICO DE OPINIÓN Y/O POLÍTICO</option>
+                            <option value="DEPORTIVO">DEPORTIVO</option>
+                            <option value="AGRARIO O RURAL">AGRARIO O RURAL</option>
+                            <option value="EVENTOS FOLCLÓRICOS Y/O TRADICIONALISTAS">EVENTOS FOLCLÓRICOS Y/O TRADICIONALISTAS</option>
+                            <option value="MUSICAL">MUSICAL</option>
+                            <option value="EDUCATIVO">EDUCATIVO</option>
+                            <option value="INTERÉS GENERAL">INTERÉS GENERAL</option>
+                            <option value="DOCUMENTAL">DOCUMENTAL</option>
+                            <option value="ESPECIAL">ESPECIAL</option>
+                            <option value="INFANTIL">INFANTIL</option>
+                            <option value="TURF">TURF</option>
+                            <option value="TRANSMISIÓN EN VIVO">TRANSMISIÓN EN VIVO</option> 
+                        </select>
+					</div>
+                    <div class="input_wrap">
+                        <label for="name" class="form-label">Vivo, directo y simultaneo</label>
+                        <select name="vivo" class="form-control">
+                    <option value="" selected="" disabled="">Elegir</option>
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="input_wrap">
+                        <label for="name" class="form-label">Localidad de emision</label>
+                        <input type="text" name="localidad" class="input">
+                    </div>
+                    <div class="input_select">    
+                        <div class="input_wrap">
+                            <label for="name" class="form-label">Fecha de emision</label>
+                            <input type="date" name="fecha" id="input_date">
+                        </div>
+                        <div class="input_wrap">
+                            <label for="name" class="form-label">Duración</label>
+                            <input class="form-control" type="time" name="duracion" step="1" id="input_time">
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        <label for="name" class="form-label">Breve descripción</label>
+                        <textarea  class="form-control" rows="5" cols="40" name="otros" id="input_tarea"></textarea>
+                    </div>
+				</div>
+		    </div>
+            <div class="form_2 data_info" style="display: none;">
+			<h2>Material de video</h2>
+			
+				<div class="form_container">
+					<div class="input_wrap">
+                        <label for"name">
+                          
+                            1 Video con 1 programa
+                            
+                        </label>
+						<input type="text" name="video" class="input">
+                        <label for="name">Link de google drive</label>
+					</div>
+					<div class="input_wrap">
+                        <label for"name">
+                            
+                            1 Video de 8 segundos del programa que se utilizará para presentar el mismo durante la transmisión del evento.
+                           
+                        </label>
+						<input type="text" name="cover" class="input">
+                        <label for="first_name">Link de google drive</label>
+                            <br>
+                            <i>(El material debe estar publicado hasta la fecha de realización del evento.)</i>
+                        </label>
+					</div>
+				</div>
+			
+		    </div>
+            <div class="form_3 data_info" style="display: none;">
+			<h2>Datos de produccion del programa</h2>
+			
+				<div class="form_container">
+					<div class="input_wrap">
+						<label for="company">Productor/a</label>
+						<input type="text" name="productor" class="input" >
+					</div>
+					<div class="input_wrap">
+						<label for="experience">Coprodución</label>
+						<input type="text" name="coproduccion" class="input">
+					</div>
+					<div class="input_wrap">
+						<label for="designation">Autor/Guionista</label>
+						<input type="text" name="autor" class="input">
+					</div>
+                    <div class="input_wrap">
+						<label for="designation">Editor</label>
+						<input type="text" name="editor" class="input">
+					</div>
+                    <div class="input_wrap">
+						<label for="designation">Director</label>
+						<input type="text" name="director" class="input">
+					</div>
+                    <div class="input_wrap">
+						<label for="designation">Camarografo/s</label>
+						<input type="text" name="camara" class="input">
+					</div>
+                    <div class="input_wrap">
+						<label for="designation">Sonidista/Musicalización</label>
+						<input type="text" name="sonido" class="input">
+					</div>
+                    <div class="input_wrap">
+						<label for="designation">Conductor/Presentador/Locutor</label>
+						<input type="text" name="conductor" class="input">
+					</div>
+                    <div class="input_wrap">
+						<label for="designation">Protagonista/s</label>
+						<input type="text" name="protagonista" class="input">
+					</div>
+                    <div class="input_wrap">
+						<label for="designation">Nombrar los cronistas exteriores que participan del programa</label>
+						<input type="text" name="cronistas" class="input">
+					</div>
+				</div>
+			
+		    </div>
+            <div class="form_4 data_info" style="display: none;">
+			<h2>Datos del canal emisor del programa</h2>
+			
+				<div class="form_container">
+					<div class="input_wrap">
+						<label for="company">Nombre Canal</label>
+						<input type="text" name="nombre" class="input" >
+					</div>
+					<div class="input_wrap">
+						<label for="experience">Domicilio Canal</label>
+						<input type="text" name="direccion" class="input">
+					</div>
+					<div class="input_wrap">
+						<label for="designation">Localidad canal</label>
+						<input type="text" name="localidad" class="input">
+					</div>
+                    <div class="input_wrap">
+						<label for="designation">Contacto canal</label>
+						<input type="text" name="contacto" class="input">
+					</div>
+                    <div class="input_wrap">
+						<label for="designation">Teléfono canal</label>
+						<input type="text" name="telefono" class="input">
+					</div>
+                    <div class="input_wrap">
+						<label for="designation">Socio Aet</label>
+						<input type="text" name="socio" class="input">
+					</div>
+				</div>
+			
+		    </div>
+            <div class="form_5 data_info" style="display: none;">
+			<h2>Datos de facturación</h2>
+			
+				<div class="form_container">
+					<div class="input_wrap">
+						<label for="company">Razón social</label>
+						<input type="text" name="razonsocial" class="input" >
+					</div>
+					<div class="input_wrap">
+						<label for="experience">Cuil</label>
+						<input type="text" name="cuit" class="input">
+					</div>
+				</div>
+			
+		    </div>
+        </form>
+    </div>
+    <div class="btns_wrap">
+        <div class="common_btns form_1_btns">
+            <button type="button" class="btn_next">siguiente <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
+        </div>
+        <div class="common_btns form_2_btns" style="display: none;">
+            <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
+            <button type="button" class="btn_next">siguiente <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
+        </div>
+        <div class="common_btns form_3_btns" style="display: none;">
+            <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
+            <button type="button" class="btn_next">siguiente</button>
+        </div>
+        <div class="common_btns form_4_btns" style="display: none;">
+            <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
+            <button type="button" class="btn_next">siguiente</button>
+        </div>
+        <div class="common_btns form_5_btns" style="display: none;">
+            <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
+            <button type="button" class="btn_done">Enviar</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal_wrapper">
+	<div class="shadow"></div>
+	<div class="success_wrap">
+		<span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
+		<p>Los datos se enviaron correctamente.</p>
+	</div>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static',filename='scripts.js') }}"></script>
+</body>
+
+
+
+</html>

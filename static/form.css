@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(79, 116, 240); /* Color de fondo */
+}
+
+form {
+    margin: 0 auto; /* Centramos el formulario */
+    width: 800px;   /* Sin ancho no podemos centrar el formulario */
+    background-image: url("theater.jpg");
+    background-size: cover;
+    padding: 2px; /* separamos los bordes del form del resto de elementos */
+    border-radius: 10px; /* Redondeamos los bordes del form */
+    text-align: center;
+    color:#ffffff;
+ }
+
+ input, textarea {
+    padding: 5px; /* Separamos la letra del interior (contenido) en los inputs de los bordes */
+}
+
+label {
+    display: block; /* Ahora los inputs quedan debajo de los label */
+    padding: 5px; /* Separando espacios internos */
+}
+
+li {
+    margin: 10px; /* dando márgenes a todos los elementos de la lista */
+}

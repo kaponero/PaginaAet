@@ -1,0 +1,15 @@
+.nav-link{
+    font-family: 'Montserrat', sans-serif;
+    font-size: small;
+    text-transform: uppercase;
+    color: rgb(0, 122, 173);
+    font-weight:bold;
+}
+
+.dropdown-item{
+    font-family: 'Montserrat', sans-serif;
+    font-size: small;
+    text-transform: uppercase;
+    color: rgb(0, 122, 173);
+    font-weight:bold;
+}

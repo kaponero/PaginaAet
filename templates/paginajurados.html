@@ -1,0 +1,179 @@
+{% extends 'base.html'%}
+
+{%block title%}
+    pagina jurados
+{%endblock%}
+
+{{programa, genero}}
+
+{%block content%}
+
+    
+
+<div class="container pb-1">
+    <div class="row">
+        <div class="col-lg-12 pt-3 pb-3">
+            <div class="panel-heading">
+                <i class="fa fa-briefcase fa-fw"></i> USUARIOS INSCRIPTOS
+                <div style="float:right;display: block">
+                    <input type="button" style="margin-top:-6px !important" class=" impre btn btn-sm btn btn-success" onclick="print()" value="IMPRIMIR">
+                        <a href="http://aetelecomunicaciones.org/admin/index.php" style="margin-top:-6px !important" class=" impre btn btn-sm btn-default">VOLVER AL LISTADO</a>
+                    </div>
+            </div>
+        </div>
+        <form method="post">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>DATOS DEL PROGRAMA</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Programa:</b>
+                            <input readonly type="text" name="programaInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Genero:</b>
+                            <input readonly type="text" name="generoInscripcion" value={{genero}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>categoria:</b>
+                            <input readonly type="text" name="categoriaInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Vivo:</b>
+                            <input readonly type="text" name="vivoInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Localidad:</b>
+                            <input readonly type="text" name="localidadInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Emision:</b>
+                            <input readonly type="text" name="emisionInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Duracion:</b>
+                            <input readonly type="text" name="duracionInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Productor:</b>
+                            <input readonly type="text" name="productorInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Coproductor:</b>
+                            <input readonly type="text" name="coproductorInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Autor:</b>
+                            <input readonly type="text" name="autorInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Director:</b>
+                            <input readonly type="text" name="directorInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Camara:</b>
+                            <input readonly type="text" name="camaraInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Sonido:</b>
+                            <input readonly type="text" name="sonidoInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Conductor:</b>
+                            <input readonly type="text" name="conductorInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Protagonista:</b>
+                            <input readonly type="text" name="protagonistaInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-6">
+                            <b>Cronistas:</b>
+                            <input readonly type="text" name="cronistasInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-12">
+                            <b>Descripción:</b>
+                            <textarea readonly name="OtrosInscripcion" class="form-control"> {{programa}} </textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>DATOS DEL CANAL</h4>
+                    <hr>
+                    <b>Nombre:</b>
+                    <input readonly type="text" name="nombreInscripcion" value={{programa}} class="form-control input-sm">
+                    <b>Direccion:</b>
+                    <input readonly type="text" name="direccionInscripcion" value={{programa}} class="form-control input-sm">
+                    <b>Localidad:</b>
+                    <input readonly type="text" name="localidadInscripcion" value={{programa}} class="form-control input-sm">
+                    <b>Contacto:</b>
+                    <input readonly type="text" name="contactoInscripcion" value={{programa}} class="form-control input-sm">
+                    <b>Telefono:</b>
+                    <input readonly type="text" name="telefonoInscripcion" value={{programa}} class="form-control input-sm">
+                    <b>Email:</b>
+                    <input readonly type="text" name="emailInscripcion" value={{programa}} class="form-control input-sm">
+                    <b>Socio:</b>
+                    <input readonly type="text" name="socioInscripcion" value={{programa}} class="form-control input-sm">
+                    <b>Fecha:</b>
+                    <label for="">{{programa}}</label>
+                    <h4>DATOS DEL FACTURACION</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <b>Razon social:</b>
+                            <input readonly type="text" name="emailInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                        <div class="col-md-4">
+                            <b>Cuit:</b>
+                            <input readonly type="text" name="emailInscripcion" value={{programa}} class="form-control input-sm">
+                        </div>
+                    </div>
+                    
+                </div class="row">
+                    <h4 class="pt-1">MATERIAL DE VIDEO</h4>
+                    <hr>
+                    <div class="col-md-3">
+                        <a href="https://drive.google.com/drive/u/0/" class="btn" id="boton-gd">
+                            <img src="../static/play.svg" alt="" width="25px" height="25px">
+                             Programa 1
+                        </a>
+                        
+                        <iframe src="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/view" allow="autoplay"></iframe>
+                    </div>  
+                    <div class="col-md-3">
+                        <a href="https://drive.google.com/drive/u/0/" class="btn" id="boton-gd">
+                            <img src="../static/play.svg" alt="" width="25px" height="25px">
+                             Programa 2
+                        </a>
+                        
+                        <iframe src="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://drive.google.com/drive/u/0/" class="btn" id="boton-gd">
+                            <img src="../static/play.svg" alt="" width="25px" height="25px">
+                             Programa 3
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://drive.google.com/drive/u/0/" class="btn" id="boton-gd">
+                            <img src="../static/play.svg" alt="" width="25px" height="25px">
+                             Cover
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </form>
+            
+        </div>
+
+    </div>
+
+</div>
+<script>
+    const changeSelected = (e) => {
+        const $select=document.querySelector('#GeneroInscripcion');
+        $select.value = 'MUSICAL'
+    }
+</script>
+    {%endblock%}
