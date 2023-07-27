@@ -1,0 +1,33 @@
+{% extends 'base_admin.html'%}
+
+{%block content%}
+<h1>{{title}}</h1>
+<h2>About</h2>
+<p>Welcome to sample flask application.</p>
+<b>Programa:</b>
+<label for=>{{title}}</label>
+<input readonly type="text" name="programaInscripcion" value="{{title}}" class="form-control input-sm">
+
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <<iframe src="{{programa1}}}" width="460" height="320" allow="autoplay"></iframe>
+      </div>
+      <div class="carousel-item">
+        <iframe src="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/preview" width="460" height="320" allow="autoplay"></iframe>
+      </div>
+      <div class="carousel-item">
+        <iframe src="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/preview" width="460" height="320" allow="autoplay"></iframe>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+{%endblock%}
