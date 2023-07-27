@@ -31,7 +31,8 @@ def inscripcion():
 programa=['aca' 'va' 'un' 'nombre']
 @app.route('/paginajurados') 
 def jurados(): 
-    return render_template('/paginajurados.html', 
+    return render_template('/paginajurados.html',
+                           usuarios=100, 
                            programa="Hello World", 
                            genero="comedia fantastica",
                            categoria="categoria",
