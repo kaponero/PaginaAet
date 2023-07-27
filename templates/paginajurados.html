@@ -1,17 +1,19 @@
-{% extends 'base.html'%}
+{% extends 'base_admin.html'%}
 
 {%block title%}
     pagina jurados
 {%endblock%}
 
-{{programa, genero}}
+{{programa, genero, categoria, vivo, localidad, localidad, emision, duracion, productor,
+    coproductor, autor, director, camara, sonido, conductor, protagonista, cronistas, otros, 
+    nombre, direccion, localidad_canal, contacto, telefono, socio, email }}
 
 {%block content%}
 
     
 
 <div class="container pb-1">
-    <div class="row">
+    <div class="row pb-3">
         <div class="col-lg-12 pt-3 pb-3">
             <div class="panel-heading">
                 <i class="fa fa-briefcase fa-fw"></i> USUARIOS INSCRIPTOS
@@ -36,64 +38,64 @@
                             <input readonly type="text" name="generoInscripcion" value={{genero}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
-                            <b>categoria:</b>
-                            <input readonly type="text" name="categoriaInscripcion" value={{programa}} class="form-control input-sm">
+                            <b>Categoria:</b>
+                            <input readonly type="text" name="categoriaInscripcion" value={{categoria}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
                             <b>Vivo:</b>
-                            <input readonly type="text" name="vivoInscripcion" value={{programa}} class="form-control input-sm">
+                            <input readonly type="text" name="vivoInscripcion" value={{vivo}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
                             <b>Localidad:</b>
-                            <input readonly type="text" name="localidadInscripcion" value={{programa}} class="form-control input-sm">
+                            <input readonly type="text" name="localidadInscripcion" value={{localidad}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
                             <b>Emision:</b>
-                            <input readonly type="text" name="emisionInscripcion" value={{programa}} class="form-control input-sm">
+                            <input readonly type="text" name="emisionInscripcion" value={{emision}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
                             <b>Duracion:</b>
-                            <input readonly type="text" name="duracionInscripcion" value={{programa}} class="form-control input-sm">
+                            <input readonly type="text" name="duracionInscripcion" value={{duracion}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
                             <b>Productor:</b>
-                            <input readonly type="text" name="productorInscripcion" value={{programa}} class="form-control input-sm">
+                            <input readonly type="text" name="productorInscripcion" value={{productor}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
                             <b>Coproductor:</b>
-                            <input readonly type="text" name="coproductorInscripcion" value={{programa}} class="form-control input-sm">
+                            <input readonly type="text" name="coproductorInscripcion" value={{coproductor}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
                             <b>Autor:</b>
-                            <input readonly type="text" name="autorInscripcion" value={{programa}} class="form-control input-sm">
+                            <input readonly type="text" name="autorInscripcion" value={{autor}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
                             <b>Director:</b>
-                            <input readonly type="text" name="directorInscripcion" value={{programa}} class="form-control input-sm">
+                            <input readonly type="text" name="directorInscripcion" value={{director}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
                             <b>Camara:</b>
-                            <input readonly type="text" name="camaraInscripcion" value={{programa}} class="form-control input-sm">
+                            <input readonly type="text" name="camaraInscripcion" value={{camara}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
                             <b>Sonido:</b>
-                            <input readonly type="text" name="sonidoInscripcion" value={{programa}} class="form-control input-sm">
+                            <input readonly type="text" name="sonidoInscripcion" value={{sonido}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
                             <b>Conductor:</b>
-                            <input readonly type="text" name="conductorInscripcion" value={{programa}} class="form-control input-sm">
+                            <input readonly type="text" name="conductorInscripcion" value={{conductor}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
                             <b>Protagonista:</b>
-                            <input readonly type="text" name="protagonistaInscripcion" value={{programa}} class="form-control input-sm">
+                            <input readonly type="text" name="protagonistaInscripcion" value={{protagonista}} class="form-control input-sm">
                         </div>
                         <div class="col-md-6">
                             <b>Cronistas:</b>
-                            <input readonly type="text" name="cronistasInscripcion" value={{programa}} class="form-control input-sm">
+                            <input readonly type="text" name="cronistasInscripcion" value={{cronistas}} class="form-control input-sm">
                         </div>
                         <div class="col-md-12">
                             <b>Descripción:</b>
-                            <textarea readonly name="OtrosInscripcion" class="form-control"> {{programa}} </textarea>
+                            <textarea readonly name="otrosInscripcion" class="form-control"> {{otros}} </textarea>
                         </div>
                     </div>
                 </div>
@@ -101,19 +103,19 @@
                     <h4>DATOS DEL CANAL</h4>
                     <hr>
                     <b>Nombre:</b>
-                    <input readonly type="text" name="nombreInscripcion" value={{programa}} class="form-control input-sm">
+                    <input readonly type="text" name="nombreInscripcion" value={{nombre}} class="form-control input-sm">
                     <b>Direccion:</b>
-                    <input readonly type="text" name="direccionInscripcion" value={{programa}} class="form-control input-sm">
+                    <input readonly type="text" name="direccionInscripcion" value={{direccion}} class="form-control input-sm">
                     <b>Localidad:</b>
-                    <input readonly type="text" name="localidadInscripcion" value={{programa}} class="form-control input-sm">
+                    <input readonly type="text" name="localidadInscripcion" value={{localidad_canal}} class="form-control input-sm">
                     <b>Contacto:</b>
-                    <input readonly type="text" name="contactoInscripcion" value={{programa}} class="form-control input-sm">
+                    <input readonly type="text" name="contactoInscripcion" value={{contacto}} class="form-control input-sm">
                     <b>Telefono:</b>
-                    <input readonly type="text" name="telefonoInscripcion" value={{programa}} class="form-control input-sm">
+                    <input readonly type="text" name="telefonoInscripcion" value={{telefono}} class="form-control input-sm">
                     <b>Email:</b>
-                    <input readonly type="text" name="emailInscripcion" value={{programa}} class="form-control input-sm">
+                    <input readonly type="text" name="emailInscripcion" value={{email}} class="form-control input-sm">
                     <b>Socio:</b>
-                    <input readonly type="text" name="socioInscripcion" value={{programa}} class="form-control input-sm">
+                    <input readonly type="text" name="socioInscripcion" value={{socio}} class="form-control input-sm">
                     <b>Fecha:</b>
                     <label for="">{{programa}}</label>
                     <h4>DATOS DEL FACTURACION</h4>
@@ -127,9 +129,8 @@
                             <b>Cuit:</b>
                             <input readonly type="text" name="emailInscripcion" value={{programa}} class="form-control input-sm">
                         </div>
-                    </div>
-                    
-                </div class="row">
+                    </div>     
+                </div>
                     <h4 class="pt-1">MATERIAL DE VIDEO</h4>
                     <hr>
                     <div class="col-md-3">
@@ -137,8 +138,6 @@
                             <img src="../static/play.svg" alt="" width="25px" height="25px">
                              Programa 1
                         </a>
-                        
-                        <iframe src="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/view" allow="autoplay"></iframe>
                     </div>  
                     <div class="col-md-3">
                         <a href="https://drive.google.com/drive/u/0/" class="btn" id="boton-gd">
@@ -146,7 +145,7 @@
                              Programa 2
                         </a>
                         
-                        <iframe src="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/preview" allow="autoplay"></iframe>
+                        
                     </div>
                     <div class="col-md-3">
                         <a href="https://drive.google.com/drive/u/0/" class="btn" id="boton-gd">
@@ -160,9 +159,20 @@
                              Cover
                         </a>
                     </div>
+                    <div class="text-center p-3">
+                        <iframe src="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/preview" width="460" height="320" allow="autoplay"></iframe>
+                    </div>
+                    <hr>
+                    <h4 class="pt-1">Obervaciones</h4>
+                    <input type="text" name="observaciones" value={{programa}} class="form-control input-sm">
+                    <hr>
+                    <h4 class="pt-1">Estado por el jurado</h4>
+                    <input type="text" name="estado" value={{programa}} class="form-control input-sm">
+                    
                 </div>
-                
+                <button type="submit" name="guardar" class="btn btn-success mt-2">Guardar</button>
             </div>
+            
         </form>
             
         </div>
