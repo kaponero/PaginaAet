@@ -115,13 +115,13 @@ genre_dict = {
 
 
 live_dict = {
-    'Sí': 'si',
-    'No': 'no'
+    'SI': 'si',
+    'NO': 'no'
     }
 
 aet_partner_dict = {
-    'Sí': 'si',
-    'No': 'no'
+    'SI': 'si',
+    'NO': 'no'
     }
 
 def login_required(func):
