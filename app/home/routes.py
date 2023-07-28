@@ -2,7 +2,9 @@
 
 from app import tryton
 from app.home import blueprint
+
 from flask import render_template, redirect, url_for, request, session
+from jinja2 import TemplateNotFound
 
 from functools import wraps
 

@@ -5,7 +5,7 @@
     {%endblock%}
 
 {% block links %}
-<link rel="stylesheet" href="{{ url_for("static", filename="inscripcion.css") }}">
+<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/inscripcion.css") }}">
     {% endblock %}
 
 {%block content%}
@@ -22,7 +22,7 @@
                 La única via de inscripción para los programas televisión por cable y televisión por aire es a traves del presente sitio web. Para poder cargar tu programa, previamente deberás subir el material a las plataforma de Google Drive, en los links que se visualizan a continuación, y luego pegar los links de Google Drive en los campos correspondientes del formulario.
             </p>
             <a href="https://drive.google.com/drive/u/0/" class="btn" id="boton-gd">
-                <img src="../static/google-drive.svg" alt="" width="25px" height="25px">
+                <img src="static/asset/img/google-drive.svg" alt="" width="25px" height="25px">
                  Subir video a Google Drive
             </a>
             <br>
@@ -390,5 +390,5 @@
 
 
 
-<script type="text/javascript" src="{{ url_for('static',filename='scripts.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='asset/js/scripts.js') }}"></script>
     {%endblock%}

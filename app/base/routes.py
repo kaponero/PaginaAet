@@ -111,7 +111,7 @@ data.append(data3)
 data.append(data4)
 
 
-@app.route("/listado")
+@blueprint.route("/listado")
 def hello_world():
     return render_template("listado.html", dataRegistros=data, usuarios=100)
 
