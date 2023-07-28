@@ -10,7 +10,7 @@ from functools import wraps
 
 WebUser = tryton.pool.get('web.user')
 Session = tryton.pool.get('web.user.session')
-Inscription = tryton.pool.get('aet_web.inscription')
+
 
 def login_required(func):
     @wraps(func)

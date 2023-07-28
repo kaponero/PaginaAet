@@ -8,6 +8,7 @@ from functools import wraps
 
 WebUser = tryton.pool.get('web.user')
 Session = tryton.pool.get('web.user.session')
+Inscription = tryton.pool.get('aet_web.inscription')
 
 def login_required(func):
     @wraps(func)
@@ -29,7 +30,9 @@ def formulario():
     else:
         return render_template('/formulario_google.html')
 
+
 @blueprint.route('/inscripcion', methods = ['GET','POST'])
+@tryton.transaction(readonly=False, user=1)
 def inscripcion():
     if request.method == 'POST':
         nom = request.form['programa']
@@ -37,10 +40,15 @@ def inscripcion():
         fecha = request.form['fecha']
         dura  = request.form['duracion']
         vid = request.form['video']
-        print(nom)
-        print(vid)
-        print(fecha)
-        print(dura)
+        print(request)
+        #ImmutableMultiDict([('programa', ''), ('localidad', ''), ('localidad', ''), ('fecha', ''), ('duracion', ''), ('otros', ''), ('video', ''), ('video', ''), ('video', ''), ('cover', ''), ('productor', ''), ('coproduccion', ''), ('autor', ''), ('editor', ''), ('director', ''), ('camara', ''), ('sonido', ''), ('conductor', ''), ('protagonista', ''), ('cronistas', ''), ('nombre', ''), ('direccion', ''), ('contacto', ''), ('telefono', ''), ('razonsocial', ''), ('cuit', '')])
+        inscription, = Inscription.create([{
+            'name': request.form['programa'],
+            'genre': '1',
+            'category': '1',
+            'live': 'si',
+            'aet_partner': 'si',
+            }])
     else:
         return render_template('/inscripcion.html')
     return render_template('/inscripcion.html')

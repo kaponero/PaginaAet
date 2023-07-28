@@ -14,7 +14,7 @@ class Config(object):
 
 
     #tryton config
-    TRYTON_DATABASE = os.environ.get('trytond','diamante_cable')
+    TRYTON_DATABASE = os.environ.get('diamante_cable','diamante_cable')
     TRYTON_CONFIG = 'trytond.conf'
     TRYTON_USER = 1
 

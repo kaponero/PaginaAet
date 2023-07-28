@@ -7,7 +7,7 @@ from wtforms.validators import Email, DataRequired
 class Formulario(Form):
     name = StringField ('Nombre del programa')
     category = StringField ('Categoria')
-    gender = StringField ('genero')
+    genre = StringField ('genero')
 
 
 class LoginForm(FlaskForm):
