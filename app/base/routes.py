@@ -1,20 +1,36 @@
-from flask import Flask, request, render_template
-import form 
-app = Flask(__name__) 
+from flask import render_template, redirect, request, url_for, flash, session
 
-@app.route('/') 
-def inicio(): 
-    return render_template('/index.html') 
+from app import tryton
+from app.base import blueprint
+from app.base.forms import LoginForm, Formulario
 
-@app.route('/formulario', methods = ['GET','POST']) 
+from functools import wraps
+
+WebUser = tryton.pool.get('web.user')
+Session = tryton.pool.get('web.user.session')
+
+def login_required(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        session_key = None
+        if 'session_key' in session:
+            session_key = session['session_key']
+        user = Session.get_user(session_key)
+        if not user:
+            return redirect(url_for('login', next=request.path))
+        return func(*args, **kwargs)
+    return wrapper
+
+
+@blueprint.route('/formulario', methods = ['GET','POST'])
 def formulario():
     if request.method == 'POST':
         pass
     else:
-        return render_template('/formulario google.html')
+        return render_template('/formulario_google.html')
 
-@app.route('/inscripcion', methods = ['GET','POST'])   
-def inscripcion(): 
+@blueprint.route('/inscripcion', methods = ['GET','POST'])
+def inscripcion():
     if request.method == 'POST':
         nom = request.form['programa']
         #cat = request.form['categoria']
@@ -28,12 +44,12 @@ def inscripcion():
     else:
         return render_template('/inscripcion.html')
     return render_template('/inscripcion.html')
-programa=['aca' 'va' 'un' 'nombre']
-@app.route('/paginajurados') 
-def jurados(): 
+
+@blueprint.route('/paginajurados')
+def jurados():
     return render_template('/paginajurados.html',
-                           usuarios=100, 
-                           programa="Hello World", 
+                           usuarios=100,
+                           programa="Hello World",
                            genero="comedia fantastica",
                            categoria="categoria",
                            vivo="vivo",
@@ -41,14 +57,14 @@ def jurados():
                            emision="emision",
                            duracion="duracion",
                            productor="productor",
-                           coproductor="coproductor", 
-                           autor="autor", 
-                           director="director", 
-                           camara="camara", 
-                           sonido="sonido", 
-                           conductor="conductor", 
-                           protagonista="protagonista", 
-                           cronistas="cronistas", 
+                           coproductor="coproductor",
+                           autor="autor",
+                           director="director",
+                           camara="camara",
+                           sonido="sonido",
+                           conductor="conductor",
+                           protagonista="protagonista",
+                           cronistas="cronistas",
                            otros="otros locos",
                            nombre="nombre",
                            direccion="direccion",
@@ -65,17 +81,12 @@ def jurados():
                            programa1="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/preview",
                            programa2="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/preview",
                            programa3="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/preview"
+                           )
 
-                           ) 
+@blueprint.route('/login')
+def loguin():
+    return render_template('/login2.html')
 
-@app.route('/login') 
-def loguin(): 
-    return render_template('/login2.html') 
-
-@app.route("/hello-world")
+@blueprint.route("/hello-world")
 def hello_world():
     return render_template("page-1.html", title="Hello World")
-
-if __name__ == '__main__':
-    app.run('127.0.0.1', 5000, debug=True) 
-
