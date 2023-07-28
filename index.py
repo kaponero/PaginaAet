@@ -72,9 +72,33 @@ def jurados():
 def loguin(): 
     return render_template('/login2.html') 
 
-@app.route("/hello-world")
+data=[]
+
+class daata():
+    def __init__(self, programa, canal, localidad, categoria, genero, estado, pago): 
+        self.programa = programa
+        self.canal = canal
+        self.localidad = localidad
+        self.categoria = categoria
+        self.genero = genero
+        self.estado = estado
+        self.pago = pago
+
+
+data1 = daata("casados con hijos","canal1", "la paz", "atp", "comedia" ,1 ,0)
+data2 = daata("casados ","canal1", "la paz", "atp", "comedia" ,0 ,1)
+data3 = daata(" hijos","canal1", "la paz", "atp", "comedia" ,1,1)
+data4 = daata("asd","canal1", "la paz", "atp", "comedia" ,0,0)
+
+data.append(data1)
+data.append(data2)
+data.append(data3)
+data.append(data4)
+
+
+@app.route("/listado")
 def hello_world():
-    return render_template("page-1.html", title="Hello World")
+    return render_template("listado.html", dataRegistros=data, usuarios=100)
 
 if __name__ == '__main__':
     app.run('127.0.0.1', 5000, debug=True) 
