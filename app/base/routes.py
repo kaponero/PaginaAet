@@ -159,7 +159,7 @@ def inscripcion():
             'name': request.form['programa'],
             'genre': '1',
             'category': category_dict[request.form['categoria']],
-            'genre': genre_dict[request.form['genero']]
+            'genre': genre_dict[request.form['genero']],
             'live': live_dict[request.form['vivo']],
             'aet_partner': aet_partner_dict[request.form['socio']],
             }])
