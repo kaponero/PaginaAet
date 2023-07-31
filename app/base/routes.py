@@ -12,16 +12,6 @@ WebUser = tryton.pool.get('web.user')
 Session = tryton.pool.get('web.user.session')
 Inscription = tryton.pool.get('aet_web.inscription')
 
-live_dict = {
-    'SI': 'si',
-    'NO': 'no'
-    }
-
-aet_partner_dict = {
-    'SI': 'si',
-    'NO': 'no'
-    }
-
 def login_required(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
@@ -57,12 +47,6 @@ def inscripcion():
     with Transaction().set_context(language='es'):
         categories = Inscription.fields_get(['category'])['category']['selection']
         genres = Inscription.fields_get('genre')['genre']['selection']
-        #categories = Inscription.fields_get(['category'])['category']['selection']
-        #genres = Inscription.fields_get('genre')['genre']['selection']
-        #for cat in categories:
-            #category_dict[cat[1]] = cat[0]
-        #for gen in genres:
-            #genre_dict[gen[1]] = gen[0]
 
     if request.method == 'POST':
         nom = request.form['programa']
@@ -70,14 +54,13 @@ def inscripcion():
         fecha = request.form['fecha']
         dura  = request.form['duracion']
         vid = request.form['video']
-
+        print(request.form)
         inscription, = Inscription.create([{
             'name': request.form['programa'],
-            'genre': '1',
-            'category': category_dict[request.form['categoria']],
-            'genre': genre_dict[request.form['genero']],
-            'live': live_dict[request.form['vivo']],
-            'aet_partner': aet_partner_dict[request.form['socio']],
+            'category': request.form['categoria'],
+            'genre': request.form['genero'],
+            'live': request.form['vivo'],
+            'aet_partner': request.form['socio'],
             }])
     else:
         return render_template('/inscripcion.html',
