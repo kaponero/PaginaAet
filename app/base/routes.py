@@ -212,20 +212,21 @@ def loguin():
 data=[]
 
 class daata():
-    def __init__(self, programa, canal, localidad, categoria, genero, estado, pago): 
+    def __init__(self, programa, canal, localidad, categoria, genero, estado, revisado, pago): 
         self.programa = programa
         self.canal = canal
         self.localidad = localidad
         self.categoria = categoria
         self.genero = genero
         self.estado = estado
+        self.revisado = revisado
         self.pago = pago
 
 
-data1 = daata("casados con hijos","canal1", "la paz", "atp", "comedia" ,1 ,0)
-data2 = daata("casados ","canal1", "la paz", "atp", "comedia" ,0 ,1)
-data3 = daata(" hijos","canal1", "la paz", "atp", "comedia" ,1,1)
-data4 = daata("asd","canal1", "la paz", "atp", "comedia" ,0,0)
+data1 = daata("casados con hijos","canal1", "la paz", "atp", "comedia" ,1 ,1 ,0)
+data2 = daata("casados ","canal1", "la paz", "atp", "comedia" ,0 ,0,1)
+data3 = daata(" hijos","canal1", "la paz", "atp", "comedia" ,1,0,1)
+data4 = daata("asd","canal1", "la paz", "atp", "comedia" ,0,1,0)
 
 data.append(data1)
 data.append(data2)
