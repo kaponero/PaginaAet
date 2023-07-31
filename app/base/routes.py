@@ -28,9 +28,9 @@ def login_required(func):
 @blueprint.route('/formulario', methods = ['GET','POST'])
 def formulario():
     if request.method == 'POST':
-        pass
+        return "all ok"
     else:
-        return render_template('/formulario_google.html')
+        return "mal"
 
 
 @blueprint.route('/inscripcion', methods = ['GET','POST'])
@@ -47,47 +47,42 @@ def inscripcion():
     with Transaction().set_context(language='es'):
         categories = Inscription.fields_get(['category'])['category']['selection']
         genres = Inscription.fields_get('genre')['genre']['selection']
-
+    
     if request.method == 'POST':
-        nom = request.form['programa']
-        #cat = request.form['categoria']
-        fecha = request.form['fecha']
-        dura  = request.form['duracion']
-        vid = request.form['video']
         print(request.form)
         inscription, = Inscription.create([{
             'name': request.form['programa'],
             'category': request.form['categoria'],
             'genre': request.form['genero'],
             'live': request.form['vivo'],
-            'city_of_emission': None,
-            'date_of_emission': None,
-            'duration': None,
-            'description': None,
-            'video_long1': None,
-            'video_long2': None,
-            'video_long3': None,
-            'video_short': None,
-            'producer': None,
-            'co_producer': None,
-            'author': None,
-            'editor': None,
-            'director': None,
-            'cameraman': None,
-            'musician': None,
-            'host': None,
-            'protagonist': None,
-            'chroniclers': None,
-            'channel_name': None,
-            'address_channel': None,
-            'channel_town': None,
-            'channel_contact': None,
-            'channel_phone': None,
-            'channel_email': None,
+            'city_of_emission': request.form['localidad'],
+            'date_of_emission': request.form['fecha'],
+            'duration': request.form['duracion'],
+            'description': request.form['otros'],
+            'video_long1': request.form['video1'],
+            'video_long2': request.form['video2'],
+            'video_long3': request.form['video3'],
+            'video_short': request.form['cover'],
+            'producer': request.form['productor'],
+            'co_producer': request.form['coproduccion'],
+            'author': request.form['autor'],
+            'editor': request.form['editor'],
+            'director': request.form['director'],
+            'cameraman': request.form['camara'],
+            'musician': request.form['sonido'],
+            'host': request.form['conductor'],
+            'protagonist': request.form['protagonista'],
+            'chroniclers': request.form['cronistas'],
+            'channel_name': request.form['canal'],
+            'address_channel': request.form['direccion'],
+            'channel_town': request.form['localidad_canal'],
+            'channel_contact': request.form['contacto'],
+            'channel_phone': request.form['telefono'],
+            'channel_email': request.form['email'],
             'aet_partner': request.form['socio'],
-            'business_name': None,
-            'cuit': None,
-            'enrolled': None,
+            'business_name': request.form['negocio'],
+            'cuit': request.form['cuit'],
+            'enrolled': request.form['razonsocial'],
             }])
     else:
         return render_template('/inscripcion.html',
@@ -98,6 +93,7 @@ def inscripcion():
                     cat_unica=cat_unica,
                     cat_turf=cat_turf,
                 genres=genres)
+    
     return render_template('/inscripcion.html',
                 categories=categories,
                     cat_asociados=cat_asociados,
