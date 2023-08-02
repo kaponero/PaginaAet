@@ -71,7 +71,7 @@
                         <div class="form_container">
                             <div class="input_wrap">
                                 <label for="nombrePrograma" class="form-label">Nombre del programa</label>
-                                <input type="text" name="programa" class="input" id="nombrePrograma" >
+                                <input type="text" name="programa" class="input" id="nombrePrograma" required>
                                 <div class="valid-feedback">
                                   
                                 </div>
@@ -81,7 +81,7 @@
                             </div>
                             <div class="input_wrap">
                                 <label for="localidadCategoria" class="form-label">Localidad - Categoria - Canales de aire</label>
-                                <select name="categoria" class="input" id="localidadCategoria" required>
+                                <select id ="categorias" name="categoria" class="input" id="localidadCategoria" required>
                                     <option value="" disabled="" selected="">Selecciona una categoria</option>
                                     <optgroup label="Asociados">
                                         {%for category in categories%}
@@ -128,7 +128,7 @@
                             </div>
                             <div class="input_wrap">
                                 <label for="generoPrograma" class="form-label">Genero</label>
-                                <select name="genero" class="input" id="generoPrograma" required>
+                                <select id="genero" name="genero" class="input" id="generoPrograma" required>
                                     <option value="" disabled="" selected="">Selecciona un género</option>
                                     {%for genre in genres%}
                                         {%if genre[0]%}
@@ -145,7 +145,7 @@
                             </div>
                             <div class="input_wrap">
                                 <label for="enVivo" class="form-label">Vivo, directo y simultaneo</label>
-                                <select name="vivo" class="input" id="enVivo" required>
+                                <select id="vivo" name="vivo" class="input" id="enVivo" required>
                                     <option value="" selected="" disabled="">Elegir</option>
                                     <option value="si">Si</option>
                                     <option value="no">No</option>
@@ -159,7 +159,7 @@
                             </div>
                             <div class="input_wrap">
                                 <label for="localidadEmision" class="form-label">Localidad de emisión</label>
-                                <input type="text" name="localidad" class="input" id="localidadEmision" >
+                                <input type="text" name="localidad" class="input" id="localidadEmision" required>
                                 <div class="valid-feedback">
                                    
                                 </div>
@@ -170,7 +170,7 @@
                             <div class="flex-container">
                                 <div class="cont1">
                                     <label for="input_date" class="form-label">Fecha de emisión</label>
-                                    <input class="input" type="date" name="fecha" id="input_date">
+                                    <input class="input" type="date" name="fecha" id="input_date" required>
                                     <div class="valid-feedback">
                                        
                                     </div>
@@ -180,7 +180,7 @@
                                 </div>
                                 <div class="cont2">
                                     <label for="input_time" class="form-label">Duración</label>
-                                    <input class="input" type="time" name="duracion" step="1" id="input_time">
+                                    <input class="input" type="time" name="duracion" step="1" id="input_time" required>
                                     <div class="valid-feedback">
                                       
                                     </div>
@@ -191,7 +191,8 @@
                             </div> 
                             <div class="input_wrap">
                                 <label for="input_tarea" class="form-label">Breve descripción</label>
-                                <textarea  class="input" rows="5" cols="40" name="otros" id="input_tarea" ></textarea><div class="valid-feedback">
+                                <textarea  class="input" rows="5" cols="40" name="otros" id="input_tarea" required></textarea>
+                                <div class="valid-feedback">
                                    
                                 </div>
                                 <div class="invalid-feedback">
@@ -207,7 +208,7 @@
                                 <label for="linkVideo1">
                                     1 Video con 1 programa
                                 </label>
-                                <input type="text" name="video1" class="input" id="linkVideo1">
+                                <input type="text" name="video1" class="input" id="linkVideo1" required>
                                 <label for="name">Link de google drive</label>
                                 <div class="valid-feedback">
                                    
@@ -220,22 +221,40 @@
                                 <label for="linkVideo2">
                                     2 Video con 1 programa
                                 </label>
-                                <input type="text" name="video2" class="input" id="linkVideo2">
+                                <input type="text" name="video2" class="input" id="linkVideo2" required>
                                 <label for="name">Link de google drive</label>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese link del video 2
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="linkVideo3">
                                     3 Video con 1 programa
                                 </label>
-                                <input type="text" name="video3" class="input" id="linkVideo3">
+                                <input type="text" name="video3" class="input" id="linkVideo3" required>
                                 <label for="name">Link de google drive</label>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese link del video 3
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="linkCover">
                                     1 Video de 8 segundos del programa que se utilizará para presentar el mismo durante la transmisión del evento.
                                 </label>
-                                <input type="text" name="cover" class="input" id="linkCover">
+                                <input type="text" name="cover" class="input" id="linkCover" required>
                                 <label for="first_name">Link de google drive</label>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese link cover
+                                </div>
                                     <br>
                                     <i>(El material debe estar publicado hasta la fecha de realización del evento.)</i>
                                 </label>
@@ -249,43 +268,103 @@
                         <div class="form_container">
                             <div class="input_wrap">
                                 <label for="nombreProductor">Productor/a</label>
-                                <input type="text" name="productor" class="input" id="nombreProductor">
+                                <input type="text" name="productor" class="input" id="nombreProductor" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el nombre del Productor
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreCoproductor">Coprodución</label>
-                                <input type="text" name="coproduccion" class="input" id="nombreCoproductor">
+                                <input type="text" name="coproduccion" class="input" id="nombreCoproductor" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el nombre del Coproductor
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreAutor">Autor/Guionista</label>
-                                <input type="text" name="autor" class="input" id="nombreAutor">
+                                <input type="text" name="autor" class="input" id="nombreAutor" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el nombre del Autor
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreEditor">Editor</label>
-                                <input type="text" name="editor" class="input" id="nombreEditor">
+                                <input type="text" name="editor" class="input" id="nombreEditor" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el nombre del Editor
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreDirector">Director</label>
-                                <input type="text" name="director" class="input" id="nombreDirector">
+                                <input type="text" name="director" class="input" id="nombreDirector" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el nombre del Director
+                                </div>
                             </div>
                             <div class="input_wrap">
-                                <label for="nombreCamara">Camarografo/s</label>
-                                <input type="text" name="camara" class="input" id="nombreCamara">
+                                <label for="nombreCamara">Camarógrafo/s</label>
+                                <input type="text" name="camara" class="input" id="nombreCamara" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el nombre del Camarógrafo
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreSonido">Sonidista/Musicalización</label>
-                                <input type="text" name="sonido" class="input" id="nombreSonido">
+                                <input type="text" name="sonido" class="input" id="nombreSonido" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese datos del Sonidista
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreConductor">Conductor/Presentador/Locutor</label>
-                                <input type="text" name="conductor" class="input" id="nombreConductor">
+                                <input type="text" name="conductor" class="input" id="nombreConductor" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el nombre del Conductor/Presentador/Locutor
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreProtagonista">Protagonista/s</label>
-                                <input type="text" name="protagonista" class="input" id="nombreProtagonista">
+                                <input type="text" name="protagonista" class="input" id="nombreProtagonista" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el nombre del Protagonista
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreCronista">Nombrar los cronistas exteriores que participan del programa</label>
-                                <input type="text" name="cronistas" class="input" id="nombreCronista">
+                                <input type="text" name="cronistas" class="input" id="nombreCronista" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el nombre del Cronista
+                                </div>
                             </div>
                         </div>
                     
@@ -296,35 +375,77 @@
                         <div class="form_container">
                             <div class="input_wrap">
                                 <label for="nombreCanal">Nombre Canal</label>
-                                <input type="text" name="canal" class="input" id="nombreCanal">
+                                <input type="text" name="canal" class="input" id="nombreCanal" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el nombre del Canal
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="direccionCanal">Domicilio Canal</label>
-                                <input type="text" name="direccion" class="input" id="direccionCanal">
+                                <input type="text" name="direccion" class="input" id="direccionCanal" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el domicilio del Canal
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="localidadCanal">Localidad canal</label>
-                                <input type="text" name="localidad_canal" class="input" id="localidadCanal">
+                                <input type="text" name="localidad_canal" class="input" id="localidadCanal" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese la localidad del Canal
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="contactoCanal">Contacto canal</label>
-                                <input type="text" name="contacto" class="input" id="contactoCanal">
+                                <input type="text" name="contacto" class="input" id="contactoCanal" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese un medio de contacto
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="telefonoCanal">Teléfono canal</label>
-                                <input type="text" name="telefono" class="input" id="telefonoCanal">
+                                <input type="tel" name="telefono" class="input" id="telefonoCanal" placeholder="(Código de área) Número" pattern="[0-9]{3} [0-9]{7}"  required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el teléfono del Canal
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="emailCanal">Email canal</label>
-                                <input type="text" name="email" class="input" id="emailCanal">
+                                <input type="email" name="email" class="input" id="emailCanal" required>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el email del Canal
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="socioAet" class="form-label">¿Es socio de AET?</label>
-                                <select name="socio" class="input" id="socioAet">
-                                    
-                                    <option value="si" selected="">Si</option>
+                                <select name="socio" class="input" id="socioAet" required>
+                                    <option value="" selected="" disabled="">Elegir</option>
+                                    <option value="si">Si</option>
                                     <option value="no">No</option>
                                 </select>
+                                <div class="valid-feedback">
+                                  
+                                </div>
+                                <div class="invalid-feedback">
+                                    Seleccione una opción
+                                </div>
                             </div>
                         </div>
                     
@@ -335,11 +456,23 @@
                         <div class="form_container">
                             <div class="input_wrap">
                                 <label for="razonSocial">Razón social</label>
-                                <input type="text" name="razonsocial" class="input" id="razonSocial">
+                                <input type="text" name="razonsocial" class="input" id="razonSocial" required>
+                                <div class="valid-feedback">
+                                  
+                                </div>
+                                <div class="invalid-feedback">
+                                    ingrese la razon social
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="numeroCuit">Cuit</label>
-                                <input type="text" name="cuit" class="input" id="numeroCuit">
+                                <input type="text" name="cuit" class="input" id="numeroCuit" pattern="[0-9]{11}" required>
+                                <div class="valid-feedback">
+                                  
+                                </div>
+                                <div class="invalid-feedback">
+                                    ingrese el cuit sin espacios
+                                </div>
                             </div>
                         </div>
                     
@@ -371,5 +504,5 @@
     </main>
 
 
-<script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptf.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptfsmls.js') }}"></script>
     {%endblock%}
