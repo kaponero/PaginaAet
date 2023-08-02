@@ -47,7 +47,7 @@ def inscripcion():
     with Transaction().set_context(language='es'):
         categories = Inscription.fields_get(['category'])['category']['selection']
         genres = Inscription.fields_get('genre')['genre']['selection']
-    
+
     if request.method == 'POST':
         print(request.form)
         inscription, = Inscription.create([{
@@ -56,7 +56,7 @@ def inscripcion():
             'genre': request.form['genero'],
             'live': request.form['vivo'],
             'city_of_emission': request.form['localidad'],
-            'date_of_emission': request.form['fecha'],
+            ## 'date_of_emission': None, # request.form['fecha'] or None,
             'duration': request.form['duracion'],
             'description': request.form['otros'],
             'video_long1': request.form['video1'],
@@ -82,7 +82,6 @@ def inscripcion():
             'aet_partner': request.form['socio'],
             'business_name': request.form['negocio'],
             'cuit': request.form['cuit'],
-            'enrolled': request.form['razonsocial'],
             }])
     else:
         return render_template('/inscripcion.html',
