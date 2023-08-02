@@ -5,7 +5,9 @@ from app.base import blueprint
 from app.base.forms import LoginForm, Formulario
 
 from trytond.transaction import Transaction
+
 from functools import wraps
+from datetime import datetime
 
 
 WebUser = tryton.pool.get('web.user')
@@ -56,7 +58,8 @@ def inscripcion():
             'genre': request.form['genero'],
             'live': request.form['vivo'],
             'city_of_emission': request.form['localidad'] or None,
-            'date_of_emission': request.form['fecha'] or None,
+            'date_of_emission': request.form['fecha'] \
+                and datetime.strptime(request.form['fecha'], '%Y-%m-%d').date() or None,
             'duration': request.form['duracion'] or None,
             'description': request.form['otros'] or None,
             'video_long1': request.form['video1'] or None,
