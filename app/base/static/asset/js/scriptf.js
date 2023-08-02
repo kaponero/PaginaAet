@@ -4,6 +4,7 @@ var form_3 = document.querySelector(".form_3");
 var form_4 = document.querySelector(".form_4");
 var form_5 = document.querySelector(".form_5");
 
+var form = document.querySelector("form")
 
 var form_1_btns = document.querySelector(".form_1_btns");
 var form_2_btns = document.querySelector(".form_2_btns");
@@ -30,35 +31,43 @@ var btn_done = document.querySelector(".btn_done");
 var modal_wrapper = document.querySelector(".modal_wrapper");
 var shadow = document.querySelector(".shadow");
 
+const forms = document.querySelectorAll('.needs-validation')
+form.addEventListener('click', event => {
+	if (!form.checkValidity()) {
+	event.preventDefault()
+	event.stopPropagation()
+	}
+	form.classList.add('was-validated')
+}, false)
+
 form_1_next_btn.addEventListener("click", function(){
 	
-
+	if (form.checkValidity()){
 		form_1.style.display = "none";
 		form_2.style.display = "block";
 		form_1_btns.style.display = "none";
 		form_2_btns.style.display = "flex"; 
-		form_2_progessbar.classList.add("active");
-	
+		form_2_progessbar.classList.add("active");}
 });
 
 form_2_back_btn.addEventListener("click", function(){
 
-		form_1.style.display = "block";
-		form_2.style.display = "none";
-		form_1_btns.style.display = "flex";
-		form_2_btns.style.display = "none";
-		form_2_progessbar.classList.remove("active");
+	form_1.style.display = "block";
+	form_2.style.display = "none";
+	form_1_btns.style.display = "flex";
+	form_2_btns.style.display = "none";
+	form_2_progessbar.classList.remove("active");
 	
 });
 
 form_2_next_btn.addEventListener("click", function(){
-	form_2.style.display = "none";
-	form_3.style.display = "block";
-
-	form_3_btns.style.display = "flex";
-	form_2_btns.style.display = "none";
-
-	form_3_progessbar.classList.add("active");
+	if (form.checkValidity()){
+		form_2.style.display = "none";
+		form_3.style.display = "block";
+		form_3_btns.style.display = "flex";
+		form_2_btns.style.display = "none";
+		form_3_progessbar.classList.add("active");
+	}
 });
 
 form_3_back_btn.addEventListener("click", function(){

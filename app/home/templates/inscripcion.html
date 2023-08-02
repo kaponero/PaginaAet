@@ -65,17 +65,23 @@
                 </ul>
             </div>
             <div class="form_wrap">
-                <form id="form1" method="POST">
+                <form class="needs-validation" id="form1" method="POST" novalidate>
                     <div class="form_1 data_info">
                     <h2>Datos del programa</h2>
                         <div class="form_container">
                             <div class="input_wrap">
                                 <label for="nombrePrograma" class="form-label">Nombre del programa</label>
-                                <input type="text" name="programa" class="input" id="nombrePrograma">
+                                <input type="text" name="programa" class="input" id="nombrePrograma" >
+                                <div class="valid-feedback">
+                                  
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el nombe del programa
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="localidadCategoria" class="form-label">Localidad - Categoria - Canales de aire</label>
-                                <select name="categoria" class="input" id="localidadCategoria">
+                                <select name="categoria" class="input" id="localidadCategoria" required>
                                     <option value="" disabled="" selected="">Selecciona una categoria</option>
                                     <optgroup label="Asociados">
                                         {%for category in categories%}
@@ -113,43 +119,84 @@
                                         {%endfor%}
                                     </optgroup>
                                 </select>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Seleccione una categoría
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="generoPrograma" class="form-label">Genero</label>
-                                <select name="genero" class="input" id="generoPrograma">
-                                    <option value="" disabled="" selected="">Selecciona un genero</option>
+                                <select name="genero" class="input" id="generoPrograma" required>
+                                    <option value="" disabled="" selected="">Selecciona un género</option>
                                     {%for genre in genres%}
                                         {%if genre[0]%}
                                         <option value="{{ genre[0] }}"> {{ genre[1] }} </option>
                                         {%endif%}
                                     {%endfor%}
                                 </select>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Seleccione un género
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="enVivo" class="form-label">Vivo, directo y simultaneo</label>
-                                <select name="vivo" class="input" id="enVivo">
+                                <select name="vivo" class="input" id="enVivo" required>
                                     <option value="" selected="" disabled="">Elegir</option>
                                     <option value="si">Si</option>
                                     <option value="no">No</option>
                                 </select>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Elija una opción
+                                </div>
                             </div>
                             <div class="input_wrap">
-                                <label for="localidadEmision" class="form-label">Localidad de emision</label>
-                                <input type="text" name="localidad" class="input" id="localidadEmision">
+                                <label for="localidadEmision" class="form-label">Localidad de emisión</label>
+                                <input type="text" name="localidad" class="input" id="localidadEmision" >
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese localidad de emisión
+                                </div>
                             </div>
                             <div class="flex-container">
                                 <div class="cont1">
-                                    <label for="input_date" class="form-label">Fecha de emision</label>
+                                    <label for="input_date" class="form-label">Fecha de emisión</label>
                                     <input class="input" type="date" name="fecha" id="input_date">
+                                    <div class="valid-feedback">
+                                       
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Ingrese fecha de emisión
+                                    </div>
                                 </div>
                                 <div class="cont2">
                                     <label for="input_time" class="form-label">Duración</label>
                                     <input class="input" type="time" name="duracion" step="1" id="input_time">
+                                    <div class="valid-feedback">
+                                      
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Ingrese duración
+                                    </div>
                                 </div>
                             </div> 
                             <div class="input_wrap">
                                 <label for="input_tarea" class="form-label">Breve descripción</label>
-                                <textarea  class="input" rows="5" cols="40" name="otros" id="input_tarea"></textarea>
+                                <textarea  class="input" rows="5" cols="40" name="otros" id="input_tarea" ></textarea><div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese una breve descripción
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -162,6 +209,12 @@
                                 </label>
                                 <input type="text" name="video1" class="input" id="linkVideo1">
                                 <label for="name">Link de google drive</label>
+                                <div class="valid-feedback">
+                                   
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese link del video 1
+                                </div>
                             </div>
                             <div class="input_wrap">
                                 <label for="linkVideo2">
@@ -268,14 +321,10 @@
                             <div class="input_wrap">
                                 <label for="socioAet" class="form-label">¿Es socio de AET?</label>
                                 <select name="socio" class="input" id="socioAet">
-                                    <option value="" selected="" disabled="">Elegir</option>
-                                    <option value="si">Si</option>
+                                    
+                                    <option value="si" selected="">Si</option>
                                     <option value="no">No</option>
                                 </select>
-                            </div>
-                            <div class="input_wrap">
-                                <label for="nombreNegocio">Nombre del Negocio</label>
-                                <input type="text" name="negocio" class="input" id="nombreNegocio">
                             </div>
                         </div>
                     
@@ -322,7 +371,5 @@
     </main>
 
 
-
-
-<script type="text/javascript" src="{{ url_for('static',filename='asset/js/scripts.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptf.js') }}"></script>
     {%endblock%}
