@@ -86,6 +86,7 @@ def inscripcion():
             'business_name': request.form['razonsocial'] or None,
             'cuit': request.form['cuit'] or None,
             }])
+        return render_template('/page-1.html');
     else:
         return render_template('/inscripcion.html',
                 categories=categories,
@@ -95,14 +96,7 @@ def inscripcion():
                     cat_unica=cat_unica,
                     cat_turf=cat_turf,
                 genres=genres)
-    return render_template('/inscripcion.html',
-                categories=categories,
-                    cat_asociados=cat_asociados,
-                    cat_abiertos=cat_abiertos,
-                    cat_prod_indep=cat_prod_indep,
-                    cat_unica=cat_unica,
-                    cat_turf=cat_turf,
-                genres=genres)
+    
 
 @blueprint.route('/paginajurados')
 def jurados():
