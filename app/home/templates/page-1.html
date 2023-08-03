@@ -8,8 +8,21 @@ Formulario enviado
 <link rel="stylesheet" href="{{ url_for("static", filename="asset/css/inscripcion.css") }}">
     {% endblock %}
 
+    
 
 {%block content%}
+
+<script type="text/javascript">
+  window.onload=function(){
+    Objeto=document.getElementsByTagName("a");
+    for(a=0;a<Objeto.length;a++){
+      Objeto[a].onclick=function(){
+        location.replace(this.href);
+        return false;
+      }
+    }
+  }
+  </script>
 
 <main>
   <div class="wrapper">
@@ -24,6 +37,7 @@ Formulario enviado
         </div>
   </div>
 </main>
+
 
   {%endblock%}
 
