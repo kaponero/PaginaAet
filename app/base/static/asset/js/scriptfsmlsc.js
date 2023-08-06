@@ -31,16 +31,16 @@ var btn_done = document.querySelector(".btn_done");
 var modal_wrapper = document.querySelector(".modal_wrapper");
 var shadow = document.querySelector(".shadow");
 
-const forms = document.querySelectorAll('.needs-validation')
-form.addEventListener('click', event => {
+function validate(){
 	if (!form.checkValidity()) {
-	event.preventDefault()
-	event.stopPropagation()
-	}
+		event.preventDefault()
+		event.stopPropagation()
+		}
 	form.classList.add('was-validated')
-}, false)
+}
 
 form_1_next_btn.addEventListener("click", function(){
+	validate()
 	var selectcat = document.getElementById('categorias')
 	var selectgen = document.getElementById('genero')
 	var selectviv = document.getElementById('vivo')
@@ -57,7 +57,7 @@ form_1_next_btn.addEventListener("click", function(){
 });
 
 form_2_back_btn.addEventListener("click", function(){
-
+	validate()
 	form_1.style.display = "block";
 	form_2.style.display = "none";
 	form_1_btns.style.display = "flex";
@@ -67,7 +67,7 @@ form_2_back_btn.addEventListener("click", function(){
 });
 
 form_2_next_btn.addEventListener("click", function(){
-	
+	validate()
 	form_2.style.display = "none";
 	form_3.style.display = "block";
 	form_3_btns.style.display = "flex";
@@ -77,7 +77,7 @@ form_2_next_btn.addEventListener("click", function(){
 });
 
 form_3_back_btn.addEventListener("click", function(){
-
+	validate()
 	form_2.style.display = "block";
 	form_3.style.display = "none";
 	form_2_btns.style.display = "flex";
@@ -86,7 +86,7 @@ form_3_back_btn.addEventListener("click", function(){
 });
 
 form_3_next_btn.addEventListener("click", function(){
-
+	validate()
 	form_3.style.display = "none";
 	form_4.style.display = "block";
 	form_4_btns.style.display = "flex";
@@ -96,7 +96,7 @@ form_3_next_btn.addEventListener("click", function(){
 
 
 form_4_back_btn.addEventListener("click", function(){
-
+	validate()
 	form_3.style.display = "block";
 	form_4.style.display = "none";
 	form_4_btns.style.display = "none";
@@ -105,6 +105,7 @@ form_4_back_btn.addEventListener("click", function(){
 });
 
 form_4_next_btn.addEventListener("click", function(){
+	validate()
 	var selectsos = document.getElementById('socioAet')
 	if (selectsos.value  == 0){
 		alert ("Complete los campos")
