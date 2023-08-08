@@ -165,11 +165,43 @@ def jurados():
 
 @blueprint.route('/login')
 def loguin():
-    return render_template('/login2.html')
+    return render_template('/login.html')
 
+
+@blueprint.route("/listado/<categoria>")
+@tryton.transaction()
+def show_category(categoria=None):
+    inscriptos = []
+    categoria_a = [x for x in range(0,58)]
+    categoria_b = [x for x in range(58,67)]
+    categoria_c = [x for x in range(67,74)]
+    categoria_d = [x for x in range(74, 79)]
+    categoria_e = [79]
+    categoria_f = [80]
+    en_vivo = [81]
+    turf = [82]
+    print('*'*20, categoria)
+    if not categoria:
+        inscriptos = Inscription.search([('id','>',0)])
+    elif categoria == "a":
+        inscriptos = Inscription.search([('category','in', categoria_a)])
+    elif categoria == "b":
+        inscriptos = Inscription.search([('category','in', categoria_b)])
+    elif categoria == "c":
+        inscriptos = Inscription.search([('category','in', categoria_c)])
+    elif categoria == "d":
+        inscriptos = Inscription.search([('category','in', categoria_d)])
+    elif categoria == "e":
+        inscriptos = Inscription.search([('category','in', categoria_e)])
+    elif categoria == "vivo":
+        inscriptos = Inscription.search([('category','in', en_vivo)])
+    elif categoria == "turf":
+        inscriptos = Inscription.search([('category','in', turf)])
+    return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
 
 @blueprint.route("/listado")
 @tryton.transaction()
-def hello_world():
+def show_all_categories():
     inscriptos = Inscription.search([('id','>',0)])
     return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
+
