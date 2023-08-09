@@ -163,10 +163,6 @@ def jurados():
                            programa3="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/preview"
                            )
 
-@blueprint.route('/login')
-def loguin():
-    return render_template('/login.html')
-
 
 @blueprint.route("/listado/<categoria>")
 @tryton.transaction()
