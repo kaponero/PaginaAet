@@ -111,7 +111,7 @@ def inscripcion():
             'channel_email': request.form['email'] or None,
             'aet_partner': request.form['socio'],
             'business_name': request.form['razonsocial'] or None,
-            'cuit': request.form['cuit'] or None,
+            'cuit': request.form['cuit'] and int(request.form['cuit']) or None,
             }])
         return render_template('/page-1.html');
     else:

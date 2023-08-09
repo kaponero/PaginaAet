@@ -42,7 +42,6 @@ def login():
             return 'Demasiados intentos de ingreso o algun otro error. Espere un momento y vuelvalo a intentar'
     return render_template('login.html', form=login_form)
 
-
 # Logout
 @login_required
 @blueprint.route('/logout')
