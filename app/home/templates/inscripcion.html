@@ -2,11 +2,11 @@
 
 {%block title%}
     Inscripcion
-    {%endblock%}
+{%endblock%}
 
 {% block links %}
-<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/inscripcion.css") }}">
-    {% endblock %}
+<link rel="stylesheet" href="{{ url_for('static', filename='asset/css/inscripcion.css') }}">
+{% endblock %}
 
 {%block content%}
 
@@ -28,7 +28,6 @@
             <br>
             <p class="card-text mt-2"><small>Recuerden que para cargar los videos deben estar registrados en la plataforma Google Drive.</small>
             </p>
-                         
         </div>
       </div>
 </div>
@@ -73,7 +72,6 @@
                                 <label for="nombrePrograma" class="form-label">Nombre del programa</label>
                                 <input type="text" name="programa" class="input" id="nombrePrograma" required>
                                 <div class="valid-feedback">
-                                  
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el nombe del programa
@@ -120,7 +118,6 @@
                                     </optgroup>
                                 </select>
                                 <div class="valid-feedback">
-                                   
                                 </div>
                                 <div class="invalid-feedback">
                                     Seleccione una categoría
@@ -137,7 +134,6 @@
                                     {%endfor%}
                                 </select>
                                 <div class="valid-feedback">
-                                   
                                 </div>
                                 <div class="invalid-feedback">
                                     Seleccione un género
@@ -151,7 +147,6 @@
                                     <option value="no">No</option>
                                 </select>
                                 <div class="valid-feedback">
-                                   
                                 </div>
                                 <div class="invalid-feedback">
                                     Elija una opción
@@ -161,7 +156,6 @@
                                 <label for="localidadEmision" class="form-label">Localidad de emisión</label>
                                 <input type="text" name="localidad" class="input" id="localidadEmision" required>
                                 <div class="valid-feedback">
-                                   
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese localidad de emisión
@@ -172,7 +166,6 @@
                                     <label for="input_date" class="form-label">Fecha de emisión</label>
                                     <input class="input" type="date" name="fecha" id="input_date" >
                                     <div class="valid-feedback">
-                                       
                                     </div>
                                     <div class="invalid-feedback">
                                         Ingrese fecha de emisión
@@ -182,7 +175,6 @@
                                     <label for="input_time" class="form-label">Duración</label>
                                     <input class="input" type="time" name="duracion" step="1" id="input_time" >
                                     <div class="valid-feedback">
-                                      
                                     </div>
                                     <div class="invalid-feedback">
                                         Ingrese duración
@@ -193,7 +185,6 @@
                                 <label for="input_tarea" class="form-label">Breve descripción</label>
                                 <textarea  class="input" rows="5" cols="40" name="otros" id="input_tarea" required></textarea>
                                 <div class="valid-feedback">
-                                   
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese una breve descripción

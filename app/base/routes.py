@@ -2,13 +2,13 @@ from flask import render_template, redirect, request, url_for, flash, session
 
 from app import tryton
 from app.base import blueprint
-from app.base.forms import LoginForm, Formulario
+from app.base.forms import Formulario
+from app.auth.routes import login_required
 
 from trytond.transaction import Transaction
 
 from functools import wraps
 from datetime import datetime
-
 
 WebUser = tryton.pool.get('web.user')
 Session = tryton.pool.get('web.user.session')
@@ -40,18 +40,17 @@ data.append(data4)
 
 #####
 
-
-def login_required(func):
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        session_key = None
-        if 'session_key' in session:
-            session_key = session['session_key']
-        user = Session.get_user(session_key)
-        if not user:
-            return redirect(url_for('login', next=request.path))
-        return func(*args, **kwargs)
-    return wrapper
+#def login_required(func):
+    #@wraps(func)
+    #def wrapper(*args, **kwargs):
+        #session_key = None
+        #if 'session_key' in session:
+            #session_key = session['session_key']
+        #user = Session.get_user(session_key)
+        #if not user:
+            #return redirect(url_for('login', next=request.path))
+        #return func(*args, **kwargs)
+    #return wrapper
 
 
 @blueprint.route('/formulario', methods = ['GET','POST'])
@@ -69,7 +68,7 @@ def inscripcion():
     genres = []
     cat_asociados = ['CATEGORÍA A', 'CATEGORÍA B', 'CATEGORÍA C', 'CATEGORÍA D']
     cat_abiertos = ['CATEGORÍA E']
-    cat_prod_indep = ['CATEGORÍA E']
+    cat_prod_indep = ['CATEGORÍA F']
     cat_unica = ['TRANSMISIONES EN VIVO']
     cat_turf = ['TURF']
 
@@ -78,7 +77,6 @@ def inscripcion():
         genres = Inscription.fields_get('genre')['genre']['selection']
 
     if request.method == 'POST':
-        print(request.form)
         inscription, = Inscription.create([{
             'name': request.form['programa'] or None,
             'category': request.form['categoria'],
@@ -112,6 +110,7 @@ def inscripcion():
             'aet_partner': request.form['socio'],
             'business_name': request.form['razonsocial'] or None,
             'cuit': request.form['cuit'] and int(request.form['cuit']) or None,
+            'inscription_date': datetime.now(),
             }])
         return render_template('/page-1.html');
     else:
@@ -124,46 +123,51 @@ def inscripcion():
                     cat_turf=cat_turf,
                 genres=genres)
 
-
-@blueprint.route('/paginajurados')
-def jurados():
+@login_required
+@blueprint.route('/paginajurados/<id_>')
+@tryton.transaction()
+def jurados(id_=None):
+    inscription, = Inscription.search([('id', '=', int(id_))],
+                                      limit=1)
+    inscriptions = Inscription.search([('id', '>', 0)])
+    print(inscription)
     return render_template('/paginajurados.html',
-                           usuarios=100,
-                           programa="Hello World",
-                           genero="comedia fantastica",
-                           categoria="categoria",
-                           vivo="vivo",
-                           localidad="localidad",
-                           emision="emision",
-                           duracion="duracion",
-                           productor="productor",
-                           coproductor="coproductor",
-                           autor="autor",
-                           director="director",
-                           camara="camara",
-                           sonido="sonido",
-                           conductor="conductor",
-                           protagonista="protagonista",
-                           cronistas="cronistas",
-                           otros="otros locos",
-                           nombre="nombre",
-                           direccion="direccion",
-                           localidad_canal="localidad canal",
-                           contacto="contacto",
-                           telefono="telefono",
-                           email="email",
-                           socio="socio",
-                           razonsocial="razon social",
-                           cuit="cuit",
-                           observacion="observacion 1",
-                           estado="estado ok",
-                           cover="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/preview",
-                           programa1="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/preview",
-                           programa2="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/preview",
-                           programa3="https://drive.google.com/file/d/1XBPO992XLspRVgePVEV5_dIN9JiXHbfj/preview"
+                           usuarios=len(inscriptions),
+                           programa=inscription.name,
+                           genero=inscription.genre_string,
+                           categoria=inscription.category_string,
+                           vivo=inscription.live,
+                           localidad=inscription.channel_town,
+                           emision=inscription.city_of_emission,
+                           duracion=inscription.duration,
+                           productor=inscription.producer,
+                           coproductor=inscription.co_producer,
+                           autor=inscription.author,
+                           director=inscription.director,
+                           camara=inscription.cameraman,
+                           sonido=inscription.musician,
+                           conductor=inscription.host,
+                           protagonista=inscription.protagonist,
+                           cronistas=inscription.chroniclers,
+                           otros="no se encuentra este campo",
+                           nombre=inscription.channel_name,
+                           direccion=inscription.address_channel,
+                           localidad_canal=inscription.channel_town,
+                           contacto=inscription.channel_contact,
+                           telefono=inscription.channel_phone,
+                           email=inscription.channel_email,
+                           socio=inscription.aet_partner,
+                           razonsocial=inscription.business_name,
+                           cuit=inscription.cuit,
+                           observacion=inscription.description,
+                           estado="estado ok" if inscription.enrolled else "faltan revisar campos por el administrador",
+                           cover=inscription.video_short,
+                           programa1=inscription.video_long1,
+                           programa2=inscription.video_long2,
+                           programa3=inscription.video_long3,
                            )
 
-
+@login_required
 @blueprint.route("/listado/<categoria>")
 @tryton.transaction()
 def show_category(categoria=None):
@@ -195,6 +199,7 @@ def show_category(categoria=None):
         inscriptos = Inscription.search([('category','in', turf)])
     return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
 
+@login_required
 @blueprint.route("/listado")
 @tryton.transaction()
 def show_all_categories():
