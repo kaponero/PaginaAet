@@ -5,8 +5,13 @@
 {%endblock%}
 
 {% block links %}
+<<<<<<< HEAD
 <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/inscripcion.css') }}">
 {% endblock %}
+=======
+<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/inscripcion29.css") }}">
+    {% endblock %}
+>>>>>>> 6b58a5e (Agregado de card para descarga de instrucciones)
 
 {%block content%}
 
@@ -15,7 +20,40 @@
 </section>
 
 <div class="container">
-    <div class="card text-center mb-3">
+    <div class="row p-2">
+        <div class="col-lg p-2">
+            <div class="card-warning card h-100 text-center mb-3 ">
+                <div class="body-warning card-body">
+                    <h4 class="card-title">Importante!</h4>
+                    <p class="card-text">
+                        La única via de inscripción para los programas televisión por cable y televisión por aire es a traves del presente sitio web. Para poder cargar tu programa, previamente deberás subir el material a las plataforma de Google Drive, en los links que se visualizan a continuación, y luego pegar los links de Google Drive en los campos correspondientes del formulario.
+                    </p>
+                    <a href="https://drive.google.com/drive/u/0/" class="btn" id="boton-gd">
+                        <img src="static/asset/img/google-drive.svg" alt="" width="25px" height="25px">
+                         Subir video a Google Drive
+                    </a>
+                    <br>
+                    <p class="card-text mt-2"><small>Recuerden que para cargar los videos deben estar registrados en la plataforma Google Drive.</small>
+                    </p>       
+                </div>
+            </div>
+        </div>
+        <div class="col col-lg-3 p-2">
+            <div class="card-intructivo card h-100 text-center mb-3">
+                <img class="mx-auto d-block" src="static/asset/img/list.png" alt="" width="100px" height="100px">
+                <div class="body-instructivo card-body">
+                    <h4>Instructivo para completar el formulario</h4>
+                    <a href="https://drive.google.com/drive/u/0/" class="descarga btn btn-success">Descargar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+        
+    
+     
+    
+    <div class="card text-center mb-3" style="display: none;">
         <div class="card-body">
             <h4 class="card-title">Importante!</h4>
             <p class="card-text">
@@ -196,13 +234,26 @@
                     <h2>Material de video</h2>
                         <div class="form_container">
                             <div class="input_wrap">
+                                <label for="linkRutina">
+                                    Documento con información del programa
+                                </label>
+                                <input type="text" name="rutina" class="input" id="linkRutina" required>
+                                <label for="name">Link de google drive</label>
+                                <div class="valid-feedback">
+
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese link de la rutina
+                                </div>
+                            </div>
+                            <div class="input_wrap">
                                 <label for="linkVideo1">
                                     1 Video con 1 programa
                                 </label>
                                 <input type="text" name="video1" class="input" id="linkVideo1" required>
                                 <label for="name">Link de google drive</label>
                                 <div class="valid-feedback">
-                                   
+
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese link del video 1
