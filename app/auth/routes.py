@@ -19,7 +19,7 @@ def login_required(func):
             session_key = session['session_key']
         user = Session.get_user(session_key)
         if not user:
-            return redirect(url_for('login', next=request.path))
+            return redirect(url_for('auth_blueprint.login', next=request.path))
         return func(*args, **kwargs)
     return wrapper
 
@@ -54,4 +54,4 @@ def logout():
         session.pop('session_key', None)
         session.pop('identified', None)
         flash("Se ha desconectado tu sesión", 'success')
-    return redirect(url_for('base_blueprint.login'))
+    return redirect(url_for('auth_blueprint.login'))

@@ -1,4 +1,4 @@
-from flask import render_template, redirect, request, url_for, flash, session
+from flask import render_template, redirect, request, url_for, flash, session, send_file
 
 from app import tryton
 from app.base import blueprint
@@ -9,6 +9,8 @@ from trytond.transaction import Transaction
 
 from functools import wraps
 from datetime import datetime
+
+from io import BytesIO
 
 WebUser = tryton.pool.get('web.user')
 Session = tryton.pool.get('web.user.session')
@@ -40,26 +42,12 @@ data.append(data4)
 
 #####
 
-#def login_required(func):
-    #@wraps(func)
-    #def wrapper(*args, **kwargs):
-        #session_key = None
-        #if 'session_key' in session:
-            #session_key = session['session_key']
-        #user = Session.get_user(session_key)
-        #if not user:
-            #return redirect(url_for('login', next=request.path))
-        #return func(*args, **kwargs)
-    #return wrapper
-
-
 @blueprint.route('/formulario', methods = ['GET','POST'])
 def formulario():
     if request.method == 'POST':
         return "all ok"
     else:
         return "mal"
-
 
 @blueprint.route('/inscripcion', methods = ['GET','POST'])
 @tryton.transaction(readonly=False, user=1)
@@ -123,9 +111,21 @@ def inscripcion():
                     cat_turf=cat_turf,
                 genres=genres)
 
-@login_required
+@blueprint.route('/download_instructivo')
+@tryton.transaction()
+def render_instructivo():
+    Instruction = tryton.pool.get('aet_web.instruction.report', type='report')
+    #inscription = Inscription()
+    #inscription.id = -1
+    ext, content, _, name = Instruction.execute([], {})
+    print(ext, content, _, name)
+    return send_file(
+        BytesIO(content),
+        attachment_filename='instructivo.pdf')
+
 @blueprint.route('/paginajurados/<id_>')
 @tryton.transaction()
+@login_required
 def jurados(id_=None):
     inscription, = Inscription.search([('id', '=', int(id_))],
                                       limit=1)
@@ -167,9 +167,10 @@ def jurados(id_=None):
                            programa3=inscription.video_long3,
                            )
 
-@login_required
+
 @blueprint.route("/listado/<categoria>")
 @tryton.transaction()
+@login_required
 def show_category(categoria=None):
     inscriptos = []
     categoria_a = [x for x in range(0,58)]
@@ -199,9 +200,9 @@ def show_category(categoria=None):
         inscriptos = Inscription.search([('category','in', turf)])
     return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
 
-@login_required
 @blueprint.route("/listado")
 @tryton.transaction()
+@login_required
 def show_all_categories():
     inscriptos = Inscription.search([('id','>',0)])
     return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))

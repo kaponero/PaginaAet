@@ -11,19 +11,6 @@ from functools import wraps
 WebUser = tryton.pool.get('web.user')
 Session = tryton.pool.get('web.user.session')
 
-
-#def login_required(func):
-    #@wraps(func)
-    #def wrapper(*args, **kwargs):
-        #session_key = None
-        #if 'session_key' in session:
-            #session_key = session['session_key']
-        #user = Session.get_user(session_key)
-        #if not user:
-            #return redirect(url_for('login', next=request.path))
-        #return func(*args, **kwargs)
-    #return wrapper
-
 @blueprint.route('/')
 def index():
     return render_template('/index.html')
