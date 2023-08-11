@@ -100,7 +100,7 @@ def inscripcion():
             'cuit': request.form['cuit'] and int(request.form['cuit']) or None,
             #'inscription_date': datetime.now(),
             }])
-        return render_template('/page-1.html');
+        return render_template('/page-1.html')
     else:
         return render_template('/inscripcion.html',
                 categories=categories,

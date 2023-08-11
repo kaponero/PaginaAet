@@ -41,11 +41,17 @@ function validate(){
 
 form_1_next_btn.addEventListener("click", function(){
 	validate()
-	var selectcat = document.getElementById('categorias')
-	var selectgen = document.getElementById('genero')
-	var selectviv = document.getElementById('vivo')
+	var inputtnom = document.getElementById('nombrePrograma').value
+	var selectcat = document.getElementById('categorias').value
+	var selectgen = document.getElementById('genero').value
+	var selectviv = document.getElementById('vivo').value
+	var inputlocal= document.getElementById('localidadEmision').value
+	var inputdate= document.getElementById('input_date').value
+	var inputtime= document.getElementById('input_time').value
+	var inputtarea= document.getElementById('input_tarea').value
 	
-	if (selectcat.value  == 0 || selectgen.value==0 || selectviv.value==0){
+	if (inputtnom.length == 0 || selectcat  == 0 || selectgen == 0 || selectviv == 0 || 
+		inputlocal.length == 0 || inputdate.length == 0 || inputtime.length == 0 || inputtarea.length == 0){
 		alert ("Complete los campos")
 	}
 	else{
