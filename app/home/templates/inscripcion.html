@@ -413,7 +413,9 @@
                             </div>
                             <div class="input_wrap">
                                 <label for="telefonoCanal">Teléfono canal</label>
-                                <input type="tel" name="telefono" class="input" id="telefonoCanal" placeholder="(Código de área) Número" pattern="[0-9]{3} [0-9]{7}"  required>
+                                <input type="tel" name="telefono" class="input" id="telefonoCanal" 
+                                    placeholder="(Código de área)Número" pattern="[0-9]{3}[0-9]{7}|[0-9]{7}"  
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"required>
                                 <div class="valid-feedback">
                                 </div>
                                 <div class="invalid-feedback">
@@ -422,11 +424,11 @@
                             </div>
                             <div class="input_wrap">
                                 <label for="emailCanal">Email canal</label>
-                                <input type="email" name="email" class="input" id="emailCanal" required>
+                                <input type="email" name="email" class="input" id="emailCanal" placeholder="ejemplo@ejemplo.com" required>
                                 <div class="valid-feedback">
                                 </div>
                                 <div class="invalid-feedback">
-                                    Ingrese el email del Canal
+                                    Ingrese un correp valido
                                 </div>
                             </div>
                             <div class="input_wrap">
@@ -458,7 +460,8 @@
                             </div>
                             <div class="input_wrap">
                                 <label for="numeroCuit">Cuit</label>
-                                <input type="text" name="cuit" class="input" id="numeroCuit" pattern="[0-9]{11}" required>
+                                <input type="text" name="cuit" class="input" id="numeroCuit" pattern="[0-9]{11}" 
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
                                 <div class="valid-feedback">
                                 </div>
                                 <div class="invalid-feedback">
@@ -497,5 +500,5 @@
           javascript:window.history.forward(1);
         //-->
         </script> 
-    <script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptform12.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptform18.js') }}"></script>
     {%endblock%}
