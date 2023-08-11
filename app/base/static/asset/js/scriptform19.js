@@ -152,7 +152,7 @@ form_4_next_btn.addEventListener("click", function(){
 	var correovalido = correo.test(inputemailc);
 
 	if (inputnombrec.length == 0 || inputdireccionc.length == 0 || inputlocalidadc.length == 0 ||
-		inputcontactoc .length == 0 || inputtelefonoc.length == 0 || correovalido == false ||
+		inputcontactoc .length == 0 || inputtelefonoc < 1000000 || correovalido == false ||
 		selectsos == 0){
 		alert ("Complete los campos")
 	}
@@ -177,7 +177,7 @@ btn_done.addEventListener("click", function(){
 	var inputrazons = document.getElementById('razonSocial').value
 	var inputcuit = document.getElementById('numeroCuit').value
 
-	if (inputrazons.length == 0 || inputcuit.length == 0){
+	if (inputrazons.length == 0 || inputcuit < 20000000000){
 		alert ("Complete los campos")
 	}
 	else{
