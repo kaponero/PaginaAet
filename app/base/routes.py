@@ -110,7 +110,7 @@ def inscripcion():
             'aet_partner': request.form['socio'],
             'business_name': request.form['razonsocial'] or None,
             'cuit': request.form['cuit'] and int(request.form['cuit']) or None,
-            'inscription_date': datetime.now(),
+            #'inscription_date': datetime.now(),
             }])
         return render_template('/page-1.html');
     else:

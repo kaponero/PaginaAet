@@ -5,7 +5,7 @@
 {%endblock%}
 
 {% block links %}
-<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/inscripcion29.css") }}">
+<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/inscripcion68.css") }}">
     {% endblock %}
 
 {%block content%}
@@ -23,7 +23,7 @@
                     <p class="card-text">
                         La única via de inscripción para los programas televisión por cable y televisión por aire es a traves del presente sitio web. Para poder cargar tu programa, previamente deberás subir el material a las plataforma de Google Drive, en los links que se visualizan a continuación, y luego pegar los links de Google Drive en los campos correspondientes del formulario.
                     </p>
-                    <a href="https://drive.google.com/drive/u/0/" class="btn" id="boton-gd">
+                    <a href="https://drive.google.com/drive/u/0/" class="btn btn-warning boton-gd">
                         <img src="static/asset/img/google-drive.svg" alt="" width="25px" height="25px">
                          Subir video a Google Drive
                     </a>
@@ -38,7 +38,7 @@
                 <img class="mx-auto d-block" src="static/asset/img/list.png" alt="" width="100px" height="100px">
                 <div class="body-instructivo card-body">
                     <h4>Instructivo para completar el formulario</h4>
-                    <a href="https://drive.google.com/drive/u/0/" class="descarga btn btn-success">Descargar</a>
+                    <a href="https://drive.google.com/drive/u/0/" class="boton-descarga btn btn-success">Descargar</a>
                 </div>
             </div>
         </div>
@@ -194,6 +194,7 @@
                                     Ingrese localidad de emisión
                                 </div>
                             </div>
+                            
                             <div class="flex-container">
                                 <div class="cont1">
                                     <label for="input_date" class="form-label">Fecha de emisión</label>

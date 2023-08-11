@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
+
 
 .card-warning{
 
 	box-shadow: 0px 3px 8px rgba(0, 0, 0, 50%) !important;
-	background-color: rgb(191, 167, 235);  
+	background-color: rgb(193, 179, 219);  
 	border-radius: 10px;
 	border-color:rgb(191, 167, 235);
 }
@@ -37,7 +39,7 @@
   	display:flex;
 }
 
-.descarga{
+.boton-descarga{
 	background-color: #40b7ad;
 	border-color: #40b7ad;
 }
@@ -48,19 +50,35 @@
 	text-align: center;
 }
 
-#boton-gd{
+.boton-gd{
 
     background-color: #ffff94;
+	border-color: #ffff94;
+}
+
+.boton-descarga:hover{
+
+	background-color: #2f867f;
+	border-color: #2f867f;
+}
+.boton-gd:hover{
+	
+	background-color: #cfcf79;
+	border-color: #cfcf94;
 }
 
 #premios{
     text-transform: uppercase;
-    font-family: 'Rubik Moonrocks', cursive;
-    color: rgb(255, 255, 100);
+    font-family: 'Vina Sans', cursive;
+	font-size: 60px;
+	color: #fff;
+	text-shadow: 0 0 5px #ebeb79 ,0 0 25px #ebeb79 , 0 0 50px #ebeb79 , 0 0 100px #ebeb79 ;
+	border-color: black;
     background-image: url('../img/award.png');
 	width: 100%;
     background-size:50%;
-	display:table
+	display:table;
+	
 }
 
 :root{
@@ -69,7 +87,7 @@
 	--white: #fff;
 	--text-clr: #5b6475;
 	--header-clr: #25273d;
-	--next-btn-hover: #8577d2;
+	--next-btn-hover: #c09967;
 	--back-btn-hover: #8b8c8c;
 }
 
@@ -192,6 +210,7 @@ main{
 	width: 100%;	
 	font-size: 16px;
 	transition: 0.5s ease;
+	background-color: var(--white)
 }
 
 .flex-container{
@@ -214,7 +233,7 @@ main{
 	text-align: left;
 	display: flex;
 	flex-direction:column;
-	width: 100px;
+	width: 120px;
 }
  
 .wrapper .form_wrap .flex-container .input:focus{
