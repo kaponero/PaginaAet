@@ -13,7 +13,6 @@
 <section>
     <h1 class= "text-center py-4" id="premios">Inscripción para los premios</h1>
 </section>
-
 <div class="container">
     <div class="row p-2">
         <div class="col-lg p-2">
@@ -38,33 +37,12 @@
                 <img class="mx-auto d-block" src="static/asset/img/list.png" alt="" width="100px" height="100px">
                 <div class="body-instructivo card-body">
                     <h4>Instructivo para completar el formulario</h4>
-                    <a href="/download_instructivo">Descargar</a>
+                    <a href="/download_instructivo" class="boton-descarga btn btn-success">Descargar</a>
                 </div>
             </div>
         </div>
     </div>
-  
-        
-    
-     
-    
-    <div class="card text-center mb-3" style="display: none;">
-        <div class="card-body">
-            <h4 class="card-title">Importante!</h4>
-            <p class="card-text">
-                La única via de inscripción para los programas televisión por cable y televisión por aire es a traves del presente sitio web. Para poder cargar tu programa, previamente deberás subir el material a las plataforma de Google Drive, en los links que se visualizan a continuación, y luego pegar los links de Google Drive en los campos correspondientes del formulario.
-            </p>
-            <a href="https://drive.google.com/drive/u/0/" class="btn" id="boton-gd">
-                <img src="static/asset/img/google-drive.svg" alt="" width="25px" height="25px">
-                 Subir video a Google Drive
-            </a>
-            <br>
-            <p class="card-text mt-2"><small>Recuerden que para cargar los videos deben estar registrados en la plataforma Google Drive.</small>
-            </p>
-        </div>
-      </div>
 </div>
-
     <main>
         <div class="wrapper">
             <div class="header">
@@ -297,18 +275,15 @@
                                     <i>(El material debe estar publicado hasta la fecha de realización del evento.)</i>
                                 </label>
                             </div>
-                        </div>
-                    
+                        </div>           
                     </div>
                     <div class="form_3 data_info" style="display: none;">
-                    <h2>Datos de produccion del programa</h2>
-                    
+                    <h2>Datos de produccion del programa</h2>                  
                         <div class="form_container">
                             <div class="input_wrap">
                                 <label for="nombreProductor">Productor/a</label>
                                 <input type="text" name="productor" class="input" id="nombreProductor" required>
-                                <div class="valid-feedback">
-                                   
+                                <div class="valid-feedback">                        
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el nombre del Productor
@@ -317,8 +292,7 @@
                             <div class="input_wrap">
                                 <label for="nombreCoproductor">Coprodución</label>
                                 <input type="text" name="coproduccion" class="input" id="nombreCoproductor" required>
-                                <div class="valid-feedback">
-                                   
+                                <div class="valid-feedback">                                
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el nombre del Coproductor
@@ -327,8 +301,7 @@
                             <div class="input_wrap">
                                 <label for="nombreAutor">Autor/Guionista</label>
                                 <input type="text" name="autor" class="input" id="nombreAutor" required>
-                                <div class="valid-feedback">
-                                   
+                                <div class="valid-feedback">                                
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el nombre del Autor
@@ -337,8 +310,7 @@
                             <div class="input_wrap">
                                 <label for="nombreEditor">Editor</label>
                                 <input type="text" name="editor" class="input" id="nombreEditor" required>
-                                <div class="valid-feedback">
-                                   
+                                <div class="valid-feedback">   
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el nombre del Editor
@@ -347,8 +319,7 @@
                             <div class="input_wrap">
                                 <label for="nombreDirector">Director</label>
                                 <input type="text" name="director" class="input" id="nombreDirector" required>
-                                <div class="valid-feedback">
-                                   
+                                <div class="valid-feedback">                           
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el nombre del Director
@@ -357,8 +328,7 @@
                             <div class="input_wrap">
                                 <label for="nombreCamara">Camarógrafo/s</label>
                                 <input type="text" name="camara" class="input" id="nombreCamara" required>
-                                <div class="valid-feedback">
-                                   
+                                <div class="valid-feedback">                        
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el nombre del Camarógrafo
@@ -367,8 +337,7 @@
                             <div class="input_wrap">
                                 <label for="nombreSonido">Sonidista/Musicalización</label>
                                 <input type="text" name="sonido" class="input" id="nombreSonido" required>
-                                <div class="valid-feedback">
-                                   
+                                <div class="valid-feedback">           
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese datos del Sonidista
@@ -377,8 +346,7 @@
                             <div class="input_wrap">
                                 <label for="nombreConductor">Conductor/Presentador/Locutor</label>
                                 <input type="text" name="conductor" class="input" id="nombreConductor" required>
-                                <div class="valid-feedback">
-                                   
+                                <div class="valid-feedback">       
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el nombre del Conductor/Presentador/Locutor
@@ -387,8 +355,7 @@
                             <div class="input_wrap">
                                 <label for="nombreProtagonista">Protagonista/s</label>
                                 <input type="text" name="protagonista" class="input" id="nombreProtagonista" required>
-                                <div class="valid-feedback">
-                                   
+                                <div class="valid-feedback">      
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el nombre del Protagonista
@@ -397,25 +364,21 @@
                             <div class="input_wrap">
                                 <label for="nombreCronista">Nombrar los cronistas exteriores que participan del programa</label>
                                 <input type="text" name="cronistas" class="input" id="nombreCronista" required>
-                                <div class="valid-feedback">
-                                   
+                                <div class="valid-feedback">     
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el nombre del Cronista
                                 </div>
                             </div>
                         </div>
-                    
                     </div>
                     <div class="form_4 data_info" style="display: none;">
                     <h2>Datos del canal emisor del programa</h2>
-                    
                         <div class="form_container">
                             <div class="input_wrap">
                                 <label for="nombreCanal">Nombre Canal</label>
                                 <input type="text" name="canal" class="input" id="nombreCanal" required>
                                 <div class="valid-feedback">
-                                   
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el nombre del Canal
@@ -424,8 +387,7 @@
                             <div class="input_wrap">
                                 <label for="direccionCanal">Domicilio Canal</label>
                                 <input type="text" name="direccion" class="input" id="direccionCanal" required>
-                                <div class="valid-feedback">
-                                   
+                                <div class="valid-feedback">  
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el domicilio del Canal
@@ -434,8 +396,7 @@
                             <div class="input_wrap">
                                 <label for="localidadCanal">Localidad canal</label>
                                 <input type="text" name="localidad_canal" class="input" id="localidadCanal" required>
-                                <div class="valid-feedback">
-                                   
+                                <div class="valid-feedback"> 
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese la localidad del Canal
@@ -445,7 +406,6 @@
                                 <label for="contactoCanal">Contacto canal</label>
                                 <input type="text" name="contacto" class="input" id="contactoCanal" required>
                                 <div class="valid-feedback">
-                                   
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese un medio de contacto
@@ -455,7 +415,6 @@
                                 <label for="telefonoCanal">Teléfono canal</label>
                                 <input type="tel" name="telefono" class="input" id="telefonoCanal" placeholder="(Código de área) Número" pattern="[0-9]{3} [0-9]{7}"  required>
                                 <div class="valid-feedback">
-                                   
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el teléfono del Canal
@@ -465,7 +424,6 @@
                                 <label for="emailCanal">Email canal</label>
                                 <input type="email" name="email" class="input" id="emailCanal" required>
                                 <div class="valid-feedback">
-                                   
                                 </div>
                                 <div class="invalid-feedback">
                                     Ingrese el email del Canal
@@ -479,24 +437,20 @@
                                     <option value="no">No</option>
                                 </select>
                                 <div class="valid-feedback">
-                                  
                                 </div>
                                 <div class="invalid-feedback">
                                     Seleccione una opción
                                 </div>
                             </div>
                         </div>
-                    
                     </div>
                     <div class="form_5 data_info" style="display: none;">
                     <h2>Datos de facturación</h2>
-                    
                         <div class="form_container">
                             <div class="input_wrap">
                                 <label for="razonSocial">Razón social</label>
                                 <input type="text" name="razonsocial" class="input" id="razonSocial" required>
                                 <div class="valid-feedback">
-                                  
                                 </div>
                                 <div class="invalid-feedback">
                                     ingrese la razon social
@@ -506,14 +460,12 @@
                                 <label for="numeroCuit">Cuit</label>
                                 <input type="text" name="cuit" class="input" id="numeroCuit" pattern="[0-9]{11}" required>
                                 <div class="valid-feedback">
-                                  
                                 </div>
                                 <div class="invalid-feedback">
                                     ingrese el cuit sin espacios
                                 </div>
                             </div>
                         </div>
-                    
                     </div>
                 </form>
             </div>
@@ -540,11 +492,10 @@
             </div>
         </div>
     </main>
-
     <script language="JavaScript">
         <!--
           javascript:window.history.forward(1);
         //-->
         </script> 
-<script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptform12.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptform12.js') }}"></script>
     {%endblock%}
