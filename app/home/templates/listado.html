@@ -49,7 +49,7 @@
                     <tr><td>{{ inscripto.name }}</td>
                         <td>{{ inscripto.channel_name if inscripto.channel_name != None else 'No se definio canal de emisión'}}</td>
                         <td>{{ inscripto.channel_town if inscripto.channel_name != None else 'No se definio ciudad de emisión'}}</td>
-                        <td>{{ inscripto.category_string }}</td>
+                        <td>{{ inscripto.category.rec_name }}</td>
                         <td>{{ inscripto.genre_string }} </td>
                         <td>
                           <div class="row">
@@ -76,7 +76,6 @@
                               </a>
                             </div>
                             <div class="col text-center">
-                              
                               <a href="#">
                                 {% if(inscripto.state == 'done') %}
                                 <!--este es el ojito abierto-->
@@ -115,22 +114,22 @@
 
 {% block javascripts %}
 <script>
-  function imprim(){
-      var mywindow = window.open('', 'PRINT', 'height=400,width=600');
-      mywindow.document.write('<html><head>');
-      mywindow.document.write('<style>.encabezado { text-align: center; font-size:30px} .tabla{width:100%;border-collapse:collapse;margin:16px 0 16px 0;}.tabla th{border:1px solid #ddd;padding:4px;background-color:#d4eefd;text-align:left;font-size:12px;}.tabla td{border:1px solid #ddd;text-align:left;padding:6px;font-size:12px;}</style>');
-      mywindow.document.write('</head><body >');
-      mywindow.document.write('<div class="encabezado">');
-      mywindow.document.write('Usuarios Inscriptos: {{usuarios}}');
-      mywindow.document.write('</div>');
-      mywindow.document.write('<br>');  
-      mywindow.document.write(document.getElementById('tabla_1').innerHTML);
-      mywindow.document.write('</body></html>');
-      mywindow.document.close(); // necesario para IE >= 10
-      mywindow.focus(); // necesario para IE >= 10
-      mywindow.print();
-      mywindow.close();
-      return true;}
-  </script>  
+    function imprim(){
+        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+        mywindow.document.write('<html><head>');
+        mywindow.document.write('<style>.encabezado { text-align: center; font-size:30px} .tabla{width:100%;border-collapse:collapse;margin:16px 0 16px 0;}.tabla th{border:1px solid #ddd;padding:4px;background-color:#d4eefd;text-align:left;font-size:12px;}.tabla td{border:1px solid #ddd;text-align:left;padding:6px;font-size:12px;}</style>');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write('<div class="encabezado">');
+        mywindow.document.write('Usuarios Inscriptos: {{usuarios}}');
+        mywindow.document.write('</div>');
+        mywindow.document.write('<br>');
+        mywindow.document.write(document.getElementById('tabla_1').innerHTML);
+        mywindow.document.write('</body></html>');
+        mywindow.document.close(); // necesario para IE >= 10
+        mywindow.focus(); // necesario para IE >= 10
+        mywindow.print();
+        mywindow.close();
+        return true;}
+</script>
 <script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptlistc.js') }}"></script>
-  {% endblock javascripts %}
+{% endblock javascripts %}

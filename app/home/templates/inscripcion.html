@@ -28,7 +28,7 @@
                     </a>
                     <br>
                     <p class="card-text mt-2"><small>Recuerden que para cargar los videos deben estar registrados en la plataforma Google Drive.</small>
-                    </p>       
+                    </p>
                 </div>
             </div>
         </div>
@@ -92,7 +92,34 @@
                                 <label for="localidadCategoria" class="form-label">Localidad - Categoria - Canales de aire</label>
                                 <select id ="categorias" name="categoria" class="input" id="localidadCategoria" required>
                                     <option value="" disabled="" selected="">Selecciona una categoria</option>
-                                    <optgroup label="Asociados">
+                                    {% for category in categories %}
+                                    {% if category[0]%}
+                                    <optgroup label={{ category[1] }}>
+                                        {% if category[0] == 'associated'%}
+                                            {% for cat in cat_asociados %}
+                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                            {% endfor %}
+                                        {% elif category[0] == 'open' %}
+                                            {% for cat in cat_abiertos %}
+                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                            {% endfor %}
+                                        {% elif category[0] == 'independent' %}
+                                            {% for cat in cat_prod_indep %}
+                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                            {% endfor %}
+                                        {% elif category[0] == 'unique' %}
+                                            {% for cat in cat_unica %}
+                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                            {% endfor %}
+                                        {% elif category[0] == 'turf' %}
+                                            {% for cat in cat_turf %}
+                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </optgroup>
+                                    {% endif %}
+                                    {% endfor %}
+<!--                                    <optgroup label="Asociados">
                                         {%for category in categories%}
                                             {%if ':' in category[1] and category[1].split(':')[0] in cat_asociados%}
                                                 <option value="{{ category[0] }}"> {{ category[1] }} </option>
@@ -126,7 +153,7 @@
                                                 <option value="{{ category[0] }}"> {{ category[1] }} </option>
                                             {%endif%}
                                         {%endfor%}
-                                    </optgroup>
+                                    </optgroup> -->
                                 </select>
                                 <div class="valid-feedback">
                                 </div>
