@@ -22,7 +22,7 @@
                     <p class="card-text">
                         La única via de inscripción para los programas televisión por cable y televisión por aire es a traves del presente sitio web. Para poder cargar tu programa, previamente deberás subir el material a las plataforma de Google Drive, en los links que se visualizan a continuación, y luego pegar los links de Google Drive en los campos correspondientes del formulario.
                     </p>
-                    <a href="https://drive.google.com/drive/u/0/" class="btn btn-warning boton-gd">
+                    <a href="https://drive.google.com/drive/u/0/" class="btn btn-warning boton-gd" target="_blank" rel="noopener noreferrer">
                         <img src="static/asset/img/google-drive.svg" alt="" width="25px" height="25px">
                          Subir video a Google Drive
                     </a>
@@ -81,16 +81,14 @@
                         <div class="form_container">
                             <div class="input_wrap">
                                 <label for="nombrePrograma" class="form-label">Nombre del programa</label>
-                                <input type="text" name="programa" class="input" id="nombrePrograma" required>
-                                <div class="valid-feedback">
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese el nombe del programa
-                                </div>
+                                <input type="text" name="programa" class="input" id="nombrePrograma" 
+                                    oninput="valid_input('nombrePrograma', 'Ingrese el nombe del programa', 'error-nombrePrograma')">
+                                <div id="error-nombrePrograma"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="localidadCategoria" class="form-label">Localidad - Categoria - Canales de aire</label>
-                                <select id ="categorias" name="categoria" class="input" id="localidadCategoria" required>
+                                <select name="categoria" class="input" id="localidadCategoria"
+                                    oninput="valid_input('localidadCategoria', 'Seleccione una categoría', 'error-localidadCategoria')">
                                     <option value="" disabled="" selected="">Selecciona una categoria</option>
                                     {% for category in categories %}
                                     {% if category[0]%}
@@ -155,15 +153,12 @@
                                         {%endfor%}
                                     </optgroup> -->
                                 </select>
-                                <div class="valid-feedback">
-                                </div>
-                                <div class="invalid-feedback">
-                                    Seleccione una categoría
-                                </div>
+                                <div id="error-localidadCategoria"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="generoPrograma" class="form-label">Genero</label>
-                                <select id="genero" name="genero" class="input" id="generoPrograma" required>
+                                <select name="genero" class="input" id="generoPrograma"
+                                    oninput="valid_input('generoPrograma', 'Seleccione un género', 'error-genero')">
                                     <option value="" disabled="" selected="">Selecciona un género</option>
                                     {%for genre in genres%}
                                         {%if genre[0]%}
@@ -171,63 +166,44 @@
                                         {%endif%}
                                     {%endfor%}
                                 </select>
-                                <div class="valid-feedback">
-                                </div>
-                                <div class="invalid-feedback">
-                                    Seleccione un género
-                                </div>
+                                <div id="error-genero"></div> 
                             </div>
                             <div class="input_wrap">
                                 <label for="enVivo" class="form-label">Vivo, directo y simultaneo</label>
-                                <select id="vivo" name="vivo" class="input" id="enVivo" required>
+                                <select name="vivo" class="input" id="enVivo"
+                                    oninput="valid_input('enVivo', 'Elija una opción', 'error-vivo')">
                                     <option value="" selected="" disabled="">Elegir</option>
                                     <option value="si">Si</option>
                                     <option value="no">No</option>
                                 </select>
-                                <div class="valid-feedback">
-                                </div>
-                                <div class="invalid-feedback">
-                                    Elija una opción
-                                </div>
+                                <div id="error-vivo"></div> 
                             </div>
                             <div class="input_wrap">
                                 <label for="localidadEmision" class="form-label">Localidad de emisión</label>
-                                <input type="text" name="localidad" class="input" id="localidadEmision" required>
-                                <div class="valid-feedback">
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese localidad de emisión
-                                </div>
+                                <input type="text" name="localidad" class="input" id="localidadEmision"
+                                    oninput="valid_input('localidadEmision', 'Ingrese localidad de emisión', 'error-localidad')">
+                                <div id="error-localidad"></div> 
                             </div>
                             
                             <div class="flex-container">
                                 <div class="cont1">
                                     <label for="input_date" class="form-label">Fecha de emisión</label>
-                                    <input class="input" type="date" name="fecha" id="input_date" >
-                                    <div class="valid-feedback">
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Ingrese fecha de emisión
-                                    </div>
+                                    <input class="input" type="date" name="fecha" id="input_date" 
+                                        oninput="valid_input('input_date', 'Ingrese fecha de emisión', 'error-fecha')">
+                                    <div id="error-fecha"></div>
                                 </div>
                                 <div class="cont2">
                                     <label for="input_time" class="form-label">Duración</label>
-                                    <input class="input" type="time" name="duracion" step="1" id="input_time" >
-                                    <div class="valid-feedback">
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Ingrese duración
-                                    </div>
+                                    <input class="input" type="time" name="duracion" step="1" id="input_time" 
+                                        oninput="valid_input('input_time', 'Ingrese duración', 'error-duracion')">
+                                    <div id="error-duracion"></div>
                                 </div>
                             </div> 
                             <div class="input_wrap">
                                 <label for="input_tarea" class="form-label">Breve descripción</label>
-                                <textarea  class="input" rows="5" cols="40" name="otros" id="input_tarea" required></textarea>
-                                <div class="valid-feedback">
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese una breve descripción
-                                </div>
+                                <textarea  class="input" rows="5" cols="40" name="otros" id="input_tarea" 
+                                    oninput="valid_input('input_tarea', 'Ingrese una breve descripción', 'error-tarea')"></textarea>
+                                <div id="error-tarea"></div>
                             </div>
                         </div>
                     </div>
@@ -238,66 +214,46 @@
                                 <label for="linkRutina">
                                     Documento con información del programa
                                 </label>
-                                <input type="text" name="rutina" class="input" id="linkRutina" required>
+                                <input type="text" name="rutina" class="input" id="linkRutina"
+                                    oninput="valid_input('linkRutina', 'Ingrese link de la rutina', 'error-rutina')">
                                 <label for="name">Link de google drive</label>
-                                <div class="valid-feedback">
-
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese link de la rutina
-                                </div>
+                                <div id="error-rutina"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="linkVideo1">
                                     1 Video con 1 programa
                                 </label>
-                                <input type="text" name="video1" class="input" id="linkVideo1" required>
+                                <input type="text" name="video1" class="input" id="linkVideo1" 
+                                    oninput="valid_input('linkVideo1', 'Ingrese link del video 1', 'error-video1')">
                                 <label for="name">Link de google drive</label>
-                                <div class="valid-feedback">
-
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese link del video 1
-                                </div>
+                                <div id="error-video1"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="linkVideo2">
                                     2 Video con 1 programa
                                 </label>
-                                <input type="text" name="video2" class="input" id="linkVideo2" required>
+                                <input type="text" name="video2" class="input" id="linkVideo2"
+                                    oninput="valid_input('linkVideo2', 'Ingrese link del video 2', 'error-video2')">
                                 <label for="name">Link de google drive</label>
-                                <div class="valid-feedback">
-                                   
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese link del video 2
-                                </div>
+                                <div id="error-video2"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="linkVideo3">
                                     3 Video con 1 programa
                                 </label>
-                                <input type="text" name="video3" class="input" id="linkVideo3" required>
+                                <input type="text" name="video3" class="input" id="linkVideo3" 
+                                    oninput="valid_input('linkVideo3', 'Ingrese link del video 3', 'error-video3')">
                                 <label for="name">Link de google drive</label>
-                                <div class="valid-feedback">
-                                   
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese link del video 3
-                                </div>
+                                <div id="error-video3"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="linkCover">
                                     1 Video de 8 segundos del programa que se utilizará para presentar el mismo durante la transmisión del evento.
                                 </label>
-                                <input type="text" name="cover" class="input" id="linkCover" required>
+                                <input type="text" name="cover" class="input" id="linkCover"
+                                    oninput="valid_input('linkCover', 'Ingrese link del cover', 'error-cover')">
                                 <label for="first_name">Link de google drive</label>
-                                <div class="valid-feedback">
-                                   
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese link cover
-                                </div>
+                                <div id="error-cover"></div>
                                     <br>
                                     <i>(El material debe estar publicado hasta la fecha de realización del evento.)</i>
                                 </label>
@@ -309,93 +265,63 @@
                         <div class="form_container">
                             <div class="input_wrap">
                                 <label for="nombreProductor">Productor/a</label>
-                                <input type="text" name="productor" class="input" id="nombreProductor" required>
-                                <div class="valid-feedback">                        
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese el nombre del Productor
-                                </div>
+                                <input type="text" name="productor" class="input" id="nombreProductor"
+                                    oninput="valid_input('nombreProductor', 'Ingrese el nombre del Productor', 'error-nombreProductor')">
+                                <div id="error-nombreProductor"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreCoproductor">Coprodución</label>
-                                <input type="text" name="coproduccion" class="input" id="nombreCoproductor" required>
-                                <div class="valid-feedback">                                
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese el nombre del Coproductor
-                                </div>
+                                <input type="text" name="coproduccion" class="input" id="nombreCoproductor" 
+                                    oninput="valid_input('nombreCoproductor', 'Ingrese el nombre del Coproductor', 'error-nombreCoproductor')">
+                                <div id="error-nombreCoproductor"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreAutor">Autor/Guionista</label>
-                                <input type="text" name="autor" class="input" id="nombreAutor" required>
-                                <div class="valid-feedback">                                
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese el nombre del Autor
-                                </div>
+                                <input type="text" name="autor" class="input" id="nombreAutor" 
+                                    oninput="valid_input('nombreAutor', 'Ingrese el nombre del Autor', 'error-nombreAutor')">
+                                <div id="error-nombreAutor"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreEditor">Editor</label>
-                                <input type="text" name="editor" class="input" id="nombreEditor" required>
-                                <div class="valid-feedback">   
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese el nombre del Editor
-                                </div>
+                                <input type="text" name="editor" class="input" id="nombreEditor" 
+                                    oninput="valid_input('nombreEditor', 'Ingrese el nombre del Editor', 'error-nombreEditor')">
+                                <div id="error-nombreEditor"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreDirector">Director</label>
-                                <input type="text" name="director" class="input" id="nombreDirector" required>
-                                <div class="valid-feedback">                           
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese el nombre del Director
-                                </div>
+                                <input type="text" name="director" class="input" id="nombreDirector" 
+                                    oninput="valid_input('nombreDirector', 'Ingrese el nombre del Director', 'error-nombreDirector')">
+                                <div id="error-nombreDirector"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreCamara">Camarógrafo/s</label>
-                                <input type="text" name="camara" class="input" id="nombreCamara" required>
-                                <div class="valid-feedback">                        
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese el nombre del Camarógrafo
-                                </div>
+                                <input type="text" name="camara" class="input" id="nombreCamara" 
+                                    oninput="valid_input('nombreCamara', 'Ingrese el nombre del Camarógrafo', 'error-nombreCamara')">
+                                <div id="error-nombreCamara"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreSonido">Sonidista/Musicalización</label>
-                                <input type="text" name="sonido" class="input" id="nombreSonido" required>
-                                <div class="valid-feedback">           
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese datos del Sonidista
-                                </div>
+                                <input type="text" name="sonido" class="input" id="nombreSonido" 
+                                    oninput="valid_input('nombreSonido', 'Ingrese datos del Sonidista', 'error-nombreSonido')">
+                                <div id="error-nombreSonido"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreConductor">Conductor/Presentador/Locutor</label>
-                                <input type="text" name="conductor" class="input" id="nombreConductor" required>
-                                <div class="valid-feedback">       
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese el nombre del Conductor/Presentador/Locutor
-                                </div>
+                                <input type="text" name="conductor" class="input" id="nombreConductor" 
+                                    oninput="valid_input('nombreConductor', 'Ingrese el nombre del Conductor/Presentador/Locutor', 'error-nombreConductor')">       
+                                <div id="error-nombreConductor"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreProtagonista">Protagonista/s</label>
-                                <input type="text" name="protagonista" class="input" id="nombreProtagonista" required>
-                                <div class="valid-feedback">      
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese el nombre del Protagonista
-                                </div>
+                                <input type="text" name="protagonista" class="input" id="nombreProtagonista" 
+                                    oninput="valid_input('nombreProtagonista', 'Ingrese el nombre del Protagonista', 'error-nombreProtagonista')">
+                                <div id="error-nombreProtagonista"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="nombreCronista">Nombrar los cronistas exteriores que participan del programa</label>
-                                <input type="text" name="cronistas" class="input" id="nombreCronista" required>
-                                <div class="valid-feedback">     
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese el nombre del Cronista
-                                </div>
+                                <input type="text" name="cronistas" class="input" id="nombreCronista" 
+                                    oninput="valid_input('nombreCronista', 'Ingrese el nombre del Cronista', 'error-nombreCronista')">
+                                <div id="error-nombreCronista"></div>
                             </div>
                         </div>
                     </div>
@@ -404,72 +330,51 @@
                         <div class="form_container">
                             <div class="input_wrap">
                                 <label for="nombreCanal">Nombre Canal</label>
-                                <input type="text" name="canal" class="input" id="nombreCanal" required>
-                                <div class="valid-feedback">
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese el nombre del Canal
-                                </div>
+                                <input type="text" name="canal" class="input" id="nombreCanal"
+                                    oninput="valid_input('nombreCanal', 'Ingrese el nombre del Canal', 'error-nombreCanal')">
+                                <div id="error-nombreCanal"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="direccionCanal">Domicilio Canal</label>
-                                <input type="text" name="direccion" class="input" id="direccionCanal" required>
-                                <div class="valid-feedback">  
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese el domicilio del Canal
-                                </div>
+                                <input type="text" name="direccion" class="input" id="direccionCanal"
+                                    oninput="valid_input('direccionCanal', 'Ingrese el domicilio del Canal', 'error-direccionCanal')">
+                                <div id="error-direccionCanal"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="localidadCanal">Localidad canal</label>
-                                <input type="text" name="localidad_canal" class="input" id="localidadCanal" required>
-                                <div class="valid-feedback"> 
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese la localidad del Canal
-                                </div>
+                                <input type="text" name="localidad_canal" class="input" id="localidadCanal"
+                                    oninput="valid_input('localidadCanal', 'Ingrese la localidad del Canal', 'error-localidadCanal')">
+                                <div id="error-localidadCanal"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="contactoCanal">Contacto canal</label>
-                                <input type="text" name="contacto" class="input" id="contactoCanal" required>
-                                <div class="valid-feedback">
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese un medio de contacto
-                                </div>
+                                <input type="text" name="contacto" class="input" id="contactoCanal" 
+                                    oninput="valid_input('contactoCanal', 'Ingrese un medio de contacto', 'error-contactoCanal')">
+                                <div id="error-contactoCanal"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="telefonoCanal">Teléfono canal</label>
                                 <input type="tel" name="telefono" class="input" id="telefonoCanal" 
                                     placeholder="(Código de área)Número" pattern="[0-9]{3}[0-9]{7}|[0-9]{7}"  
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"required>
-                                <div class="valid-feedback">
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese el teléfono del Canal
-                                </div>
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+                                        valid_tel('telefonoCanal', 'Ingrese el teléfono del Canal', 'error-telefonoCanal')">
+                                <div id="error-telefonoCanal"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="emailCanal">Email canal</label>
-                                <input type="email" name="email" class="input" id="emailCanal" placeholder="ejemplo@ejemplo.com" required>
-                                <div class="valid-feedback">
-                                </div>
-                                <div class="invalid-feedback">
-                                    Ingrese un correp valido
-                                </div>
+                                <input type="email" name="email" class="input" id="emailCanal" placeholder="ejemplo@ejemplo.com" 
+                                    oninput="valid_correo('emailCanal', 'Ingrese un correo valido', 'error-emailCanal')">
+                                <div id="error-emailCanal"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="socioAet" class="form-label">¿Es socio de AET?</label>
-                                <select name="socio" class="input" id="socioAet" required>
+                                <select name="socio" class="input" id="socioAet" 
+                                    oninput="valid_input('socioAet', 'Seleccione una opción', 'error-socioAet')">
                                     <option value="" selected="" disabled="">Elegir</option>
                                     <option value="si">Si</option>
                                     <option value="no">No</option>
                                 </select>
-                                <div class="valid-feedback">
-                                </div>
-                                <div class="invalid-feedback">
-                                    Seleccione una opción
-                                </div>
+                                <div id="error-socioAet"></div>
                             </div>
                         </div>
                     </div>
@@ -478,22 +383,16 @@
                         <div class="form_container">
                             <div class="input_wrap">
                                 <label for="razonSocial">Razón social</label>
-                                <input type="text" name="razonsocial" class="input" id="razonSocial" required>
-                                <div class="valid-feedback">
-                                </div>
-                                <div class="invalid-feedback">
-                                    ingrese la razon social
-                                </div>
+                                <input type="text" name="razonsocial" class="input" id="razonSocial"
+                                    oninput="valid_input('razonSocial', 'ingrese la razon social', 'error-razonSocial')">
+                                <div id="error-razonSocial"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="numeroCuit">Cuit</label>
                                 <input type="text" name="cuit" class="input" id="numeroCuit" pattern="[0-9]{11}" 
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
-                                <div class="valid-feedback">
-                                </div>
-                                <div class="invalid-feedback">
-                                    ingrese el cuit sin espacios
-                                </div>
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+                                    valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit')">
+                                <div id="error-numeroCuit"></div>
                             </div>
                         </div>
                     </div>
@@ -522,10 +421,11 @@
             </div>
         </div>
     </main>
+    
     <script language="JavaScript">
         <!--
           javascript:window.history.forward(1);
         //-->
         </script> 
-    <script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptform19.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptform46.js') }}"></script>
     {%endblock%}

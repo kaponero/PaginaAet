@@ -12,7 +12,6 @@ var form_3_btns = document.querySelector(".form_3_btns");
 var form_4_btns = document.querySelector(".form_4_btns");
 var form_5_btns = document.querySelector(".form_5_btns");
 
-
 var form_1_next_btn = document.querySelector(".form_1_btns .btn_next");
 var form_2_back_btn = document.querySelector(".form_2_btns .btn_back");
 var form_2_next_btn = document.querySelector(".form_2_btns .btn_next");
@@ -31,24 +30,30 @@ var btn_done = document.querySelector(".btn_done");
 var modal_wrapper = document.querySelector(".modal_wrapper");
 var shadow = document.querySelector(".shadow");
 
-function validate(){
-	if (!form.checkValidity()) {
-		event.preventDefault()
-		event.stopPropagation()
-		}
-	form.classList.add('was-validated')
-}
+var correo= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+var cuil = /^[0-9]{11}$/
+var telefono = /^[0-9]{3}[0-9]{7}|[0-9]{7}$/
+
 
 form_1_next_btn.addEventListener("click", function(){
-	validate()
+	
 	var inputtnom = document.getElementById('nombrePrograma').value
-	var selectcat = document.getElementById('categorias').value
-	var selectgen = document.getElementById('genero').value
-	var selectviv = document.getElementById('vivo').value
+	var selectcat = document.getElementById('localidadCategoria').value
+	var selectgen = document.getElementById('generoPrograma').value
+	var selectviv = document.getElementById('enVivo').value
 	var inputlocal= document.getElementById('localidadEmision').value
 	var inputdate= document.getElementById('input_date').value
 	var inputtime= document.getElementById('input_time').value
 	var inputtarea= document.getElementById('input_tarea').value
+
+	valid_input('nombrePrograma', 'Ingrese el nombe del programa', 'error-nombrePrograma');
+	valid_input('localidadCategoria', 'Ingrese el nombe del programa', 'error-localidadCategoria');
+	valid_input('generoPrograma', 'Seleccione un género', 'error-genero');
+	valid_input('enVivo', 'Elija una opción', 'error-vivo');
+	valid_input('localidadEmision', 'Ingrese localidad de emisión', 'error-localidad');
+	valid_input('input_date', 'Ingrese fecha de emisión', 'error-fecha');
+	valid_input('input_time', 'Ingrese duración', 'error-duracion');
+	valid_input('input_tarea', 'Ingrese una breve descripción', 'error-tarea');
 	
 	if (inputtnom.length == 0 || selectcat  == 0 || selectgen == 0 || selectviv == 0 || 
 		inputlocal.length == 0 || inputdate.length == 0 || inputtime.length == 0 || inputtarea.length == 0){
@@ -63,7 +68,7 @@ form_1_next_btn.addEventListener("click", function(){
 });
 
 form_2_back_btn.addEventListener("click", function(){
-	validate()
+
 	form_1.style.display = "block";
 	form_2.style.display = "none";
 	form_1_btns.style.display = "flex";
@@ -72,12 +77,18 @@ form_2_back_btn.addEventListener("click", function(){
 });
 
 form_2_next_btn.addEventListener("click", function(){
-	validate()
+	
 	var inputrutina = document.getElementById('linkRutina').value
 	var inputvideo1 = document.getElementById('linkVideo1').value
 	var inputvideo2 = document.getElementById('linkVideo2').value
 	var inputvideo3 = document.getElementById('linkVideo3').value
 	var inputcover= document.getElementById('linkCover').value
+
+	valid_input('linkRutina', 'Ingrese link de la rutina', 'error-rutina');
+	valid_input('linkVideo1', 'Ingrese link del video 1', 'error-video1');
+	valid_input('linkVideo2', 'Ingrese link del video 2', 'error-video2');
+	valid_input('linkVideo3', 'Ingrese link del video 3', 'error-video3');
+	valid_input('linkCover', 'Ingrese link del cover', 'error-cover');
 
 	if (inputrutina.length == 0 || inputvideo1.length  == 0 || inputvideo2.length == 0 || 
 		inputvideo3.length == 0 || inputcover.length == 0 ){
@@ -92,7 +103,7 @@ form_2_next_btn.addEventListener("click", function(){
 });
 
 form_3_back_btn.addEventListener("click", function(){
-	validate()
+	
 	form_2.style.display = "block";
 	form_3.style.display = "none";
 	form_2_btns.style.display = "flex";
@@ -101,7 +112,7 @@ form_3_back_btn.addEventListener("click", function(){
 });
 
 form_3_next_btn.addEventListener("click", function(){
-	validate()
+	
 	var inputproductor = document.getElementById('nombreProductor').value
 	var inputcoproductor = document.getElementById('nombreCoproductor').value
 	var inputautor = document.getElementById('nombreAutor').value
@@ -113,6 +124,17 @@ form_3_next_btn.addEventListener("click", function(){
 	var inputprotagonista = document.getElementById('nombreProtagonista').value
 	var inputcronista = document.getElementById('nombreCronista').value
 
+	valid_input('nombreProductor', 'Ingrese el nombre del Productor', 'error-nombreProductor');
+	valid_input('nombreCoproductor', 'Ingrese el nombre del Coproductor', 'error-nombreCoproductor');
+	valid_input('nombreAutor', 'Ingrese el nombre del Autor', 'error-nombreAutor');
+	valid_input('nombreEditor', 'Ingrese el nombre del Editor', 'error-nombreEditor');
+	valid_input('nombreDirector', 'Ingrese el nombre del Director', 'error-nombreDirector');
+	valid_input('nombreCamara', 'Ingrese el nombre del Camarógrafo', 'error-nombreCamara');
+	valid_input('nombreSonido', 'Ingrese datos del Sonidista', 'error-nombreSonido');
+	valid_input('nombreConductor', 'Ingrese el nombre del Conductor/Presentador/Locutor', 'error-nombreConductor');
+	valid_input('nombreProtagonista', 'Ingrese el nombre del Protagonista', 'error-nombreProtagonista');
+	valid_input('nombreCronista', 'Ingrese el nombre del Cronista', 'error-nombreCronista');
+	
 	if (inputproductor.length == 0 || inputcoproductor.length  == 0 || inputautor.length == 0 || 
 		inputeditor.length == 0 || inputdirector.length  == 0 || inputcamara.length  == 0 || 
 		inputsonido.length == 0 || inputconductor.length  == 0 || inputprotagonista.length  == 0 || 
@@ -128,9 +150,8 @@ form_3_next_btn.addEventListener("click", function(){
 	}
 });
 
-
 form_4_back_btn.addEventListener("click", function(){
-	validate()
+
 	form_3.style.display = "block";
 	form_4.style.display = "none";
 	form_4_btns.style.display = "none";
@@ -139,9 +160,7 @@ form_4_back_btn.addEventListener("click", function(){
 });
 
 form_4_next_btn.addEventListener("click", function(){
-	var correo= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
-
-	validate()
+	
 	var inputnombrec= document.getElementById('nombreCanal').value
 	var inputdireccionc = document.getElementById('direccionCanal').value
 	var inputlocalidadc = document.getElementById('localidadCanal').value
@@ -150,9 +169,18 @@ form_4_next_btn.addEventListener("click", function(){
 	var inputemailc = document.getElementById('emailCanal').value
 	var selectsos = document.getElementById('socioAet').value
 	var correovalido = correo.test(inputemailc);
+	var telvalido = telefono.test(inputtelefonoc);
+
+	valid_input('nombreCanal', 'Ingrese el nombre del Canal', 'error-nombreCanal');
+	valid_input('direccionCanal', 'Ingrese el domicilio del Canal', 'error-direccionCanal');
+	valid_input('localidadCanal', 'Ingrese la localidad del Canal', 'error-localidadCanal');
+	valid_input('contactoCanal', 'Ingrese un medio de contacto', 'error-contactoCanal');
+	valid_tel('telefonoCanal', 'Ingrese el teléfono del Canal', 'error-telefonoCanal');
+	valid_correo('emailCanal', 'Ingrese un correo valido', 'error-emailCanal');
+	valid_input('socioAet', 'Seleccione una opción', 'error-socioAet');
 
 	if (inputnombrec.length == 0 || inputdireccionc.length == 0 || inputlocalidadc.length == 0 ||
-		inputcontactoc .length == 0 || inputtelefonoc < 1000000 || correovalido == false ||
+		inputcontactoc .length == 0 || telvalido == false  || correovalido == false ||
 		selectsos == 0){
 		alert ("Complete los campos")
 	}
@@ -174,10 +202,15 @@ form_5_back_btn.addEventListener("click", function(){
 });
 
 btn_done.addEventListener("click", function(){
+
 	var inputrazons = document.getElementById('razonSocial').value
 	var inputcuit = document.getElementById('numeroCuit').value
+	var cuilvalido = cuil.test(inputcuit);
 
-	if (inputrazons.length == 0 || inputcuit < 20000000000){
+	valid_input('razonSocial', 'ingrese la razon social', 'error-razonSocial');
+	valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit');
+
+	if (inputrazons.length == 0 || cuilvalido == false){
 		alert ("Complete los campos")
 	}
 	else{
@@ -188,3 +221,57 @@ btn_done.addEventListener("click", function(){
 shadow.addEventListener("click", function(){
 	modal_wrapper.classList.remove("active");
 })
+
+function valid_input(identificador,mensaje, diverror){
+	var inputtnom = document.getElementById(identificador).value
+	var error = document.getElementById(diverror);
+	error.style.color = "red";
+
+	var mensajeError = [];
+	if(inputtnom.length == 0){
+		mensajeError.push(mensaje);
+	} 
+	error.innerHTML = mensajeError.join(', ');
+}
+
+function valid_correo(identificador,mensaje, diverror){
+	var inputtnom = document.getElementById(identificador).value
+	var error = document.getElementById(diverror);
+	var correovalido = correo.test(inputtnom);
+
+	error.style.color = "red";
+
+	var mensajeError = [];
+	if(correovalido == false){
+		mensajeError.push(mensaje);
+	} 
+	error.innerHTML = mensajeError.join(', ');
+}
+
+function valid_cuil(identificador,mensaje, diverror){
+	var inputtnom = document.getElementById(identificador).value
+	var error = document.getElementById(diverror);
+	var cuilvalido = cuil.test(inputtnom);
+
+	error.style.color = "red";
+
+	var mensajeError = [];
+	if(cuilvalido == false){
+		mensajeError.push(mensaje);
+	} 
+	error.innerHTML = mensajeError.join(', ');
+}
+
+function valid_tel(identificador,mensaje, diverror){
+	var inputtnom = document.getElementById(identificador).value
+	var error = document.getElementById(diverror);
+	var telvalido = telefono.test(inputtnom);
+
+	error.style.color = "red";
+
+	var mensajeError = [];
+	if(telvalido == false){
+		mensajeError.push(mensaje);
+	} 
+	error.innerHTML = mensajeError.join(', ');
+}
