@@ -7,9 +7,9 @@
 .card-warning{
 
 	box-shadow: 0px 3px 8px rgba(0, 0, 0, 50%) !important;
-	background-color: rgb(193, 179, 219);  
+	background-color:  rgb(226, 236, 235); 
 	border-radius: 10px;
-	border-color:rgb(191, 167, 235);
+	border-color:rgb(226, 236, 235); 
 }
 
 .card-intructivo{
@@ -82,12 +82,12 @@
 }
 
 :root{
-	--primary: #f3c282;
+	--primary: #82aff3;
 	--secondary: #bfc0c0;
 	--white: #fff;
 	--text-clr: #5b6475;
 	--header-clr: #25273d;
-	--next-btn-hover: #c09967;
+	--next-btn-hover: #677cc0;
 	--back-btn-hover: #8b8c8c;
 }
 
@@ -101,7 +101,7 @@
 }
 
 main{
-	background: var(--primary);
+	background: linear-gradient(var(--next-btn-hover),var(--primary));
 	color: var(--text-clr);
 	font-size: 16px;
 	position: relative;

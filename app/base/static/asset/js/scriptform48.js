@@ -205,12 +205,15 @@ btn_done.addEventListener("click", function(){
 
 	var inputrazons = document.getElementById('razonSocial').value
 	var inputcuit = document.getElementById('numeroCuit').value
+	var inputcheck = document.getElementById('condiciones').checked
+
 	var cuilvalido = cuil.test(inputcuit);
 
 	valid_input('razonSocial', 'ingrese la razon social', 'error-razonSocial');
 	valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit');
+	valid_condiciones('condiciones', 'Debe aceptar los terminos y condiciones', 'error-condiciones');
 
-	if (inputrazons.length == 0 || cuilvalido == false){
+	if (inputrazons.length == 0 || cuilvalido == false || inputcheck==false){
 		alert ("Complete los campos")
 	}
 	else{
@@ -271,6 +274,17 @@ function valid_tel(identificador,mensaje, diverror){
 
 	var mensajeError = [];
 	if(telvalido == false){
+		mensajeError.push(mensaje);
+	} 
+	error.innerHTML = mensajeError.join(', ');
+}
+function valid_condiciones(identificador,mensaje, diverror){
+	var inputtnom = document.getElementById(identificador).checked
+	var error = document.getElementById(diverror);
+	error.style.color = "red";
+
+	var mensajeError = [];
+	if(inputtnom == false){
 		mensajeError.push(mensaje);
 	} 
 	error.innerHTML = mensajeError.join(', ');
