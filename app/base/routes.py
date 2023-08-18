@@ -124,6 +124,7 @@ def render_instructivo():
         BytesIO(content),
         attachment_filename='instructivo.pdf')
 
+
 @blueprint.route('/paginajurados/<id_>')
 @tryton.transaction()
 @login_required
@@ -168,14 +169,14 @@ def jurados(id_=None):
                            programa3=inscription.video_long3,
                            )
 
+@blueprint.route('/paginajurados')
+@blueprint.route("/listado")
 @blueprint.route("/listado/<categoria>")
 @tryton.transaction()
 @login_required
 def show_category(categoria=None):
     inscriptos = []
-    if not categoria:
-        inscriptos = Inscription.search([('id','>',0)])
-    elif categoria == "a":
+    if categoria == "a":
         inscriptos = Inscription.search([('category.category.name','=', "CATEGORÍA A")])
     elif categoria == "b":
         inscriptos = Inscription.search([('category.category.name','=', "CATEGORÍA B")])
@@ -189,12 +190,7 @@ def show_category(categoria=None):
         inscriptos = Inscription.search([('category.category.name','=', "TRANSMISIONES EN VIVO")])
     elif categoria == "turf":
         inscriptos = Inscription.search([('category.category.name','=', "TURF")])
+    else:
+        inscriptos = Inscription.search([('id','>',0)])
+        return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
     return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
-
-@blueprint.route("/listado")
-@tryton.transaction()
-@login_required
-def show_all_categories():
-    inscriptos = Inscription.search([('id','>',0)])
-    return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
-

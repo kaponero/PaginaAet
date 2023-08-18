@@ -35,7 +35,7 @@ def login():
             if webuser:
                 session['session_key'] = WebUser.new_session(webuser)
                 session['identified'] = True
-                return redirect(url_for('base_blueprint.show_all_categories'))
+                return redirect(url_for('base_blueprint.show_category'))
             flash('Verifique sus credenciales', 'error')
             return render_template( 'login.html', msg='Correo electrónico o contraseña incorrecta', form=login_form)
         except:
