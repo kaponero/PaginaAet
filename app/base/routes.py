@@ -127,7 +127,7 @@ def render_instructivo():
 
 @blueprint.route('/paginajurados/<id_>')
 @tryton.transaction()
-@login_required
+#@login_required
 def jurados(id_=None):
     inscription, = Inscription.search([('id', '=', int(id_))],
                                       limit=1)
