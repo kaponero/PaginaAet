@@ -169,7 +169,7 @@ def jurados(id_=None):
                            programa3=inscription.video_long3,
                            )
 
-@blueprint.route('/paginajurados')
+#@blueprint.route('/paginajurados')
 @blueprint.route("/listado")
 @blueprint.route("/listado/<categoria>")
 @tryton.transaction()
