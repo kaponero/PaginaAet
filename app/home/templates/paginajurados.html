@@ -22,866 +22,880 @@
                 </div>
             </div>
         </div>
-        <form method="post">
-            <div class="row">
-                <div class="col-md-6">
-                    <h4 class="encabezado">DATOS DEL PROGRAMA</h4>
-                    <hr>
-                    <div class="row datos" >
-                        <div class="col-md-6">
-                            <b>Programa:</b>
-                            <input readonly type="text" name="programaInscripcion" value="{{programa}}" class="form-control input-sm">
-                            <b>Categoria:</b>
-                            <input readonly type="text" name="categoriaInscripcion" value="{{categoria}}" class="form-control input-sm">
-                            <b>Localidad:</b>
-                            <input readonly type="text" name="localidadInscripcion" value="{{localidad}}" class="form-control input-sm">
-                            <b>Duracion:</b>
-                            <input readonly type="text" name="duracionInscripcion" value="{{duracion}}" class="form-control input-sm">
-                            <b>Coproductor:</b>
-                            <input readonly type="text" name="coproductorInscripcion" value="{{coproductor}}" class="form-control input-sm">
-                            <b>Director:</b>
-                            <input readonly type="text" name="directorInscripcion" value="{{director}}" class="form-control input-sm">
-                            <b>Sonido:</b>
-                            <input readonly type="text" name="sonidoInscripcion" value="{{sonido}}" class="form-control input-sm">
-                            <b>Protagonista:</b>
-                            <input readonly type="text" name="protagonistaInscripcion" value="{{protagonista}}" class="form-control input-sm">
-                        </div>
-                        <div class="col-md-6">
-                            <b>Genero:</b>
-                            <input readonly type="text" name="generoInscripcion" value="{{genero}}" class="form-control input-sm">
-                            <b>Vivo:</b>
-                            <input readonly type="text" name="vivoInscripcion" value="{{vivo}}" class="form-control input-sm">
-                            <b>Emision:</b>
-                            <input readonly type="text" name="emisionInscripcion" value="{{emision}}" class="form-control input-sm">
-                            <b>Productor:</b>
-                            <input readonly type="text" name="productorInscripcion" value="{{productor}}" class="form-control input-sm">
-                            <b>Autor:</b>
-                            <input readonly type="text" name="autorInscripcion" value="{{autor}}" class="form-control input-sm">
-                            <b>Camara:</b>
-                            <input readonly type="text" name="camaraInscripcion" value="{{camara}}" class="form-control input-sm">
-                            <b>Conductor:</b>
-                            <input readonly type="text" name="conductorInscripcion" value="{{conductor}}" class="form-control input-sm">
-                            <b>Cronistas:</b>
-                            <input readonly type="text" name="cronistasInscripcion" value="{{cronistas}}" class="form-control input-sm">
-                        </div>
-                        <div class="col-md-12">
-                            <b>Descripción:</b>
-                            <textarea readonly name="otrosInscripcion" class="form-control input-sm"> {{otros}} </textarea>
-                        </div>
-                    </div>
-                </div>            
-                <div class="col-md-6">
-                    <h4 class="encabezado">DATOS DEL CANAL</h4>
-                    <hr>
-                    <b>Nombre:</b>
-                    <input readonly type="text" name="nombreInscripcion" value="{{nombre}}" class="form-control input-sm">
-                    <b>Direccion:</b>
-                    <input readonly type="text" name="direccionInscripcion" value="{{direccion}}" class="form-control input-sm">
-                    <b>Localidad:</b>
-                    <input readonly type="text" name="localidadInscripcion" value="{{localidad_canal}}" class="form-control input-sm">
-                    <b>Contacto:</b>
-                    <input readonly type="text" name="contactoInscripcion" value="{{contacto}}" class="form-control input-sm">
-                    <b>Telefono:</b>
-                    <input readonly type="text" name="telefonoInscripcion" value="{{telefono}}" class="form-control input-sm">
-                    <b>Email:</b>
-                    <input readonly type="text" name="emailInscripcion" value="{{email}}" class="form-control input-sm">
-                    <b>Socio:</b>
-                    <input readonly type="text" name="socioInscripcion" value="{{socio}}" class="form-control input-sm">
-                    <label id="fecha"><b>Fecha: {{fecha}}</b></label>
-                    <h4 class="encabezado">DATOS DEL FACTURACION</h4>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <b>Razon social:</b>
-                            <input readonly type="text" name="Razon social" value="{{razonsocial}}" class="form-control input-sm">
-                        </div>
-                        <div class="col-md-4">
-                            <b>Cuit:</b>
-                            <input readonly type="text" name="cuit" value="{{cuit}}" class="form-control input-sm">
-                        </div>
-                    </div>
-                </div>
-                <h4 class="encabezado">RUTINA</h4>
-                    <hr>
-                    <div id="rutina">
-                        <a  href="">Link de rutina</a>
-                    </div>
-                    
-                    <h4 class="encabezado">MATERIAL DE VIDEO</h4>
-                    <hr>
-                    {% if cover or programa1 or programa2 or programa3 %}
-                    {% if programa1 %}
-                    <div class="col-md-3">
-                        <a href="{{programa1}}" class="btn" id="boton-gd">
-                            <img src="static/asset/img/play.svg" alt="" width="25px" height="25px">
-                             Programa 1
-                        </a>
-                    </div>
-                    {% endif %}
-                    {% if programa2 %}
-                    <div class="col-md-3">
-                        <a href="{{programa2}}" class="btn" id="boton-gd">
-                            <img src="static/asset/img/play.svg" alt="" width="25px" height="25px">
-                             Programa 2
-                        </a>
-                    </div>
-                    {% endif %}
-                    {% if programa3 %}
-                    <div class="col-md-3">
-                        <a href="{{programa3}}" class="btn" id="boton-gd">
-                            <img src="static/asset/img/play.svg" alt="" width="25px" height="25px">
-                             Programa 3
-                        </a>
-                    </div>
-                    {% endif %}
-                    {% if cover %}
-                    <div class="col-md-3">
-                        <a href="{{cover}}" class="btn" id="boton-gd">
-                            <img src="static/asset/img/play.svg" alt="" width="25px" height="25px">
-                             Cover
-                        </a>
-                    </div>
-                    {% endif %}
-                    <div class="text-center p-3 carrusel">
-                        <div id="carouselExampleCaptions" class="carousel slide">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" ></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <div class="tab">
+            <div class="tab-principal">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Datos de Inscripción</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Calificación</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContentPricipal">
+                    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="encabezado">DATOS DEL PROGRAMA</h4>
+                                <hr>
+                                <div class="row datos" >
+                                    <div class="col-md-6">
+                                        <b>Programa:</b>
+                                        <input readonly type="text" name="programaInscripcion" value="{{programa}}" class="form-control input-sm">
+                                        <b>Categoria:</b>
+                                        <input readonly type="text" name="categoriaInscripcion" value="{{categoria}}" class="form-control input-sm">
+                                        <b>Localidad:</b>
+                                        <input readonly type="text" name="localidadInscripcion" value="{{localidad}}" class="form-control input-sm">
+                                        <b>Duracion:</b>
+                                        <input readonly type="text" name="duracionInscripcion" value="{{duracion}}" class="form-control input-sm">
+                                        <b>Coproductor:</b>
+                                        <input readonly type="text" name="coproductorInscripcion" value="{{coproductor}}" class="form-control input-sm">
+                                        <b>Director:</b>
+                                        <input readonly type="text" name="directorInscripcion" value="{{director}}" class="form-control input-sm">
+                                        <b>Sonido:</b>
+                                        <input readonly type="text" name="sonidoInscripcion" value="{{sonido}}" class="form-control input-sm">
+                                        <b>Protagonista:</b>
+                                        <input readonly type="text" name="protagonistaInscripcion" value="{{protagonista}}" class="form-control input-sm">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Genero:</b>
+                                        <input readonly type="text" name="generoInscripcion" value="{{genero}}" class="form-control input-sm">
+                                        <b>Vivo:</b>
+                                        <input readonly type="text" name="vivoInscripcion" value="{{vivo}}" class="form-control input-sm">
+                                        <b>Emision:</b>
+                                        <input readonly type="text" name="emisionInscripcion" value="{{emision}}" class="form-control input-sm">
+                                        <b>Productor:</b>
+                                        <input readonly type="text" name="productorInscripcion" value="{{productor}}" class="form-control input-sm">
+                                        <b>Autor:</b>
+                                        <input readonly type="text" name="autorInscripcion" value="{{autor}}" class="form-control input-sm">
+                                        <b>Camara:</b>
+                                        <input readonly type="text" name="camaraInscripcion" value="{{camara}}" class="form-control input-sm">
+                                        <b>Conductor:</b>
+                                        <input readonly type="text" name="conductorInscripcion" value="{{conductor}}" class="form-control input-sm">
+                                        <b>Cronistas:</b>
+                                        <input readonly type="text" name="cronistasInscripcion" value="{{cronistas}}" class="form-control input-sm">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <b>Descripción:</b>
+                                        <textarea readonly name="otrosInscripcion" class="form-control input-sm"> {{otros}} </textarea>
+                                    </div>
+                                </div>
+                            </div>            
+                            <div class="col-md-6">
+                                <h4 class="encabezado">DATOS DEL CANAL</h4>
+                                <hr>
+                                <b>Nombre:</b>
+                                <input readonly type="text" name="nombreInscripcion" value="{{nombre}}" class="form-control input-sm">
+                                <b>Direccion:</b>
+                                <input readonly type="text" name="direccionInscripcion" value="{{direccion}}" class="form-control input-sm">
+                                <b>Localidad:</b>
+                                <input readonly type="text" name="localidadInscripcion" value="{{localidad_canal}}" class="form-control input-sm">
+                                <b>Contacto:</b>
+                                <input readonly type="text" name="contactoInscripcion" value="{{contacto}}" class="form-control input-sm">
+                                <b>Telefono:</b>
+                                <input readonly type="text" name="telefonoInscripcion" value="{{telefono}}" class="form-control input-sm">
+                                <b>Email:</b>
+                                <input readonly type="text" name="emailInscripcion" value="{{email}}" class="form-control input-sm">
+                                <b>Socio:</b>
+                                <input readonly type="text" name="socioInscripcion" value="{{socio}}" class="form-control input-sm">
+                                <label id="fecha"><b>Fecha: {{fecha}}</b></label>
+                                <h4 class="encabezado">DATOS DEL FACTURACION</h4>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <b>Razon social:</b>
+                                        <input readonly type="text" name="Razon social" value="{{razonsocial}}" class="form-control input-sm">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <b>Cuit:</b>
+                                        <input readonly type="text" name="cuit" value="{{cuit}}" class="form-control input-sm">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="carousel-inner">
-                                {% if cover %}
-                                <div class="carousel-item active">
-                                    <iframe src="{{cover}}"  allow="autoplay"></iframe>
-                                    <div class="carousel-caption d-none d-md-block">
-                                    <h6>Cover</h6>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {% if programa1 %}
-                                <div class="carousel-item">
-                                    <iframe src="{{programa1}}"  allow="autoplay"></iframe>
-                                    <div class="carousel-caption d-none d-md-block">
-                                    <h6>Programa 1</h6>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {%if programa2 %}
-                                <div class="carousel-item">
-                                    <iframe src="{{programa2}}"  allow="autoplay"></iframe>
-                                    <div class="carousel-caption d-none d-md-block">
-                                    <h6>Programa 2</h6>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {% if programa3 %}
-                                <div class="carousel-item">
-                                    <iframe src="{{programa3}}"  allow="autoplay"></iframe>
-                                    <div class="carousel-caption d-none d-md-block">
-                                    <h6>Programa 3</h6>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                <img src="static/asset/img/aleft.svg" alt="" width="40px" height="40px">
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                <img src="static/asset/img/aright.svg" alt="" width="40px" height="40px">
-                            </button>
                         </div>
                     </div>
-                    {% else %}
-                    <div class="carrusel">No hay material de video</div>
-                    {% endif %}
-                    <h4 class="encabezado">CALIFICACION</h4>
-                    <div class="row tab">
-                        <div class=col>
-                            <ul class="nav nav-tabs justify-content-between" id="myTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                  <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general-tab-pane" type="button" role="tab" aria-controls="general-tab-pane" aria-selected="true">Concideraciónes generales</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                  <button class="nav-link" id="camarografo-tab" data-bs-toggle="tab" data-bs-target="#camarografo-tab-pane" type="button" role="tab" aria-controls="camarografo-tab-pane" aria-selected="false"> Mejor Camarógrafo/a</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                  <button class="nav-link" id="editor-tab" data-bs-toggle="tab" data-bs-target="#editor-tab-pane" type="button" role="tab" aria-controls="editor-tab-pane" aria-selected="false">Mejor Editor/a</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                  <button class="nav-link" id="productor-tab" data-bs-toggle="tab" data-bs-target="#productor-tab-pane" type="button" role="tab" aria-controls="productor-tab-pane" aria-selected="false">Mejor Productor/a</button>
-                                </li>
-                            </ul>
-                              <div class="tab-content" id="myTabContent">
-                                <form>
-                                    <div class="tab-pane fade show active" id="general-tab-pane" role="tabpanel" aria-labelledby="general-tab" tabindex="0">
-                                        <div class="conceptos">
-                                            <b>Conceptos generales:</b>
-                                        </div>
-                                        <div class="inside-conceptos">
-                                            <label for="observacion-general">Observación</label>
-                                            <textarea name="observacion-general" id="observacion-general" class="form-control tx-tarea"></textarea>
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <label for="originalidad" class="form-label">Originalidad</label>
-                                                    <select class="form-select" name="originalidad" id="originalidad">
-                                                        <option selected disabled>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="trabajo-en-estudio" class="form-label">Trabajo en estudio</label>
-                                                    <select class="form-select" name="trabajo-en-estudio" id="trabajo-en-estudio">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="sintesis" class="form-label">Poder de síntesis</label>
-                                                    <select class="form-select" name="sintesis" id="sintesis">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
+                    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                       <br>
+                        <div class="row tab">
+                            <div class=col>
+                                <ul class="nav nav-tabs justify-content-between" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general-tab-pane" type="button" role="tab" aria-controls="general-tab-pane" aria-selected="true">Concideraciónes generales</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link" id="camarografo-tab" data-bs-toggle="tab" data-bs-target="#camarografo-tab-pane" type="button" role="tab" aria-controls="camarografo-tab-pane" aria-selected="false"> Mejor Camarógrafo/a</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link" id="editor-tab" data-bs-toggle="tab" data-bs-target="#editor-tab-pane" type="button" role="tab" aria-controls="editor-tab-pane" aria-selected="false">Mejor Editor/a</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link" id="productor-tab" data-bs-toggle="tab" data-bs-target="#productor-tab-pane" type="button" role="tab" aria-controls="productor-tab-pane" aria-selected="false">Mejor Productor/a</button>
+                                    </li>
+                                </ul>
+                                <form id="form2" method="POST">
+                                    <div class="tab-content" id="myTabContentSecundario">
+                                        <div class="tab-pane fade show active" id="general-tab-pane" role="tabpanel" aria-labelledby="general-tab" tabindex="0">
+                                            
+                                            <div class="inside-conceptos">
+                                                <div class="conceptos">
+                                                    <b>Conceptos generales</b>
                                                 </div>
-                                                <div class="col-lg-4">
-                                                    <label for="plnificacion" class="form-label">Planificación / Rutina / Guión televisivo</label>
-                                                    <select class="form-select" name="planificacion" id="planificacion">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                      </select>
-                                                      <label for="trabajo-en-exteriores" class="form-label">Trabajo en exteriores</label>
-                                                    <select class="form-select" name="trabajo-en-exteriores" id="trabajo-en-exteriores">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="escenografia" class="form-label">Escenografía</label>
-                                                    <select class="form-select" name="escenografia" id="escenografia">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
+                                                <label for="observacion-general">Observación</label>
+                                                <textarea name="observacion-general" id="observacion-general" class="form-control tx-tarea"></textarea>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <label for="originalidad" class="form-label">Originalidad</label>
+                                                        <select class="form-select" name="originalidad" id="originalidad">
+                                                            <option selected disabled>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="trabajo-en-estudio" class="form-label">Trabajo en estudio</label>
+                                                        <select class="form-select" name="trabajo-en-estudio" id="trabajo-en-estudio">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="sintesis" class="form-label">Poder de síntesis</label>
+                                                        <select class="form-select" name="sintesis" id="sintesis">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label for="plnificacion" class="form-label">Planificación / Rutina / Guión televisivo</label>
+                                                        <select class="form-select" name="planificacion" id="planificacion">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="trabajo-en-exteriores" class="form-label">Trabajo en exteriores</label>
+                                                        <select class="form-select" name="trabajo-en-exteriores" id="trabajo-en-exteriores">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="escenografia" class="form-label">Escenografía</label>
+                                                        <select class="form-select" name="escenografia" id="escenografia">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label for="cronograma" class="form-label">Cronograma</label>
+                                                        <select class="form-select" name="cronograma" id="cronograma">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="tiempos-de-aire" class="form-label">Manejo de los tiempos de aire</label>
+                                                        <select class="form-select" name="tiempos-de-aire" id="tiempos-de-aire">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                                <div class="col-lg-4">
-                                                    <label for="cronograma" class="form-label">Cronograma</label>
-                                                    <select class="form-select" name="cronograma" id="cronograma">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                      </select>
-                                                    <label for="tiempos-de-aire" class="form-label">Manejo de los tiempos de aire</label>
-                                                    <select class="form-select" name="tiempos-de-aire" id="tiempos-de-aire">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
+                                            </div>
+                                            <div class="inside-conceptos">
+                                                <div class="conceptos">
+                                                    <b>Conceptos de realización</b>
+                                                </div>
+                                                <label for="observacion-de-realizacion">Observación</label>
+                                                <textarea name="observacion-de-realizacion" id="observacion-de-realizacion" class="form-control tx-tarea"></textarea>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <label for="encuadres" class="form-label">Encuadres</label>
+                                                        <select class="form-select" name="encuadres" id="encuadres">
+                                                            <option selected disabled>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="eje-de-accion" class="form-label">Eje de acción</label>
+                                                        <select class="form-select" name="eje-de-accion" id="eje-de-accion">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="post-produccion" class="form-label">Post producción</label>
+                                                        <select class="form-select" name="post-produccion" id="post-produccion">
+                                                            <option selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label for="planos-realizacion" class="form-label">Planos</label>
+                                                        <select class="form-select" name="planos-realizacion" id="planos-realizacion">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="toma-de-iluminacion" class="form-label">Iluminación en estudio y en exteriores</label>
+                                                        <select class="form-select" name="toma-de-iluminacion" id="toma-de-iluminacion">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>                                              
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label for="puestas-de-camaras" class="form-label">Puestas de cámaras</label>
+                                                        <select class="form-select" name="puestas-de-camaras" id="puestas-de-camaras">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="toma-de-sonido" class="form-label">Toma de sonido en estudio y en exteriores</label>
+                                                        <select class="form-select" name="toma-de-sonido" id="toma-de-sonido">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="conceptos">
-                                            <b>Conceptos de realización:</b>
-                                        </div>
-                                        <div class="inside-conceptos">
-                                            <label for="observacion-de-realizacion">Observación</label>
-                                            <textarea name="observacion-de-realizacion" id="observacion-de-realizacion" class="form-control tx-tarea"></textarea>
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <label for="encuadres" class="form-label">Encuadres</label>
-                                                    <select class="form-select" name="encuadres" id="encuadres">
-                                                        <option selected disabled>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="eje-de-accion" class="form-label">Eje de acción</label>
-                                                    <select class="form-select" name="eje-de-accion" id="eje-de-accion">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="post-produccion" class="form-label">Post producción</label>
-                                                    <select class="form-select" name="post-produccion" id="post-produccion">
-                                                        <option selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
+                                        <div class="tab-pane fade" id="camarografo-tab-pane" role="tabpanel" aria-labelledby="camarografo-tab" tabindex="0">
+                                            <div class="inside-conceptos">
+                                                <div class="conceptos">
+                                                    <b>Encuadres</b>
                                                 </div>
-                                                <div class="col-lg-4">
-                                                    <label for="planos-realizacion" class="form-label">Planos</label>
-                                                    <select class="form-select" name="planos-realizacion" id="planos-realizacion">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="toma-de-iluminacion" class="form-label">Iluminación en estudio y en exteriores</label>
-                                                    <select class="form-select" name="toma-de-iluminacion" id="toma-de-iluminacion">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>                                              
+                                                <label for="observacion-de-encuadres">Observación</label>
+                                                <textarea name="observacion-de-encuadres" id="observacion-de-encuadres" class="form-control tx-tarea"></textarea>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <label for="imagenes" class="form-label">Imagenes</label>
+                                                        <select class="form-select" name="imagenes" id="imagenes">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label for="creatividad" class="form-label">Creatividad</label>
+                                                        <select class="form-select" name="creatividad" id="creatividad">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label for="inserts" class="form-label">Inserts de imágenes</label>
+                                                        <select class="form-select" name="inserts" id="inserts">
+                                                            <option disabled selected>Opciones</option>
+                                                            <option value="si">Sí</option>
+                                                            <option value="no">No</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                                <div class="col-lg-4">
-                                                    <label for="puestas-de-camaras" class="form-label">Puestas de cámaras</label>
-                                                    <select class="form-select" name="puestas-de-camaras" id="puestas-de-camaras">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="toma-de-sonido" class="form-label">Toma de sonido en estudio y en exteriores</label>
-                                                    <select class="form-select" name="toma-de-sonido" id="toma-de-sonido">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
+                                            </div>
+                                            <div class="inside-conceptos">
+                                                <div class="conceptos">
+                                                    <b>Otros conceptos</b>
+                                                </div>
+                                                <label for="observacion-de-otros-conceptos">Observación</label>
+                                                <textarea name="observacion-de-otros-conceptos" id="observacion-de-otros-conceptos" class="form-control tx-tarea"></textarea>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <label for="movimiento-de-camara" class="form-label">Movimientos de cámara</label>
+                                                        <select class="form-select" name="movimiento-de-camara" id="movimiento-de-camara">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="iluminacion" class="form-label">Iluminación</label>
+                                                        <select class="form-select" name="iluminacion" id="iluminacion">
+                                                            <option selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label for="angulacion" class="form-label">Angulación</label>
+                                                        <select class="form-select" name="angulacion" id="angulacion">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>        
+                                                        <label for="sonido" class="form-label">Sonido</label>
+                                                        <select class="form-select" name="sonido" id="sonido">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>                                          
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label for="planos-camarografo" class="form-label">Planos</label>
+                                                        <select class="form-select" name="planos-camarografo" id="planos-camarografo">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="manejo-del-iris" class="form-label">Manejo del Iris</label>
+                                                        <select class="form-select" name="manejo-del-iris" id="manejo-del-iris">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="camarografo-tab-pane" role="tabpanel" aria-labelledby="camarografo-tab" tabindex="0">
-                                        <div class="conceptos">
-                                            <b>Encuadres:</b>
-                                        </div>
-                                        <div class="inside-conceptos">
-                                            <label for="observacion-de-encuadres">Observación</label>
-                                            <textarea name="observacion-de-encuadres" id="observacion-de-encuadres" class="form-control tx-tarea"></textarea>
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <label for="imagenes" class="form-label">Imagenes</label>
-                                                    <select class="form-select" name="imagenes" id="imagenes">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
+                                        <div class="tab-pane fade" id="editor-tab-pane" role="tabpanel" aria-labelledby="editor-tab" tabindex="0">
+                                            <div class="inside-conceptos">
+                                                <div class="conceptos">
+                                                    <b>Conceptos mejor Editor/a</b>
                                                 </div>
-                                                <div class="col-lg-4">
-                                                    <label for="creatividad" class="form-label">Creatividad</label>
-                                                    <select class="form-select" name="creatividad" id="creatividad">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <label for="inserts" class="form-label">Inserts de imágenes</label>
-                                                    <select class="form-select" name="inserts" id="inserts">
-                                                        <option disabled selected>Opciones</option>
-                                                        <option value="si">Sí</option>
-                                                        <option value="no">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="conceptos">
-                                            <b>Otros conceptos:</b>
-                                        </div>
-                                        <div class="inside-conceptos">
-                                            <label for="observacion-de-otros-conceptos">Observación</label>
-                                            <textarea name="observacion-de-otros-conceptos" id="observacion-de-otros-conceptos" class="form-control tx-tarea"></textarea>
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <label for="movimiento-de-camara" class="form-label">Movimientos de cámara</label>
-                                                    <select class="form-select" name="movimiento-de-camara" id="movimiento-de-camara">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="iluminacion" class="form-label">Iluminación</label>
-                                                    <select class="form-select" name="iluminacion" id="iluminacion">
-                                                        <option selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <label for="angulacion" class="form-label">Angulación</label>
-                                                    <select class="form-select" name="angulacion" id="angulacion">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>        
-                                                    <label for="sonido" class="form-label">Sonido</label>
-                                                    <select class="form-select" name="sonido" id="sonido">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>                                          
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <label for="planos-camarografo" class="form-label">Planos</label>
-                                                    <select class="form-select" name="planos-camarografo" id="planos-camarografo">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="manejo-del-iris" class="form-label">Manejo del Iris</label>
-                                                    <select class="form-select" name="manejo-del-iris" id="manejo-del-iris">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
+                                                <label for="observacion-de-mejor-editor">Observación</label>
+                                                <textarea name="observacion-de-mejor-editor" id="observacion-de-mejor-editor" class="form-control tx-tarea"></textarea>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <label for="musicalizacion" class="form-label">Musicalización</label>
+                                                        <select class="form-select" name="musicalizacion" id="musicalizacion">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="pertinencia-inserts" class="form-label">Pertinencia de los inserts</label>
+                                                        <select class="form-select" name="pertinencia-inserts" id="pertinencia-inserts">
+                                                            <option selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label for="tiempo-al-aire" class="form-label">Tiempo de imagen al aire</label>
+                                                        <select class="form-select" name="tiempo-al-aire" id="tiempo-al-aire">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>        
+                                                        <label for="zocalos" class="form-label">Zocalos</label>
+                                                        <select class="form-select" name="zocalos" id="zocalos">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>                                          
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label for="ritmo" class="form-label">Ritmo</label>
+                                                        <select class="form-select" name="ritmo" id="ritmo">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="sonido-editor" class="form-label">Sonido</label>
+                                                        <select class="form-select" name="sonido-editor" id="sonido-editor">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="editor-tab-pane" role="tabpanel" aria-labelledby="editor-tab" tabindex="0">
-                                        <div class="conceptos">
-                                            <b>Conceptos mejor Editor/a</b>
-                                        </div>
-                                        <div class="inside-conceptos">
-                                            <label for="observacion-de-mejor-editor">Observación</label>
-                                            <textarea name="observacion-de-mejor-editor" id="observacion-de-mejor-editor" class="form-control tx-tarea"></textarea>
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <label for="musicalizacion" class="form-label">Musicalización</label>
-                                                    <select class="form-select" name="musicalizacion" id="musicalizacion">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="pertinencia-inserts" class="form-label">Pertinencia de los inserts</label>
-                                                    <select class="form-select" name="pertinencia-inserts" id="pertinencia-inserts">
-                                                        <option selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
+                                        <div class="tab-pane fade" id="productor-tab-pane" role="tabpanel" aria-labelledby="productor-tab" tabindex="0">
+                                            <div class="inside-conceptos">
+                                                <div class="conceptos">
+                                                    <b>Conceptos mejor productor</b>
                                                 </div>
-                                                <div class="col-lg-4">
-                                                    <label for="tiempo-al-aire" class="form-label">Tiempo de imagen al aire</label>
-                                                    <select class="form-select" name="tiempo-al-aire" id="tiempo-al-aire">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>        
-                                                    <label for="zocalos" class="form-label">Zocalos</label>
-                                                    <select class="form-select" name="zocalos" id="zocalos">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>                                          
+                                                <label for="observacion-mejor-productor">Observación</label>
+                                                <textarea name="observacion-mejor-productor" id="observacion-mejor-productor" class="form-control tx-tarea"></textarea>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <label for="preproduccion" class="form-label">Preproducción</label>
+                                                        <select class="form-select" name="preproduccion" id="preproduccion">
+                                                            <option selected disabled>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="creatividad-productor" class="form-label">Creatividad</label>
+                                                            <select class="form-select" name="tcreatividad-productor" id="creatividad-productor">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="originalidad-productor" class="form-label">Originalidad de la propuesta</label>
+                                                        <select class="form-select" name="originalidad-productor" id="originalidad-productor">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="estrategia-comunicacion" class="form-label">Estrategias de comunicación</label>
+                                                        <select class="form-select" name="estrategia-comunicacion" id="estrategia-comunicacion">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label for="produccion" class="form-label">Produccion</label>
+                                                        <select class="form-select" name="produccion" id="produccion">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="elaboracion-rutina" class="form-label">Elaboración de la rutina</label>
+                                                        <select class="form-select" name="elaboracion-rutina" id="elaboracion-rutina">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="originalidad-contenido" class="form-label">Originalidad del contenido</label>
+                                                        <select class="form-select" name="originalidad-contenido" id="originalidad-contenido">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label for="post-mejor-produccion" class="form-label">Post Produccion</label>
+                                                        <select class="form-select" name="post-mejor-produccion" id="post-mejor-produccion">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="variedad-propuestas" class="form-label">Variedad de las propuestas</label>
+                                                        <select class="form-select" name="variedad-propuestas" id="variedad-propuestas">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                        <label for="adecuacion-contenido" class="form-label">Adecuación del contenido</label>
+                                                        <select class="form-select" name="adecuacion-contenido" id="adecuacion-contenido">
+                                                            <option disabled selected>Puntuación</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                                <div class="col-lg-4">
-                                                    <label for="ritmo" class="form-label">Ritmo</label>
-                                                    <select class="form-select" name="ritmo" id="ritmo">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="sonido-editor" class="form-label">Sonido</label>
-                                                    <select class="form-select" name="sonido-editor" id="sonido-editor">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
+                                            </div> 
+                                            <div class="container text-end">
+                                                <button type="submit" id="btn-form-calif" name="guardar" class="btn btn-success mt-3">Guardar</button>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="productor-tab-pane" role="tabpanel" aria-labelledby="productor-tab" tabindex="0">
-                                        <div class="conceptos">
-                                            <b>Conceptos mejor productor:</b>
-                                        </div>
-                                        <div class="inside-conceptos">
-                                            <label for="observacion-mejor-productor">Observación</label>
-                                            <textarea name="observacion-mejor-productor" id="observacion-mejor-productor" class="form-control tx-tarea"></textarea>
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <label for="preproduccion" class="form-label">Preproducción</label>
-                                                    <select class="form-select" name="preproduccion" id="preproduccion">
-                                                        <option selected disabled>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="creatividad-productor" class="form-label">Creatividad</label>
-                                                        <select class="form-select" name="tcreatividad-productor" id="creatividad-productor">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="originalidad-productor" class="form-label">Originalidad de la propuesta</label>
-                                                    <select class="form-select" name="originalidad-productor" id="originalidad-productor">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="estrategia-comunicacion" class="form-label">Estrategias de comunicación</label>
-                                                    <select class="form-select" name="estrategia-comunicacion" id="estrategia-comunicacion">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <label for="produccion" class="form-label">Produccion</label>
-                                                    <select class="form-select" name="produccion" id="produccion">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="elaboracion-rutina" class="form-label">Elaboración de la rutina</label>
-                                                    <select class="form-select" name="elaboracion-rutina" id="elaboracion-rutina">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="originalidad-contenido" class="form-label">Originalidad del contenido</label>
-                                                    <select class="form-select" name="originalidad-contenido" id="originalidad-contenido">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <label for="post-mejor-produccion" class="form-label">Post Produccion</label>
-                                                    <select class="form-select" name="post-mejor-produccion" id="post-mejor-produccion">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="variedad-propuestas" class="form-label">Variedad de las propuestas</label>
-                                                    <select class="form-select" name="variedad-propuestas" id="variedad-propuestas">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <label for="adecuacion-contenido" class="form-label">Adecuación del contenido</label>
-                                                    <select class="form-select" name="adecuacion-contenido" id="adecuacion-contenido">
-                                                        <option disabled selected>Puntuación</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div> 
-                                        <div class="container text-end">
-                                            <button type="submit" name="guardar" class="btn btn-success mt-2">Guardar</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <!--
-                    <h4 class="pt-1">Obervaciones</h4>
-                    <input type="text" name="observaciones" value="{{observacion}}" class="form-control input-sm">
-                    <hr>
-                    <h4 class="pt-1">Estado por el jurado</h4>
-                    <input type="text" name="estado" value="{{estado}}" class="form-control input-sm">-->
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="row">    
+            <h4 class="encabezado">RUTINA</h4>
+                <hr>
+                <div id="rutina">
+                    <a  href="{{rutina}}" target="_blank" rel="noopener noreferrer">Abrir documento de rutina</a>
                 </div>
                 
-            </div>
-        </form> 
-        </div>
+                <h4 class="encabezado">MATERIAL DE VIDEO</h4>
+                <hr>
+                {% if cover or programa1 or programa2 or programa3 %}
+                {% if programa1 %}
+                <div class="col-md-3">
+                    <a href="{{programa1}}" class="btn" id="boton-gd">
+                        <img src="static/asset/img/play.svg" alt="" width="25px" height="25px">
+                            Programa 1
+                    </a>
+                </div>
+                {% endif %}
+                {% if programa2 %}
+                <div class="col-md-3">
+                    <a href="{{programa2}}" class="btn" id="boton-gd">
+                        <img src="static/asset/img/play.svg" alt="" width="25px" height="25px">
+                            Programa 2
+                    </a>
+                </div>
+                {% endif %}
+                {% if programa3 %}
+                <div class="col-md-3">
+                    <a href="{{programa3}}" class="btn" id="boton-gd">
+                        <img src="static/asset/img/play.svg" alt="" width="25px" height="25px">
+                            Programa 3
+                    </a>
+                </div>
+                {% endif %}
+                {% if cover %}
+                <div class="col-md-3">
+                    <a href="{{cover}}" class="btn" id="boton-gd">
+                        <img src="static/asset/img/play.svg" alt="" width="25px" height="25px">
+                            Cover
+                    </a>
+                </div>
+                {% endif %}
+                <div class="text-center p-3 carrusel">
+                    <div id="carouselExampleCaptions" class="carousel slide">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" ></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            {% if cover %}
+                            <div class="carousel-item active">
+                                <iframe src="{{cover}}"  allow="autoplay"></iframe>
+                                <div class="carousel-caption d-none d-md-block">
+                                <h6>Cover</h6>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if programa1 %}
+                            <div class="carousel-item">
+                                <iframe src="{{programa1}}"  allow="autoplay"></iframe>
+                                <div class="carousel-caption d-none d-md-block">
+                                <h6>Programa 1</h6>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {%if programa2 %}
+                            <div class="carousel-item">
+                                <iframe src="{{programa2}}"  allow="autoplay"></iframe>
+                                <div class="carousel-caption d-none d-md-block">
+                                <h6>Programa 2</h6>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if programa3 %}
+                            <div class="carousel-item">
+                                <iframe src="{{programa3}}"  allow="autoplay"></iframe>
+                                <div class="carousel-caption d-none d-md-block">
+                                <h6>Programa 3</h6>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                            <img src="static/asset/img/aleft.svg" alt="" width="40px" height="40px">
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                            <img src="static/asset/img/aright.svg" alt="" width="40px" height="40px">
+                        </button>
+                    </div>
+                </div>
+                {% else %}
+                <div class="carrusel">No hay material de video</div>
+                {% endif %}
+        </div> 
     </div>
 </div>
+    
+<script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptjurados.js') }}"></script>
 {%endblock%}

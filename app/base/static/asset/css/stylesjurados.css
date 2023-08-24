@@ -1,12 +1,12 @@
 :root{
-	--primary: #1b53a7;
-	--secondary: #d4dae6;
+	--primary: rgb(0, 122, 173);
+	--secondary: #bfc0c0;
     --terciary: #989eaa;
 	--white: #fff;
 	--text-clr: #5b6475;
 	--header-clr: #25273d;
-	--next-btn-hover: #677cc0;
-	--back-btn-hover: #8b8c8c;
+	--next-btn-hover: rgb(0, 84, 119);
+	--back-btn-hover: #8b8b8c;
 }
 
 *{
@@ -46,8 +46,20 @@ hr{
     margin-bottom: 10px;
 }
 
+#rutina a{
+    border-radius: 15px;
+    background-color: var(--primary);
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+#rutina a:focus, #rutina a:hover{
+    background-color: var(--next-btn-hover);
+}
+
 #rutina{
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .container .row .carrusel{
@@ -58,38 +70,52 @@ hr{
     
 }
 
+.tab form{
+    background-color: var(--primary);
+    padding:40px;
+    border-radius: 5px;
+}
+
 .conceptos{
-    padding-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
     margin : 10px 0px 0px 10px;
     color: var(--primary);
 }
 
 .inside-conceptos{
 	background: var(--white);
-	margin: 20px auto 0;
+	margin: 0px auto 40px;
 	padding: 15px;
-	border-radius: 15px;
-    border-color:white;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 50%) !important;
+	border-radius: 5px;
+    border: 1px solid var(--secondary);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 25%);
+
 }
 
 .tab .nav-item .nav-link{
-    background: var(--primary);
-    color: white;
-}
+    border-top: 1px solid var(--secondary);
+    border-left: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);;
+   }
+
+   .tab .nav-item :hover{
+    border: 2px solid var(--back-btn-hover);
+    color: var(--back-btn-hover);
+   }   
 
 .tab .nav-item .active{
-    background: white;
-    color: var(--primary);
-}
-
-.tab ul{
-    margin-bottom: 16px;
-
-}
-.tab .nav-link{
+    background:var(--primary);
+    color: white;
     border: 2px solid var(--primary);
 }
+
+
+.tab ul{
+    margin-bottom: 0px;
+
+}
+
 
 .tab .form-control{
     margin-top: 12px;
@@ -100,12 +126,20 @@ hr{
     margin-bottom: 12px;
     color: var(--text-clr);
     border: 2px solid var(--secondary);
+    transition: 0.5s ease;
+}
+
+.tab .form-select:focus, .tab .form-select:active, .tab .tx-tarea:focus{
+    
+    outline: none;
+    border: 0;
 }
 
 .tab .tx-tarea{
     color: var(--text-clr);
     border: 2px solid var(--secondary);
 }
+
 
 
 

@@ -127,7 +127,7 @@ def render_instructivo():
 
 @blueprint.route('/paginajurados/<id_>')
 @tryton.transaction()
-@login_required
+#@login_required
 def jurados(id_=None):
     inscription, = Inscription.search([('id', '=', int(id_))],
                                       limit=1)
@@ -169,11 +169,11 @@ def jurados(id_=None):
                            programa3=inscription.video_long3,
                            )
 
-@blueprint.route('/paginajurados')
+#@blueprint.route('/paginajurados')
 @blueprint.route("/listado")
 @blueprint.route("/listado/<categoria>")
 @tryton.transaction()
-@login_required
+#@login_required
 def show_category(categoria=None):
     inscriptos = []
     if categoria == "a":
