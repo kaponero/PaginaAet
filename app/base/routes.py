@@ -186,6 +186,8 @@ def show_category(categoria=None):
         inscriptos = Inscription.search([('category.category.name','=', "CATEGORÍA D")])
     elif categoria == "e":
         inscriptos = Inscription.search([('category.category.name','=', "CATEGORÍA E")])
+    elif categoria == "f":
+        inscriptos = Inscription.search([('category.category.name','=', "CATEGORÍA F")])
     elif categoria == "vivo":
         inscriptos = Inscription.search([('category.category.name','=', "TRANSMISIONES EN VIVO")])
     elif categoria == "turf":
