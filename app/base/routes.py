@@ -173,7 +173,7 @@ def jurados(id_=None):
 @blueprint.route("/listado")
 @blueprint.route("/listado/<categoria>")
 @tryton.transaction()
-@login_required
+#@login_required
 def show_category(categoria=None):
     inscriptos = []
     if categoria == "a":
