@@ -17,6 +17,7 @@ Session = tryton.pool.get('web.user.session')
 Inscription = tryton.pool.get('aet_web.inscription')
 CityCategory = tryton.pool.get('aet_web.city.category')
 Category = tryton.pool.get('aet_web.category')
+Calification = tryton.pool.get('aet_web.calification')
 
 #### objetos para testing
 class daata():
@@ -67,7 +68,6 @@ def inscripcion():
         genres = Inscription.fields_get('genre')['genre']['selection']
 
     if request.method == 'POST':
-        print(20*'*', request.form)
         inscription, = Inscription.create([{
             'name': request.form['programa'] or None,
             'category': request.form['categoria'],
@@ -119,7 +119,6 @@ def inscripcion():
 def render_instructivo():
     Instruction = tryton.pool.get('aet_web.instruction.report', type='report')
     ext, content, _, name = Instruction.execute([], {})
-    print(ext, content, _, name)
     return send_file(
         BytesIO(content),
         attachment_filename='instructivo.pdf')
@@ -127,12 +126,17 @@ def render_instructivo():
 
 @blueprint.route('/paginajurados/<id_>')
 @tryton.transaction()
-#@login_required
+@login_required
 def jurados(id_=None):
+    user = Session.get_user(session['session_key'])
     inscription, = Inscription.search([('id', '=', int(id_))],
                                       limit=1)
     inscriptions = Inscription.search([('id', '>', 0)])
-    print(inscription)
+    calification, = Calification.search([
+        ('program', '=', int(id_)),
+        ('jury.web_user', '=', user)
+        ])
+    rango = [str(x) for x in range(1,11)]
     return render_template('/paginajurados.html',
                            usuarios=len(inscriptions),
                            programa=inscription.name,
@@ -167,32 +171,66 @@ def jurados(id_=None):
                            programa1=inscription.video_long1,
                            programa2=inscription.video_long2,
                            programa3=inscription.video_long3,
+                           calification=calification,
+                           rango=rango
                            )
 
 #@blueprint.route('/paginajurados')
 @blueprint.route("/listado")
+@blueprint.route("/listado/")
 @blueprint.route("/listado/<categoria>")
 @tryton.transaction()
-#@login_required
+@login_required
 def show_category(categoria=None):
     inscriptos = []
+    user = Session.get_user(session['session_key'])
+    #print(5*'\n' + 20*'*',
+          #user,
+          #20*'*' + 5*'\n')
     if categoria == "a":
-        inscriptos = Inscription.search([('category.category.name','=', "CATEGORÍA A")])
+        inscriptos = Inscription.search([
+            ('category.category.name','=', "CATEGORÍA A"),
+            ('jurys.jury.web_user', '=', user)
+            ])
     elif categoria == "b":
-        inscriptos = Inscription.search([('category.category.name','=', "CATEGORÍA B")])
+        inscriptos = Inscription.search([
+            ('category.category.name','=', "CATEGORÍA B"),
+            ('jurys.jury.web_user', '=', user)
+            ])
     elif categoria == "c":
-        inscriptos = Inscription.search([('category.category.name','=', "CATEGORÍA C")])
+        inscriptos = Inscription.search([
+            ('category.category.name','=', "CATEGORÍA C"),
+            ('jurys.jury.web_user', '=', user)
+            ])
     elif categoria == "d":
-        inscriptos = Inscription.search([('category.category.name','=', "CATEGORÍA D")])
+        inscriptos = Inscription.search([
+            ('category.category.name','=', "CATEGORÍA D"),
+            ('jurys.jury.web_user', '=', user)
+            ])
     elif categoria == "e":
-        inscriptos = Inscription.search([('category.category.name','=', "CATEGORÍA E")])
+        inscriptos = Inscription.search([
+            ('category.category.name','=', "CATEGORÍA E"),
+            ('jurys.jury.web_user', '=', user)
+            ])
     elif categoria == "f":
-        inscriptos = Inscription.search([('category.category.name','=', "CATEGORÍA F")])
+        inscriptos = Inscription.search([
+            ('category.category.name','=', "CATEGORÍA F"),
+            ('jurys.jury.web_user', '=', user)
+            ])
     elif categoria == "vivo":
-        inscriptos = Inscription.search([('category.category.name','=', "TRANSMISIONES EN VIVO")])
+        inscriptos = Inscription.search([
+            ('category.category.name','=', "TRANSMISIONES EN VIVO"),
+            ('jurys.jury.web_user', '=', user)
+            ])
     elif categoria == "turf":
-        inscriptos = Inscription.search([('category.category.name','=', "TURF")])
+        inscriptos = Inscription.search([
+            ('category.category.name','=', "TURF"),
+            ('jurys.jury.web_user', '=', user)
+            ])
     else:
-        inscriptos = Inscription.search([('id','>',0)])
-        return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
+        inscriptos = Inscription.search([
+            ('id','>',0),
+            ('jurys.jury.web_user', '=', user)
+            ])
+        #return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
     return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))

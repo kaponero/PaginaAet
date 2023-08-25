@@ -121,7 +121,7 @@
                             <div class=col>
                                 <ul class="nav nav-tabs justify-content-between" id="myTab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                      <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general-tab-pane" type="button" role="tab" aria-controls="general-tab-pane" aria-selected="true">Concideraciónes generales</button>
+                                      <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general-tab-pane" type="button" role="tab" aria-controls="general-tab-pane" aria-selected="true">Consideraciones generales</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
                                       <button class="nav-link" id="camarografo-tab" data-bs-toggle="tab" data-bs-target="#camarografo-tab-pane" type="button" role="tab" aria-controls="camarografo-tab-pane" aria-selected="false"> Mejor Camarógrafo/a</button>
@@ -136,130 +136,105 @@
                                 <form id="form2" method="POST">
                                     <div class="tab-content" id="myTabContentSecundario">
                                         <div class="tab-pane fade show active" id="general-tab-pane" role="tabpanel" aria-labelledby="general-tab" tabindex="0">
-                                            
                                             <div class="inside-conceptos">
                                                 <div class="conceptos">
                                                     <b>Conceptos generales</b>
                                                 </div>
                                                 <label for="observacion-general">Observación</label>
-                                                <textarea name="observacion-general" id="observacion-general" class="form-control tx-tarea"></textarea>
+                                                <textarea name="observacion-general" id="observacion-general" class="form-control tx-tarea">{{ calification.general_observations}}</textarea>
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <label for="originalidad" class="form-label">Originalidad</label>
                                                         <select class="form-select" name="originalidad" id="originalidad">
+                                                            {% if not calification.originality %}
                                                             <option selected disabled>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.originality == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="trabajo-en-estudio" class="form-label">Trabajo en estudio</label>
                                                         <select class="form-select" name="trabajo-en-estudio" id="trabajo-en-estudio">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.studio_work %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.studio_work == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="sintesis" class="form-label">Poder de síntesis</label>
                                                         <select class="form-select" name="sintesis" id="sintesis">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.synthesis %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.synthesis == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <label for="plnificacion" class="form-label">Planificación / Rutina / Guión televisivo</label>
                                                         <select class="form-select" name="planificacion" id="planificacion">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.routine %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.routine == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="trabajo-en-exteriores" class="form-label">Trabajo en exteriores</label>
                                                         <select class="form-select" name="trabajo-en-exteriores" id="trabajo-en-exteriores">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.outdoor_work %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.outdoor_work == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="escenografia" class="form-label">Escenografía</label>
                                                         <select class="form-select" name="escenografia" id="escenografia">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.scenography %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.scenography == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <label for="cronograma" class="form-label">Cronograma</label>
                                                         <select class="form-select" name="cronograma" id="cronograma">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.schedule %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.schedule == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="tiempos-de-aire" class="form-label">Manejo de los tiempos de aire</label>
                                                         <select class="form-select" name="tiempos-de-aire" id="tiempos-de-aire">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.management_of_times %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.management_of_times == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                 </div>
@@ -269,110 +244,89 @@
                                                     <b>Conceptos de realización</b>
                                                 </div>
                                                 <label for="observacion-de-realizacion">Observación</label>
-                                                <textarea name="observacion-de-realizacion" id="observacion-de-realizacion" class="form-control tx-tarea"></textarea>
+                                                <textarea name="observacion-de-realizacion" id="observacion-de-realizacion" class="form-control tx-tarea">{{ calification.realization_observations }}</textarea>
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <label for="encuadres" class="form-label">Encuadres</label>
                                                         <select class="form-select" name="encuadres" id="encuadres">
+                                                            {% if not calification.frames %}
                                                             <option selected disabled>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.frames == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="eje-de-accion" class="form-label">Eje de acción</label>
                                                         <select class="form-select" name="eje-de-accion" id="eje-de-accion">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.axis_of_action %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.axis_of_action == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="post-produccion" class="form-label">Post producción</label>
                                                         <select class="form-select" name="post-produccion" id="post-produccion">
-                                                            <option selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.general_post_production %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.general_post_production == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <label for="planos-realizacion" class="form-label">Planos</label>
                                                         <select class="form-select" name="planos-realizacion" id="planos-realizacion">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.blueprints %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.blueprints == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="toma-de-iluminacion" class="form-label">Iluminación en estudio y en exteriores</label>
                                                         <select class="form-select" name="toma-de-iluminacion" id="toma-de-iluminacion">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
-                                                        </select>                                              
+                                                            {% if not calification.illumination %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.illumination == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
+                                                        </select>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <label for="puestas-de-camaras" class="form-label">Puestas de cámaras</label>
                                                         <select class="form-select" name="puestas-de-camaras" id="puestas-de-camaras">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.camera_sets %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.camera_sets == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="toma-de-sonido" class="form-label">Toma de sonido en estudio y en exteriores</label>
                                                         <select class="form-select" name="toma-de-sonido" id="toma-de-sonido">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.sound %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.sound == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                 </div>
@@ -384,46 +338,43 @@
                                                     <b>Encuadres</b>
                                                 </div>
                                                 <label for="observacion-de-encuadres">Observación</label>
-                                                <textarea name="observacion-de-encuadres" id="observacion-de-encuadres" class="form-control tx-tarea"></textarea>
+                                                <textarea name="observacion-de-encuadres" id="observacion-de-encuadres" class="form-control tx-tarea">{{ calification.frames_observations}}</textarea>
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <label for="imagenes" class="form-label">Imagenes</label>
                                                         <select class="form-select" name="imagenes" id="imagenes">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.images %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.images == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <label for="creatividad" class="form-label">Creatividad</label>
                                                         <select class="form-select" name="creatividad" id="creatividad">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.creativity %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.creativity == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <label for="inserts" class="form-label">Inserts de imágenes</label>
                                                         <select class="form-select" name="inserts" id="inserts">
-                                                            <option disabled selected>Opciones</option>
-                                                            <option value="si">Sí</option>
-                                                            <option value="no">No</option>
+                                                            {% if not calification.inserts %}
+                                                            <option selected disabled>Opciones</option>
+                                                            {% endif %}
+                                                            {% for value in ['si', 'no'] %}
+                                                            <option value={{ value }}                                                            {% if calification.inserts == value %} selected{% endif %}                                                            >{% if calification.inserts == 'si' %} Sí {% else %} No {% endif %}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                 </div>
@@ -433,96 +384,78 @@
                                                     <b>Otros conceptos</b>
                                                 </div>
                                                 <label for="observacion-de-otros-conceptos">Observación</label>
-                                                <textarea name="observacion-de-otros-conceptos" id="observacion-de-otros-conceptos" class="form-control tx-tarea"></textarea>
+                                                <textarea name="observacion-de-otros-conceptos" id="observacion-de-otros-conceptos" class="form-control tx-tarea">{{ calification.other_concepts_observations }}</textarea>
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <label for="movimiento-de-camara" class="form-label">Movimientos de cámara</label>
                                                         <select class="form-select" name="movimiento-de-camara" id="movimiento-de-camara">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.camera_movements %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.camera_movements == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="iluminacion" class="form-label">Iluminación</label>
                                                         <select class="form-select" name="iluminacion" id="iluminacion">
-                                                            <option selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.cameraman_illumination %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.cameraman_illumination == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <label for="angulacion" class="form-label">Angulación</label>
                                                         <select class="form-select" name="angulacion" id="angulacion">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
-                                                        </select>        
+                                                            {% if not calification.angulation %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.angulation == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
+                                                        </select>
                                                         <label for="sonido" class="form-label">Sonido</label>
                                                         <select class="form-select" name="sonido" id="sonido">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
-                                                        </select>                                          
+                                                            {% if not calification.cameraman_sound %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.cameraman_sound == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
+                                                        </select>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <label for="planos-camarografo" class="form-label">Planos</label>
                                                         <select class="form-select" name="planos-camarografo" id="planos-camarografo">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.sound %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.cameraman_blueprints == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="manejo-del-iris" class="form-label">Manejo del Iris</label>
                                                         <select class="form-select" name="manejo-del-iris" id="manejo-del-iris">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.iris_management %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.iris_management == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                 </div>
@@ -534,96 +467,78 @@
                                                     <b>Conceptos mejor Editor/a</b>
                                                 </div>
                                                 <label for="observacion-de-mejor-editor">Observación</label>
-                                                <textarea name="observacion-de-mejor-editor" id="observacion-de-mejor-editor" class="form-control tx-tarea"></textarea>
+                                                <textarea name="observacion-de-mejor-editor" id="observacion-de-mejor-editor" class="form-control tx-tarea">{{ calification.editor_observations }}</textarea>
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <label for="musicalizacion" class="form-label">Musicalización</label>
                                                         <select class="form-select" name="musicalizacion" id="musicalizacion">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.musicalization %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.musicalization == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="pertinencia-inserts" class="form-label">Pertinencia de los inserts</label>
                                                         <select class="form-select" name="pertinencia-inserts" id="pertinencia-inserts">
-                                                            <option selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.relevance_of_the_inserts %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.relevance_of_the_inserts == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <label for="tiempo-al-aire" class="form-label">Tiempo de imagen al aire</label>
                                                         <select class="form-select" name="tiempo-al-aire" id="tiempo-al-aire">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
-                                                        </select>        
+                                                            {% if not calification.picture_airtime %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.picture_airtime == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
+                                                        </select>
                                                         <label for="zocalos" class="form-label">Zocalos</label>
                                                         <select class="form-select" name="zocalos" id="zocalos">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
-                                                        </select>                                          
+                                                            {% if not calification.skirting_boards %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.skirting_boards == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
+                                                        </select>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <label for="ritmo" class="form-label">Ritmo</label>
                                                         <select class="form-select" name="ritmo" id="ritmo">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.rhythm %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.rhythm == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="sonido-editor" class="form-label">Sonido</label>
                                                         <select class="form-select" name="sonido-editor" id="sonido-editor">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.editor_sound %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.editor_sound == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                 </div>
@@ -635,152 +550,122 @@
                                                     <b>Conceptos mejor productor</b>
                                                 </div>
                                                 <label for="observacion-mejor-productor">Observación</label>
-                                                <textarea name="observacion-mejor-productor" id="observacion-mejor-productor" class="form-control tx-tarea"></textarea>
+                                                <textarea name="observacion-mejor-productor" id="observacion-mejor-productor" class="form-control tx-tarea">{{ calification.producer_observations }}</textarea>
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <label for="preproduccion" class="form-label">Preproducción</label>
                                                         <select class="form-select" name="preproduccion" id="preproduccion">
+                                                            {% if not calification.preproduction %}
                                                             <option selected disabled>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.preproduction == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="creatividad-productor" class="form-label">Creatividad</label>
                                                             <select class="form-select" name="tcreatividad-productor" id="creatividad-productor">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.producer_creativity %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.producer_creativity == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="originalidad-productor" class="form-label">Originalidad de la propuesta</label>
                                                         <select class="form-select" name="originalidad-productor" id="originalidad-productor">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.originality_of_the_proposal %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.originality_of_the_proposal == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="estrategia-comunicacion" class="form-label">Estrategias de comunicación</label>
                                                         <select class="form-select" name="estrategia-comunicacion" id="estrategia-comunicacion">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.communication_strategies %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.communication_strategies == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <label for="produccion" class="form-label">Produccion</label>
                                                         <select class="form-select" name="produccion" id="produccion">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.production %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.production == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="elaboracion-rutina" class="form-label">Elaboración de la rutina</label>
                                                         <select class="form-select" name="elaboracion-rutina" id="elaboracion-rutina">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.elaboration_of_the_routine %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.elaboration_of_the_routine == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="originalidad-contenido" class="form-label">Originalidad del contenido</label>
                                                         <select class="form-select" name="originalidad-contenido" id="originalidad-contenido">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.content_originality %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.content_originality == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <label for="post-mejor-produccion" class="form-label">Post Produccion</label>
                                                         <select class="form-select" name="post-mejor-produccion" id="post-mejor-produccion">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.post_production %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.post_production == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="variedad-propuestas" class="form-label">Variedad de las propuestas</label>
                                                         <select class="form-select" name="variedad-propuestas" id="variedad-propuestas">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.variety_of_proposals %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.variety_of_proposals == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                         <label for="adecuacion-contenido" class="form-label">Adecuación del contenido</label>
                                                         <select class="form-select" name="adecuacion-contenido" id="adecuacion-contenido">
-                                                            <option disabled selected>Puntuación</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
+                                                            {% if not calification.adequacy %}
+                                                            <option selected disabled>Puntuación</option>
+                                                            {% endif %}
+                                                            {% for value in rango %}
+                                                            <option value={{ value }}
+                                                            {% if calification.adequacy == value %} selected{% endif %}
+                                                            >{{ value }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                 </div>
@@ -798,13 +683,13 @@
                 </div>
             </div>
         </div>
-        <div class="row">    
+        <div class="row">
             <h4 class="encabezado">RUTINA</h4>
                 <hr>
                 <div id="rutina">
                     <a  href="{{rutina}}" target="_blank" rel="noopener noreferrer">Abrir documento de rutina</a>
                 </div>
-                
+
                 <h4 class="encabezado">MATERIAL DE VIDEO</h4>
                 <hr>
                 {% if cover or programa1 or programa2 or programa3 %}
