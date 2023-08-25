@@ -124,7 +124,7 @@ def render_instructivo():
         attachment_filename='instructivo.pdf')
 
 
-#@blueprint.route('/paginajurados/<id_>')
+@blueprint.route('/paginajurados/<id_>')
 @tryton.transaction()
 @login_required
 def jurados(id_=None):
@@ -175,7 +175,7 @@ def jurados(id_=None):
                            rango=rango
                            )
 
-#@blueprint.route('/paginajurados')
+@blueprint.route('/paginajurados')
 @blueprint.route("/listado")
 @blueprint.route("/listado/")
 @blueprint.route("/listado/<categoria>")
