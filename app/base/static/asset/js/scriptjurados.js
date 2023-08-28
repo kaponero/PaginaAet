@@ -5,5 +5,3 @@ function recuperar_calificacion(identificador,valor_calificacion){
         select.selectedIndex = valor_calificacion;
     }
 }
-
-recuperar_calificacion("originalidad","3");
