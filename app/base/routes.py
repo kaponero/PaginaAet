@@ -138,7 +138,7 @@ def jurados(id_=None):
         ])
     rango = [str(x) for x in range(1,11)]
     return render_template('/paginajurados.html',
-                           usuarios=len(inscriptions),
+                           usuario=int(id_),
                            programa=inscription.name,
                            genero=inscription.genre_string,
                            categoria=inscription.category.rec_name,
