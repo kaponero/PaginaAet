@@ -145,7 +145,7 @@ def jurados(id_=None):
         
         calification.save()
     return render_template('/paginajurados.html',
-                           usuarios=len(inscriptions),
+                           usuario=int(id_),
                            programa=inscription.name,
                            genero=inscription.genre_string,
                            categoria=inscription.category.rec_name,
@@ -174,10 +174,10 @@ def jurados(id_=None):
                            cuit=inscription.cuit,
                            observacion=inscription.description,
                            estado="estado ok" if inscription.enrolled else "faltan revisar campos por el administrador",
-                           cover=inscription.video_short,
-                           programa1=inscription.video_long1,
-                           programa2=inscription.video_long2,
-                           programa3=inscription.video_long3,
+                           cover=inscription.video_short.replace('view','preview'),
+                           programa1=inscription.video_long1.replace('view','preview'),
+                           programa2=inscription.video_long2.replace('view','preview'),
+                           programa3=inscription.video_long3.replace('view','preview'),
                            calification=calification,
                            rango=rango
                            )

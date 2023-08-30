@@ -16,10 +16,10 @@
     <div class="row pb-3">
         <div class="col-lg-12 pt-3 pb-3">
             <div class="panel-heading">
-                <i class="fa fa-briefcase fa-fw"></i> USUARIOS INSCRIPTOS: {{usuarios}}
+                <i class="fa fa-briefcase fa-fw"></i> ID de USUARIO: {{usuario}}
                 <div style="float:right;display: block">
                     <input type="button" style="margin-top:-6px !important" class=" impre btn btn-sm btn btn-success" onclick="print()" value="IMPRIMIR">
-                        <a href="http://aetelecomunicaciones.org/admin/index.php" style="margin-top:-6px !important" class=" impre btn btn-sm btn-default">VOLVER AL LISTADO</a>
+                        <a href="/listado" style="margin-top:-6px !important" class=" impre btn btn-sm btn-default">VOLVER AL LISTADO</a>
                 </div>
             </div>
         </div>
@@ -698,7 +698,7 @@
                 {% if programa1 %}
                 <div class="col-md-3">
                     <a href="{{programa1}}" class="btn" id="boton-gd">
-                        <img src="static/asset/img/play.svg" alt="" width="25px" height="25px">
+                        <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
                             Programa 1
                     </a>
                 </div>
@@ -706,7 +706,7 @@
                 {% if programa2 %}
                 <div class="col-md-3">
                     <a href="{{programa2}}" class="btn" id="boton-gd">
-                        <img src="static/asset/img/play.svg" alt="" width="25px" height="25px">
+                        <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
                             Programa 2
                     </a>
                 </div>
@@ -714,7 +714,7 @@
                 {% if programa3 %}
                 <div class="col-md-3">
                     <a href="{{programa3}}" class="btn" id="boton-gd">
-                        <img src="static/asset/img/play.svg" alt="" width="25px" height="25px">
+                        <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
                             Programa 3
                     </a>
                 </div>
@@ -722,7 +722,7 @@
                 {% if cover %}
                 <div class="col-md-3">
                     <a href="{{cover}}" class="btn" id="boton-gd">
-                        <img src="static/asset/img/play.svg" alt="" width="25px" height="25px">
+                        <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
                             Cover
                     </a>
                 </div>
@@ -738,7 +738,7 @@
                         <div class="carousel-inner">
                             {% if cover %}
                             <div class="carousel-item active">
-                                <iframe src="{{cover}}"  allow="autoplay"></iframe>
+                                <iframe src="{{cover}}" width="640" height="480" allow="autoplay"></iframe>
                                 <div class="carousel-caption d-none d-md-block">
                                 <h6>Cover</h6>
                                 </div>
@@ -746,7 +746,7 @@
                             {% endif %}
                             {% if programa1 %}
                             <div class="carousel-item">
-                                <iframe src="{{programa1}}"  allow="autoplay"></iframe>
+                                <iframe src="{{programa1}}" width="640" height="480" allow="autoplay"></iframe>
                                 <div class="carousel-caption d-none d-md-block">
                                 <h6>Programa 1</h6>
                                 </div>
@@ -754,7 +754,7 @@
                             {% endif %}
                             {%if programa2 %}
                             <div class="carousel-item">
-                                <iframe src="{{programa2}}"  allow="autoplay"></iframe>
+                                <iframe src="{{programa2}}" width="640" height="480" allow="autoplay"></iframe>
                                 <div class="carousel-caption d-none d-md-block">
                                 <h6>Programa 2</h6>
                                 </div>
@@ -762,7 +762,7 @@
                             {% endif %}
                             {% if programa3 %}
                             <div class="carousel-item">
-                                <iframe src="{{programa3}}"  allow="autoplay"></iframe>
+                                <iframe src="{{programa3}}" width="640" height="480" allow="autoplay"></iframe>
                                 <div class="carousel-caption d-none d-md-block">
                                 <h6>Programa 3</h6>
                                 </div>
@@ -770,10 +770,10 @@
                             {% endif %}
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                            <img src="static/asset/img/aleft.svg" alt="" width="40px" height="40px">
+                            <img src="/static/asset/img/aleft.svg" alt="" width="40px" height="40px">
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                            <img src="static/asset/img/aright.svg" alt="" width="40px" height="40px">
+                            <img src="/static/asset/img/aright.svg" alt="" width="40px" height="40px">
                         </button>
                     </div>
                 </div>
