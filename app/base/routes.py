@@ -272,6 +272,7 @@ def jurados(id_=None):
                            cuit=inscription.cuit,
                            observacion=inscription.description,
                            estado="estado ok" if inscription.enrolled else "faltan revisar campos por el administrador",
+                           rutina=inscription.routine,
                            cover=inscription.video_short.replace('view','preview'),
                            programa1=inscription.video_long1.replace('view','preview'),
                            programa2=inscription.video_long2.replace('view','preview'),
