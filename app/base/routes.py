@@ -124,7 +124,7 @@ def render_instructivo():
         attachment_filename='instructivo.pdf')
 
 
-@blueprint.route('/paginajurados/<id_>')
+@blueprint.route('/paginajurados/<id_>', methods = ['GET', 'POST'])
 @tryton.transaction()
 @login_required
 def jurados(id_=None):
@@ -137,6 +137,13 @@ def jurados(id_=None):
         ('jury.web_user', '=', user)
         ])
     rango = [str(x) for x in range(1,11)]
+
+    if request.method == 'POST':
+        calification.general_observations = request.form['observacion-general'] or None
+        calification.originality = request.form['originalidad'] or None
+        calification.routine = request.form['planificacion'] or None
+        
+        calification.save()
     return render_template('/paginajurados.html',
                            usuarios=len(inscriptions),
                            programa=inscription.name,
