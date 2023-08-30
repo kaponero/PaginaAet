@@ -374,7 +374,7 @@
                                                             <option selected disabled>Opciones</option>
                                                             {% endif %}
                                                             {% for value in ['si', 'no'] %}
-                                                            <option value={{ value }}                                                            {% if calification.inserts == value %} selected{% endif %}                                                            >{% if calification.inserts == 'si' %} Sí {% else %} No {% endif %}</option>
+                                                            <option value={{ value }}                                                            {% if calification.inserts == value %} selected{% endif %}                                                            >{% if value == 'si' %} Sí {% else %} No {% endif %} </option>
                                                             {% endfor %}
                                                         </select>
                                                     </div>
@@ -438,7 +438,7 @@
                                                     <div class="col-lg-4">
                                                         <label for="planos-camarografo" class="form-label">Planos</label>
                                                         <select class="form-select" name="planos-camarografo" id="planos-camarografo">
-                                                            {% if not calification.sound %}
+                                                            {% if not calification.cameraman_blueprints %}
                                                             <option selected disabled>Puntuación</option>
                                                             {% endif %}
                                                             {% for value in rango %}
@@ -566,7 +566,7 @@
                                                             {% endfor %}
                                                         </select>
                                                         <label for="creatividad-productor" class="form-label">Creatividad</label>
-                                                            <select class="form-select" name="tcreatividad-productor" id="creatividad-productor">
+                                                            <select class="form-select" name="creatividad-productor" id="creatividad-productor">
                                                             {% if not calification.producer_creativity %}
                                                             <option selected disabled>Puntuación</option>
                                                             {% endif %}

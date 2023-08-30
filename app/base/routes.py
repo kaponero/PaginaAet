@@ -139,10 +139,108 @@ def jurados(id_=None):
     rango = [str(x) for x in range(1,11)]
 
     if request.method == 'POST':
-        calification.general_observations = request.form['observacion-general'] or None
-        calification.originality = request.form['originalidad'] or None
-        calification.routine = request.form['planificacion'] or None
-        
+        print('\n' + '*'*20, request.form)
+        print([x for x in request.form])
+        print('*'*20 + '\n')
+        campos_calificados = [x for x in request.form]
+        # Conceptos generales
+        calification.general_observations = 'observacion-general' in campos_calificados \
+            and request.form['observacion-general'] or None
+        calification.originality = 'originalidad' in campos_calificados \
+            and request.form['originalidad'] or None
+        calification.studio_work = 'trabajo-en-estudio' in campos_calificados \
+            and request.form['trabajo-en-estudio'] or None
+        calification.synthesis = 'sintesis' in campos_calificados \
+            and request.form['sintesis'] or None
+        calification.routine = 'planificacion' in campos_calificados \
+            and request.form['planificacion'] or None
+        calification.outdoor_work = 'trabajo-en-exteriores' in campos_calificados \
+            and request.form['trabajo-en-exteriores'] or None
+        calification.scenography = 'escenografia' in campos_calificados \
+            and request.form['escenografia'] or None
+        calification.schedule = 'cronograma' in campos_calificados \
+            and request.form['cronograma'] or None
+        calification.management_of_times = 'tiempos-de-aire' in campos_calificados \
+            and request.form['tiempos-de-aire']
+        # 'Conceptos de realizacion'
+        calification.realization_observations = 'observacion-de-realizacion' in campos_calificados \
+            and request.form['observacion-de-realizacion'] or None
+        calification.frames = 'encuadres' in campos_calificados \
+            and request.form['encuadres'] or None
+        calification.axis_of_action = 'eje-de-accion' in campos_calificados\
+            and request.form['eje-de-accion'] or None
+        calification.general_post_production = 'post-produccion' in campos_calificados \
+            and request.form['post-produccion'] or None
+        calification.blueprints = 'planos-realizacion' in campos_calificados \
+            and request.form['planos-realizacion'] or None
+        calification.illumination = 'toma-de-iluminacion' in campos_calificados \
+            and request.form['toma-de-iluminacion'] or None
+        calification.camera_sets = 'puestas-de-camaras' in campos_calificados \
+            and request.form['puestas-de-camaras'] or None
+        calification.sound = 'toma-de-sonido' in campos_calificados \
+            and request.form['toma-de-sonido'] or None
+        # Encuadres
+        calification.frames_observations = 'observacion-de-encuadres' in campos_calificados \
+            and request.form['observacion-de-encuadres'] or None
+        calification.images = 'imagenes' in campos_calificados \
+            and request.form['imagenes'] or None
+        calification.creativity = 'creatividad' in campos_calificados \
+            and request.form['creatividad'] or None
+        calification.inserts = 'inserts' in campos_calificados \
+            and request.form['inserts'] or None or None
+        # Otros conceptos
+        calification.other_concepts_observations = 'observacion-de-otros-conceptos' in campos_calificados \
+            and request.form['observacion-de-otros-conceptos'] or None
+        calification.camera_movements = 'movimiento-de-camara' in campos_calificados \
+            and request.form['movimiento-de-camara'] or None
+        calification.cameraman_illumination = 'iluminacion' in campos_calificados \
+            and request.form['iluminacion'] or None
+        calification.angulation = 'angulacion' in campos_calificados \
+            and request.form['angulacion'] or None
+        calification.cameraman_sound = 'sonido' in campos_calificados \
+            and request.form['sonido'] or None
+        calification.cameraman_blueprints = 'planos-camarografo' in campos_calificados \
+            and request.form['planos-camarografo'] or None
+        calification.iris_management = 'manejo-del-iris' in campos_calificados \
+            and request.form['manejo-del-iris'] or None
+        # Conceptos mejor editor/a
+        calification.editor_observations = 'observacion-de-mejor-editor' in campos_calificados \
+            and request.form['observacion-de-mejor-editor'] or None
+        calification.musicalization = 'musicalizacion' in campos_calificados \
+            and request.form['musicalizacion'] or None
+        calification.relevance_of_the_inserts = 'pertinencia-inserts' in campos_calificados \
+            and request.form['pertinencia-inserts'] or None
+        calification.picture_airtime = 'tiempo-al-aire' in campos_calificados \
+            and request.form['tiempo-al-aire'] or None
+        calification.skirting_boards = 'zocalos' in campos_calificados \
+            and request.form['zocalos'] or None
+        calification.rhythm = 'ritmo' in campos_calificados \
+            and request.form['ritmo'] or None
+        calification.editor_sound = 'sonido-editor' in campos_calificados \
+            and request.form['sonido-editor'] or None
+        # Conceptos mejor productor
+        calification.producer_observations = 'observacion-mejor-productor' in campos_calificados \
+            and request.form['observacion-mejor-productor'] or None
+        calification.preproduction = 'preproduccion' in campos_calificados \
+            and request.form['preproduccion'] or None
+        calification.producer_creativity = 'creatividad-productor' in campos_calificados \
+            and request.form['creatividad-productor'] or None
+        calification.originality_of_the_proposal = 'originalidad-productor' in campos_calificados \
+            and request.form['originalidad-productor'] or None
+        calification.communication_strategies = 'estrategia-comunicacion' in campos_calificados \
+            and request.form['estrategia-comunicacion'] or None
+        calification.production = 'produccion' in campos_calificados \
+            and request.form['produccion'] or None
+        calification.elaboration_of_the_routine = 'elaboracion-rutina' in campos_calificados \
+            and request.form['elaboracion-rutina'] or None
+        calification.content_originality = 'originalidad-contenido' in campos_calificados \
+            and request.form['originalidad-contenido'] or None
+        calification.post_production = 'post-mejor-produccion' in campos_calificados \
+            and request.form['post-mejor-produccion'] or None
+        calification.variety_of_proposals = 'variedad-propuestas' in campos_calificados \
+            and request.form['variedad-propuestas'] or None
+        calification.adequacy = 'adecuacion-contenido' in campos_calificados \
+            and request.form['adecuacion-contenido'] or None
         calification.save()
     return render_template('/paginajurados.html',
                            usuario=int(id_),
