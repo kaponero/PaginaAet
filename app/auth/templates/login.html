@@ -10,8 +10,8 @@
 {% block content %}
 <div class="page-inner">
     <div class="container" >
-        <div class="row p-4 justify-content-center">
-            <div class="col-md-8">
+        <div class="row p-5 justify-content-center">
+            <div class="col-md-5">
                 {%if 'identified' not in session or session['identified'] == False %}
                 <div class="card">
                     <div class="card-header">
@@ -38,7 +38,7 @@
                         {{ form.hidden_tag() }}
                         <div class="card-body" >
                             <div class="row justify-content-center">
-                                <div class="col-md-6 col-lg-6">
+                                <div class="col-md-9 col-lg-9">
                                     <div class="form-group">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
@@ -62,10 +62,10 @@
                                 </div>
                             </div>
                             <div class="row justify-content-end">
-                                <div class="col-md-3">
+                                <div class="col-md-5">
                                     <div class="card-action">
                                         <button type="submit" name="login" class="btn btn-success">Ingresar</button>
-                                        &nbsp; &nbsp;
+                                        
                                     </div>
                                 </div>
                             </div>
