@@ -78,6 +78,7 @@ def inscripcion():
                 and datetime.strptime(request.form['fecha'], '%Y-%m-%d').date() or None,
             'duration': request.form['duracion'] or None,
             'description': request.form['otros'] or None,
+            'routine': request.form['linkRutina'] or None,
             'video_long1': request.form['video1'] or None,
             'video_long2': request.form['video2'] or None,
             'video_long3': request.form['video3'] or None,
@@ -100,7 +101,7 @@ def inscripcion():
             'channel_email': request.form['email'] or None,
             'aet_partner': request.form['socio'],
             'business_name': request.form['razonsocial'] or None,
-            'cuit': request.form['cuit'] and int(request.form['cuit']) or None,
+            'cuit': request.form['cuit'] or None,
             'inscription_date': datetime.now(),
             }])
         return render_template('/page-1.html')
