@@ -70,7 +70,7 @@ def inscripcion():
     if request.method == 'POST':
         inscription, = Inscription.create([{
             'name': request.form['programa'] or None,
-            'category': request.form['categoria'],
+            'category': request.form['categoria'] ,
             'genre': request.form['genero'],
             'live': request.form['vivo'],
             'city_of_emission': request.form['localidad'] or None,

@@ -296,13 +296,17 @@ function ver_categoria(){
 	var inputtnom = document.getElementById("socio");
 	var es_socio = document.getElementById("es_socio");
 	var no_es_socio = document.getElementById("no_es_socio");
+	var selectcat = document.getElementById('localidadCategoria')
+	var selectcat2 = document.getElementById('localidadCategoria2')
 
 	if (inputtnom.options[inputtnom.selectedIndex].value == "si"){
 		es_socio.style.display = 'block';
 		no_es_socio.style.display = 'none';
+		selectcat2.selectedIndex = "";
 	}
 	else{
 		es_socio.style.display = 'none';
 		no_es_socio.style.display = 'block';
+		selectcat.selectedIndex = "";
 	}
 }
