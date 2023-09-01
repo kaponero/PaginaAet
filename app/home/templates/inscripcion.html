@@ -86,9 +86,9 @@
                                 <div id="error-nombrePrograma"></div>
                             </div>
                             <div class="input_wrap">
-                                <label for="socioAet" class="form-label">¿Es socio de AET?</label>
-                                <select name="socioAet" class="input" id="socioAet" onchange="ver_categoria();"
-                                    oninput="valid_input('socioAet', 'Seleccione una opción', 'error-socioAet')">
+                                <label for="socio" class="form-label">¿Es socio de AET?</label>
+                                <select name="socio" class="input" id="socio" onchange="ver_categoria();"
+                                    oninput="valid_input('socio', 'Seleccione una opción', 'error-socioAet')">
                                     <option value="" selected="" disabled="">Elegir</option>
                                     <option value="si">Si</option>
                                     <option value="no">No</option>
@@ -166,9 +166,9 @@
                                 <div id="error-localidadCategoria"></div>
                             </div>
                             <div class="input_wrap" id="no_es_socio" style="display: none">
-                                <label for="localidadCategoria" class="form-label">Categoria - Localidad</label>
-                                <select name="categoria" class="input" id="localidadCategoria"
-                                    oninput="valid_input('localidadCategoria', 'Seleccione una categoría', 'error-localidadCategoria')">
+                                <label for="localidadCategoria2" class="form-label">Categoria - Localidad</label>
+                                <select name="categoria2" class="input" id="localidadCategoria2"
+                                    oninput="valid_input('localidadCategoria2', 'Seleccione una categoría', 'error-localidadCategoria2')">
                                     <option value="" disabled="" selected="">Selecciona una categoria</option>
                                     {% for category in categories %}
                                     {% if category[0] != 'associated'%}
@@ -233,7 +233,7 @@
                                         {%endfor%}
                                     </optgroup> -->
                                 </select>
-                                <div id="error-localidadCategoria"></div>
+                                <div id="error-localidadCategoria2"></div>
                             </div>
                             <div class="input_wrap">
                                 <label for="generoPrograma" class="form-label">Genero</label>

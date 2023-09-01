@@ -38,8 +38,9 @@ var telefono = /^[0-9]{3}[0-9]{7}|[0-9]{7}$/
 form_1_next_btn.addEventListener("click", function(){
 	
 	var inputtnom = document.getElementById('nombrePrograma').value
-	var selectsos = document.getElementById('socioAet').value
+	var selectsos = document.getElementById('socio').value
 	var selectcat = document.getElementById('localidadCategoria').value
+	var selectcat2 = document.getElementById('localidadCategoria2').value
 	var selectgen = document.getElementById('generoPrograma').value
 	var selectviv = document.getElementById('enVivo').value
 	var inputlocal= document.getElementById('localidadEmision').value
@@ -48,8 +49,9 @@ form_1_next_btn.addEventListener("click", function(){
 	var inputtarea= document.getElementById('input_tarea').value
 
 	valid_input('nombrePrograma', 'Ingrese el nombe del programa', 'error-nombrePrograma');
-	valid_input('socioAet', 'Seleccione una opción', 'error-socioAet');
+	valid_input('socio', 'Seleccione una opción', 'error-socioAet');
 	valid_input('localidadCategoria', 'Selecione una categoria', 'error-localidadCategoria');
+	valid_input('localidadCategoria2', 'Selecione una categoria', 'error-localidadCategoria2');
 	valid_input('generoPrograma', 'Seleccione un género', 'error-genero');
 	valid_input('enVivo', 'Elija una opción', 'error-vivo');
 	valid_input('localidadEmision', 'Ingrese localidad de emisión', 'error-localidad');
@@ -57,7 +59,7 @@ form_1_next_btn.addEventListener("click", function(){
 	valid_input('input_time', 'Ingrese duración', 'error-duracion');
 	valid_input('input_tarea', 'Ingrese una breve descripción', 'error-tarea');
 	
-	if (inputtnom.length == 0 || selectsos == 0 || selectcat  == 0 || selectgen == 0 || selectviv == 0 || 
+	if (inputtnom.length == 0 || selectsos == 0 || (selectcat  == 0 &&  selectcat2 == 0) || selectgen == 0 || selectviv == 0 || 
 		inputlocal.length == 0 || inputdate.length == 0 || inputtime.length == 0 || inputtarea.length == 0){
 		alert ("Complete los campos")
 	}
@@ -291,7 +293,7 @@ function valid_condiciones(identificador,mensaje, diverror){
 }
 
 function ver_categoria(){
-	var inputtnom = document.getElementById("socioAet");
+	var inputtnom = document.getElementById("socio");
 	var es_socio = document.getElementById("es_socio");
 	var no_es_socio = document.getElementById("no_es_socio");
 
