@@ -38,6 +38,7 @@ var telefono = /^[0-9]{3}[0-9]{7}|[0-9]{7}$/
 form_1_next_btn.addEventListener("click", function(){
 	
 	var inputtnom = document.getElementById('nombrePrograma').value
+	var selectsos = document.getElementById('socioAet').value
 	var selectcat = document.getElementById('localidadCategoria').value
 	var selectgen = document.getElementById('generoPrograma').value
 	var selectviv = document.getElementById('enVivo').value
@@ -47,7 +48,8 @@ form_1_next_btn.addEventListener("click", function(){
 	var inputtarea= document.getElementById('input_tarea').value
 
 	valid_input('nombrePrograma', 'Ingrese el nombe del programa', 'error-nombrePrograma');
-	valid_input('localidadCategoria', 'Ingrese el nombe del programa', 'error-localidadCategoria');
+	valid_input('socioAet', 'Seleccione una opción', 'error-socioAet');
+	valid_input('localidadCategoria', 'Selecione una categoria', 'error-localidadCategoria');
 	valid_input('generoPrograma', 'Seleccione un género', 'error-genero');
 	valid_input('enVivo', 'Elija una opción', 'error-vivo');
 	valid_input('localidadEmision', 'Ingrese localidad de emisión', 'error-localidad');
@@ -55,7 +57,7 @@ form_1_next_btn.addEventListener("click", function(){
 	valid_input('input_time', 'Ingrese duración', 'error-duracion');
 	valid_input('input_tarea', 'Ingrese una breve descripción', 'error-tarea');
 	
-	if (inputtnom.length == 0 || selectcat  == 0 || selectgen == 0 || selectviv == 0 || 
+	if (inputtnom.length == 0 || selectsos == 0 || selectcat  == 0 || selectgen == 0 || selectviv == 0 || 
 		inputlocal.length == 0 || inputdate.length == 0 || inputtime.length == 0 || inputtarea.length == 0){
 		alert ("Complete los campos")
 	}
@@ -167,7 +169,6 @@ form_4_next_btn.addEventListener("click", function(){
 	var inputcontactoc = document.getElementById('contactoCanal').value
 	var inputtelefonoc = document.getElementById('telefonoCanal').value
 	var inputemailc = document.getElementById('emailCanal').value
-	var selectsos = document.getElementById('socioAet').value
 	var correovalido = correo.test(inputemailc);
 	var telvalido = telefono.test(inputtelefonoc);
 
@@ -177,11 +178,10 @@ form_4_next_btn.addEventListener("click", function(){
 	valid_input('contactoCanal', 'Ingrese un medio de contacto', 'error-contactoCanal');
 	valid_tel('telefonoCanal', 'Ingrese el teléfono del Canal', 'error-telefonoCanal');
 	valid_correo('emailCanal', 'Ingrese un correo valido', 'error-emailCanal');
-	valid_input('socioAet', 'Seleccione una opción', 'error-socioAet');
+	
 
 	if (inputnombrec.length == 0 || inputdireccionc.length == 0 || inputlocalidadc.length == 0 ||
-		inputcontactoc .length == 0 || telvalido == false  || correovalido == false ||
-		selectsos == 0){
+		inputcontactoc .length == 0 || telvalido == false  || correovalido == false){
 		alert ("Complete los campos")
 	}
 	else{
@@ -288,4 +288,19 @@ function valid_condiciones(identificador,mensaje, diverror){
 		mensajeError.push(mensaje);
 	} 
 	error.innerHTML = mensajeError.join(', ');
+}
+
+function ver_categoria(){
+	var inputtnom = document.getElementById("socioAet");
+	var es_socio = document.getElementById("es_socio");
+	var no_es_socio = document.getElementById("no_es_socio");
+
+	if (inputtnom.options[inputtnom.selectedIndex].value == "si"){
+		es_socio.style.display = 'block';
+		no_es_socio.style.display = 'none';
+	}
+	else{
+		es_socio.style.display = 'none';
+		no_es_socio.style.display = 'block';
+	}
 }

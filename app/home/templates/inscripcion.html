@@ -20,7 +20,7 @@
                 <div class="body-warning card-body">
                     <h4 class="card-title">Importante!</h4>
                     <p class="card-text">
-                        La única via de inscripción para los programas televisión por cable y televisión por aire es a traves del presente sitio web. Para poder cargar tu programa, previamente deberás subir el material a las plataforma de Google Drive, en los links que se visualizan a continuación, y luego pegar los links de Google Drive en los campos correspondientes del formulario.
+                        La única via de inscripción para los programas televisión por cable, televisión por aire y productoras independientes es a traves del presente sitio web. Para poder cargar tu programa, previamente deberás subir el material a las plataforma de Google Drive, en los links que se visualizan a continuación, y luego pegar los links de Google Drive en los campos correspondientes del formulario.
                     </p>
                     <a href="https://drive.google.com/drive/u/0/" class="btn btn-warning boton-gd" target="_blank" rel="noopener noreferrer">
                         <img src="static/asset/img/google-drive.svg" alt="" width="25px" height="25px">
@@ -86,12 +86,33 @@
                                 <div id="error-nombrePrograma"></div>
                             </div>
                             <div class="input_wrap">
-                                <label for="localidadCategoria" class="form-label">Localidad - Categoria - Canales de aire</label>
+                                <label for="socioAet" class="form-label">¿Es socio de AET?</label>
+                                <select name="socioAet" class="input" id="socioAet" onchange="ver_categoria();"
+                                    oninput="valid_input('socioAet', 'Seleccione una opción', 'error-socioAet')">
+                                    <option value="" selected="" disabled="">Elegir</option>
+                                    <option value="si">Si</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <div id="error-socioAet"></div>
+                            </div>
+
+                
+
+
+
+
+
+
+
+
+
+                            <div class="input_wrap" id="es_socio" style="display: none">
+                                <label for="localidadCategoria" class="form-label">Categoria - Localidad</label>
                                 <select name="categoria" class="input" id="localidadCategoria"
                                     oninput="valid_input('localidadCategoria', 'Seleccione una categoría', 'error-localidadCategoria')">
                                     <option value="" disabled="" selected="">Selecciona una categoria</option>
                                     {% for category in categories %}
-                                    {% if category[0]%}
+                                    {% if category[0] == 'associated'%}
                                     <optgroup label={{ category[1] }}>
                                         {% if category[0] == 'associated'%}
                                             {% for cat in cat_asociados %}
@@ -155,6 +176,78 @@
                                 </select>
                                 <div id="error-localidadCategoria"></div>
                             </div>
+                            <div class="input_wrap" id="no_es_socio" style="display: none">
+                                <label for="localidadCategoria" class="form-label">Categoria - Localidad</label>
+                                <select name="categoria" class="input" id="localidadCategoria"
+                                    oninput="valid_input('localidadCategoria', 'Seleccione una categoría', 'error-localidadCategoria')">
+                                    <option value="" disabled="" selected="">Selecciona una categoria</option>
+                                    {% for category in categories %}
+                                    {% if category[0] != 'associated'%}
+                                    <optgroup label={{ category[1] }}>
+                                        {% if category[0] == 'associated'%}
+                                            {% for cat in cat_asociados %}
+                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                            {% endfor %}
+                                        {% elif category[0] == 'open' %}
+                                            {% for cat in cat_abiertos %}
+                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                            {% endfor %}
+                                        {% elif category[0] == 'independent' %}
+                                            {% for cat in cat_prod_indep %}
+                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                            {% endfor %}
+                                        {% elif category[0] == 'unique' %}
+                                            {% for cat in cat_unica %}
+                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                            {% endfor %}
+                                        {% elif category[0] == 'turf' %}
+                                            {% for cat in cat_turf %}
+                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </optgroup>
+                                    {% endif %}
+                                    {% endfor %}
+<!--                                    <optgroup label="Asociados">
+                                        {%for category in categories%}
+                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_asociados%}
+                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
+                                            {%endif%}
+                                        {%endfor%}
+                                    </optgroup>
+                                    <optgroup label="Canales abiertos">
+                                        {%for category in categories%}
+                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_abiertos%}
+                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
+                                            {%endif%}
+                                        {%endfor%}
+                                    </optgroup>
+                                    <optgroup label="Productoras independientes">
+                                        {%for category in categories%}
+                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_prod_indep%}
+                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
+                                            {%endif%}
+                                        {%endfor%}
+                                    </optgroup>
+                                    <optgroup label="Categoría única">
+                                        {%for category in categories%}
+                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_unica%}
+                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
+                                            {%endif%}
+                                        {%endfor%}
+                                    </optgroup>
+                                    <optgroup label="Categoría única">
+                                        {%for category in categories%}
+                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_turf%}
+                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
+                                            {%endif%}
+                                        {%endfor%}
+                                    </optgroup> -->
+                                </select>
+                                <div id="error-localidadCategoria"></div>
+                            </div>
+
+
                             <div class="input_wrap">
                                 <label for="generoPrograma" class="form-label">Genero</label>
                                 <select name="genero" class="input" id="generoPrograma"
@@ -365,16 +458,6 @@
                                 <input type="email" name="email" class="input" id="emailCanal" placeholder="ejemplo@ejemplo.com" 
                                     oninput="valid_correo('emailCanal', 'Ingrese un correo valido', 'error-emailCanal')">
                                 <div id="error-emailCanal"></div>
-                            </div>
-                            <div class="input_wrap">
-                                <label for="socioAet" class="form-label">¿Es socio de AET?</label>
-                                <select name="socio" class="input" id="socioAet" 
-                                    oninput="valid_input('socioAet', 'Seleccione una opción', 'error-socioAet')">
-                                    <option value="" selected="" disabled="">Elegir</option>
-                                    <option value="si">Si</option>
-                                    <option value="no">No</option>
-                                </select>
-                                <div id="error-socioAet"></div>
                             </div>
                         </div>
                     </div>
