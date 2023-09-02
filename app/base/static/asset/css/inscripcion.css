@@ -299,6 +299,36 @@ input::-webkit-datetime-edit-year-field:focus {
 	cursor: pointer;
 }
 
+.btn_cancel, .btn_aceptar{
+	border: 0;
+	padding: 12px 15px;
+	background: var(--secondary);
+	color: var(--white);
+	width: 135px;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	border-radius: 3px;
+	transition: 0.5s ease;
+	cursor: pointer;
+}
+
+.btn_aceptar{
+	border: 0;
+	padding: 12px 15px;
+	background: var(--primary);
+	color: var(--white);
+	width: 135px;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	border-radius: 3px;
+	transition: 0.5s ease;
+	cursor: pointer;
+}
+
 .wrapper .btns_wrap .common_btns button.btn_back{
 	background: var(--secondary);
 }
@@ -314,11 +344,17 @@ input::-webkit-datetime-edit-year-field:focus {
 }
 
 .wrapper .btns_wrap .common_btns button.btn_next:hover,
-.wrapper .btns_wrap .common_btns button.btn_done:hover{
+.wrapper .btns_wrap .common_btns button.btn_done:hover,
+.btn_aceptar:hover{
 	background: var(--next-btn-hover);
 }
 
-.wrapper .btns_wrap .common_btns button.btn_back:hover{
+.wrapper .btns_wrap .common_btns button.btn_back:hover,
+.btn_cancel:hover{
+	background: var(--back-btn-hover);
+}
+
+.btn_cancel:active{
 	background: var(--back-btn-hover);
 }
 

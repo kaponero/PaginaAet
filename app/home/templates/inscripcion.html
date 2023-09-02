@@ -5,7 +5,7 @@
 {%endblock%}
 
 {% block links %}
-<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/inscripcion90.css") }}">
+<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/inscripcion.css") }}">
     {% endblock %}
 
 {%block content%}
@@ -89,9 +89,23 @@
                                 </select>
                                 <div id="error-socioAet"></div>
                             </div>
-                            <div class="input_wrap" id="es_socio2" style="display: none">
-                                <label for="n_socio" class="form-label">N° de socio</label>
-                                <input type="text" name="n_socio" id="n_socio" class="input">
+                            <div class="modal_wrapper">
+                                <div class="shadow"></div>
+                                <div class="success_wrap">
+                                    <span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
+                                    <div class="row">
+                                        <div>
+                                            <div class="input_wrap">
+                                                <label for="n_socio" class="form-label">N° de socio</label>
+                                                <input type="text" class="input" name="n_socio">
+                                            </div>
+                                            <div class="btns_wrap row justify-content-between">
+                                                <button class="btn_aceptar" type="button">Verificar</button>
+                                                <button class="btn_cancel" type="button">Cancelar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="input_wrap" id="es_socio" style="display: none">
                                 <label for="localidadCategoria" class="form-label">Categoria - Localidad</label>
@@ -200,8 +214,6 @@
                                     oninput="valid_input('nombrePrograma', 'Ingrese el nombe del programa', 'error-nombrePrograma')">
                                 <div id="error-nombrePrograma"></div>
                             </div>
-                            
-                            
                             <div class="input_wrap">
                                 <label for="enVivo" class="form-label">Vivo, directo y simultaneo</label>
                                 <select name="vivo" class="input" id="enVivo"

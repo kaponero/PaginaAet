@@ -12,6 +12,7 @@ var form_3_btns = document.querySelector(".form_3_btns");
 var form_4_btns = document.querySelector(".form_4_btns");
 var form_5_btns = document.querySelector(".form_5_btns");
 
+
 var form_1_next_btn = document.querySelector(".form_1_btns .btn_next");
 var form_2_back_btn = document.querySelector(".form_2_btns .btn_back");
 var form_2_next_btn = document.querySelector(".form_2_btns .btn_next");
@@ -27,6 +28,8 @@ var form_4_progessbar = document.querySelector(".form_4_progessbar");
 var form_5_progessbar = document.querySelector(".form_5_progessbar");
 
 var btn_done = document.querySelector(".btn_done");
+var btn_cancel = document.querySelector(".btn_cancel");
+var btn_aceptar = document.querySelector(".btn_aceptar");
 var modal_wrapper = document.querySelector(".modal_wrapper");
 var shadow = document.querySelector(".shadow");
 
@@ -193,6 +196,7 @@ form_5_back_btn.addEventListener("click", function(){
 	form_5_progessbar.classList.remove("active");
 });
 
+
 btn_done.addEventListener("click", function(){
 
 	var inputnombrec= document.getElementById('nombreCanal').value
@@ -222,9 +226,6 @@ btn_done.addEventListener("click", function(){
 	}
 })
 
-shadow.addEventListener("click", function(){
-	modal_wrapper.classList.remove("active");
-})
 
 function valid_input(identificador,mensaje, diverror){
 	var inputtnom = document.getElementById(identificador).value
@@ -294,21 +295,36 @@ function valid_condiciones(identificador,mensaje, diverror){
 function ver_categoria(){
 	var inputtnom = document.getElementById("socio");
 	var es_socio = document.getElementById("es_socio");
-	var es_socio2 = document.getElementById("es_socio2");
 	var no_es_socio = document.getElementById("no_es_socio");
 	var selectcat = document.getElementById('localidadCategoria')
 	var selectcat2 = document.getElementById('localidadCategoria2')
 
 	if (inputtnom.options[inputtnom.selectedIndex].value == "si"){
 		es_socio.style.display = 'block';
-		es_socio2.style.display = 'block';
 		no_es_socio.style.display = 'none';
 		selectcat2.selectedIndex = "";
+		modal_wrapper.classList.add("active");
 	}
 	else{
 		es_socio.style.display = 'none';
-		es_socio2.style.display = 'none';
 		no_es_socio.style.display = 'block';
 		selectcat.selectedIndex = "";
 	}
 }
+
+btn_cancel.addEventListener("click", function(){
+	var inputtnom = document.getElementById("socio");
+	var es_socio = document.getElementById("es_socio");
+	var no_es_socio = document.getElementById("no_es_socio");
+	no_es_socio.style.display = 'none';
+	es_socio.style.display = 'none';
+	inputtnom.selectedIndex = "";
+	modal_wrapper.classList.remove("active");
+
+});
+
+btn_aceptar.addEventListener("click", function(){
+
+	modal_wrapper.classList.remove("active");
+
+});
