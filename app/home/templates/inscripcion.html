@@ -77,14 +77,8 @@
             <div class="form_wrap">
                 <form class="needs-validation" id="form1" method="POST" novalidate>
                     <div class="form_1 data_info">
-                    <h2>Datos del programa</h2>
+                    <h2>Datos de facturación</h2>
                         <div class="form_container">
-                            <div class="input_wrap">
-                                <label for="nombrePrograma" class="form-label">Nombre del programa</label>
-                                <input type="text" name="programa" class="input" id="nombrePrograma" 
-                                    oninput="valid_input('nombrePrograma', 'Ingrese el nombe del programa', 'error-nombrePrograma')">
-                                <div id="error-nombrePrograma"></div>
-                            </div>
                             <div class="input_wrap">
                                 <label for="socio" class="form-label">¿Es socio de AET?</label>
                                 <select name="socio" class="input" id="socio" onchange="ver_categoria();"
@@ -94,6 +88,10 @@
                                     <option value="no">No</option>
                                 </select>
                                 <div id="error-socioAet"></div>
+                            </div>
+                            <div class="input_wrap" id="es_socio2" style="display: none">
+                                <label for="n_socio" class="form-label">N° de socio</label>
+                                <input type="text" name="n_socio" id="n_socio" class="input">
                             </div>
                             <div class="input_wrap" id="es_socio" style="display: none">
                                 <label for="localidadCategoria" class="form-label">Categoria - Localidad</label>
@@ -129,41 +127,6 @@
                                             {% endif %}
                                         {% endif %}
                                     {% endfor %}
-<!--                                    <optgroup label="Asociados">
-                                        {%for category in categories%}
-                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_asociados%}
-                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
-                                            {%endif%}
-                                        {%endfor%}
-                                    </optgroup>
-                                    <optgroup label="Canales abiertos">
-                                        {%for category in categories%}
-                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_abiertos%}
-                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
-                                            {%endif%}
-                                        {%endfor%}
-                                    </optgroup>
-                                    <optgroup label="Productoras independientes">
-                                        {%for category in categories%}
-                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_prod_indep%}
-                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
-                                            {%endif%}
-                                        {%endfor%}
-                                    </optgroup>
-                                    <optgroup label="Categoría única">
-                                        {%for category in categories%}
-                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_unica%}
-                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
-                                            {%endif%}
-                                        {%endfor%}
-                                    </optgroup>
-                                    <optgroup label="Categoría única">
-                                        {%for category in categories%}
-                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_turf%}
-                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
-                                            {%endif%}
-                                        {%endfor%}
-                                    </optgroup> -->
                                 </select>
                                 <div id="error-localidadCategoria"></div>
                             </div>
@@ -197,41 +160,6 @@
                                             {% endif %}
                                         {% endif %}
                                     {% endfor %}
-<!--                                    <optgroup label="Asociados">
-                                        {%for category in categories%}
-                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_asociados%}
-                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
-                                            {%endif%}
-                                        {%endfor%}
-                                    </optgroup>
-                                    <optgroup label="Canales abiertos">
-                                        {%for category in categories%}
-                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_abiertos%}
-                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
-                                            {%endif%}
-                                        {%endfor%}
-                                    </optgroup>
-                                    <optgroup label="Productoras independientes">
-                                        {%for category in categories%}
-                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_prod_indep%}
-                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
-                                            {%endif%}
-                                        {%endfor%}
-                                    </optgroup>
-                                    <optgroup label="Categoría única">
-                                        {%for category in categories%}
-                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_unica%}
-                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
-                                            {%endif%}
-                                        {%endfor%}
-                                    </optgroup>
-                                    <optgroup label="Categoría única">
-                                        {%for category in categories%}
-                                            {%if ':' in category[1] and category[1].split(':')[0] in cat_turf%}
-                                                <option value="{{ category[0] }}"> {{ category[1] }} </option>
-                                            {%endif%}
-                                        {%endfor%}
-                                    </optgroup> -->
                                 </select>
                                 <div id="error-localidadCategoria2"></div>
                             </div>
@@ -248,6 +176,32 @@
                                 </select>
                                 <div id="error-genero"></div> 
                             </div>
+                            <div class="input_wrap">
+                                <label for="razonSocial">Razón social</label>
+                                <input type="text" name="razonsocial" class="input" id="razonSocial"
+                                    oninput="valid_input('razonSocial', 'ingrese la razon social', 'error-razonSocial')">
+                                <div id="error-razonSocial"></div>
+                            </div>
+                            <div class="input_wrap">
+                                <label for="numeroCuit">Cuit</label>
+                                <input type="text" name="cuit" class="input" id="numeroCuit" pattern="[0-9]{11}" 
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+                                    valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit')">
+                                <div id="error-numeroCuit"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_2 data_info" style="display: none;">
+                    <h2>Datos del programa</h2>
+                        <div class="form_container">
+                            <div class="input_wrap">
+                                <label for="nombrePrograma" class="form-label">Nombre del programa</label>
+                                <input type="text" name="programa" class="input" id="nombrePrograma" 
+                                    oninput="valid_input('nombrePrograma', 'Ingrese el nombe del programa', 'error-nombrePrograma')">
+                                <div id="error-nombrePrograma"></div>
+                            </div>
+                            
+                            
                             <div class="input_wrap">
                                 <label for="enVivo" class="form-label">Vivo, directo y simultaneo</label>
                                 <select name="vivo" class="input" id="enVivo"
@@ -287,7 +241,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form_2 data_info" style="display: none;">
+                    <div class="form_3 data_info" style="display: none;">
                     <h2>Material de video</h2>
                         <div class="form_container">
                             <div class="input_wrap">
@@ -340,7 +294,7 @@
                             </div>
                         </div>           
                     </div>
-                    <div class="form_3 data_info" style="display: none;">
+                    <div class="form_4 data_info" style="display: none;">
                     <h2>Datos de produccion del programa</h2>                  
                         <div class="form_container">
                             <div class="input_wrap">
@@ -405,7 +359,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form_4 data_info" style="display: none;">
+                    <div class="form_5 data_info" style="display: none;">
                     <h2>Datos del canal emisor del programa</h2>
                         <div class="form_container">
                             <div class="input_wrap">
@@ -446,28 +400,10 @@
                                     oninput="valid_correo('emailCanal', 'Ingrese un correo valido', 'error-emailCanal')">
                                 <div id="error-emailCanal"></div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="form_5 data_info" style="display: none;">
-                    <h2>Datos de facturación</h2>
-                        <div class="form_container">
-                            <div class="input_wrap">
-                                <label for="razonSocial">Razón social</label>
-                                <input type="text" name="razonsocial" class="input" id="razonSocial"
-                                    oninput="valid_input('razonSocial', 'ingrese la razon social', 'error-razonSocial')">
-                                <div id="error-razonSocial"></div>
-                            </div>
-                            <div class="input_wrap">
-                                <label for="numeroCuit">Cuit</label>
-                                <input type="text" name="cuit" class="input" id="numeroCuit" pattern="[0-9]{11}" 
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
-                                    valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit')">
-                                <div id="error-numeroCuit"></div>
-                            </div>
                             <div class="flex-container text-size text-center">
                                 <input class="mx-1 my-1" type="checkbox" id="condiciones" name="condiciones" value="Condiciones"
-                                oninput="valid_condiciones('condiciones', 'Debe aceptar los terminos y condiciones', 'error-condiciones')">
-                            <label > <small for="coniciones">He leído y acepto los terminos y condiciones</small></label>
+                                    oninput="valid_condiciones('condiciones', 'Debe aceptar los terminos y condiciones', 'error-condiciones')">
+                                <label > <small for="coniciones">He leído y acepto los terminos y condiciones</small></label>
                             </div>
                             <div class="input_wrap">
                                 <div id="error-condiciones"></div>
@@ -505,5 +441,5 @@
           javascript:window.history.forward(1);
         //-->
         </script> 
-    <script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptform48.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptform.js') }}"></script>
     {%endblock%}
