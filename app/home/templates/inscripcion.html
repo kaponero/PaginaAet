@@ -101,31 +101,33 @@
                                     oninput="valid_input('localidadCategoria', 'Seleccione una categoría', 'error-localidadCategoria')">
                                     <option value="" disabled="" selected="">Selecciona una categoria</option>
                                     {% for category in categories %}
-                                    {% if category[0] == 'associated'%}
-                                    <optgroup label={{ category[1] }}>
-                                        {% if category[0] == 'associated'%}
-                                            {% for cat in cat_asociados %}
-                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
-                                            {% endfor %}
-                                        {% elif category[0] == 'open' %}
-                                            {% for cat in cat_abiertos %}
-                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
-                                            {% endfor %}
-                                        {% elif category[0] == 'independent' %}
-                                            {% for cat in cat_prod_indep %}
-                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
-                                            {% endfor %}
-                                        {% elif category[0] == 'unique' %}
-                                            {% for cat in cat_unica %}
-                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
-                                            {% endfor %}
-                                        {% elif category[0] == 'turf' %}
-                                            {% for cat in cat_turf %}
-                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
-                                            {% endfor %}
+                                        {% if category[0]%}
+                                            {% if category[0] == 'associated'%}
+                                                <optgroup label={{ category[1] }}>
+                                                    {% if category[0] == 'associated'%}
+                                                        {% for cat in cat_asociados %}
+                                                        <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                                        {% endfor %}
+                                                    {% elif category[0] == 'open' %}
+                                                        {% for cat in cat_abiertos %}
+                                                        <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                                        {% endfor %}
+                                                    {% elif category[0] == 'independent' %}
+                                                        {% for cat in cat_prod_indep %}
+                                                        <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                                        {% endfor %}
+                                                    {% elif category[0] == 'unique' %}
+                                                        {% for cat in cat_unica %}
+                                                        <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                                        {% endfor %}
+                                                    {% elif category[0] == 'turf' %}
+                                                        {% for cat in cat_turf %}
+                                                        <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                </optgroup>
+                                            {% endif %}
                                         {% endif %}
-                                    </optgroup>
-                                    {% endif %}
                                     {% endfor %}
 <!--                                    <optgroup label="Asociados">
                                         {%for category in categories%}
@@ -171,31 +173,29 @@
                                     oninput="valid_input('localidadCategoria2', 'Seleccione una categoría', 'error-localidadCategoria2')">
                                     <option value="" disabled="" selected="">Selecciona una categoria</option>
                                     {% for category in categories %}
-                                    {% if category[0] != 'associated'%}
-                                    <optgroup label={{ category[1] }}>
-                                        {% if category[0] == 'associated'%}
-                                            {% for cat in cat_asociados %}
-                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
-                                            {% endfor %}
-                                        {% elif category[0] == 'open' %}
-                                            {% for cat in cat_abiertos %}
-                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
-                                            {% endfor %}
-                                        {% elif category[0] == 'independent' %}
-                                            {% for cat in cat_prod_indep %}
-                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
-                                            {% endfor %}
-                                        {% elif category[0] == 'unique' %}
-                                            {% for cat in cat_unica %}
-                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
-                                            {% endfor %}
-                                        {% elif category[0] == 'turf' %}
-                                            {% for cat in cat_turf %}
-                                            <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
-                                            {% endfor %}
+                                        {% if category[0]%}
+                                            {% if category[0] != 'associated'%}
+                                                <optgroup label={{ category[1] }}>
+                                                    {% if category[0] == 'open' %}
+                                                        {% for cat in cat_abiertos %}
+                                                        <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                                        {% endfor %}
+                                                    {% elif category[0] == 'independent' %}
+                                                        {% for cat in cat_prod_indep %}
+                                                        <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                                        {% endfor %}
+                                                    {% elif category[0] == 'unique' %}
+                                                        {% for cat in cat_unica %}
+                                                        <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                                        {% endfor %}
+                                                    {% elif category[0] == 'turf' %}
+                                                        {% for cat in cat_turf %}
+                                                        <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                </optgroup>
+                                            {% endif %}
                                         {% endif %}
-                                    </optgroup>
-                                    {% endif %}
                                     {% endfor %}
 <!--                                    <optgroup label="Asociados">
                                         {%for category in categories%}
