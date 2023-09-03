@@ -36,6 +36,8 @@ var shadow = document.querySelector(".shadow");
 var correo= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 var cuil = /^[0-9]{11}$/
 var telefono = /^[0-9]{3}[0-9]{7}|[0-9]{7}$/
+var time_max = "04:00"
+var time_min = "00:00"
 
 
 form_1_next_btn.addEventListener("click", function(){
@@ -89,11 +91,11 @@ form_2_next_btn.addEventListener("click", function(){
 	valid_input('enVivo', 'Elija una opción', 'error-vivo');
 	valid_input('localidadEmision', 'Ingrese localidad de emisión', 'error-localidad');
 	valid_input('input_date', 'Ingrese fecha de emisión', 'error-fecha');
-	valid_input('input_time', 'Ingrese duración', 'error-duracion');
 	valid_input('input_tarea', 'Ingrese una breve descripción', 'error-tarea');
+	valid_time('input_time', 'La duración tiene que ser menor a 4 hs', 'error-duracion');
 	
 	if (inputtnom.length == 0  || selectviv == 0 || inputlocal.length == 0 || 
-		inputdate.length == 0 || inputtime.length == 0 || inputtarea.length == 0){
+		inputdate.length == 0 || inputtnom == time_min || inputtime > time_max || inputtarea.length == 0){
 		alert ("Complete los campos")
 	}
 	else{
@@ -217,7 +219,7 @@ btn_done.addEventListener("click", function(){
 	valid_correo('emailCanal', 'Ingrese un correo valido', 'error-emailCanal');
 	valid_condiciones('condiciones', 'Debe aceptar los terminos y condiciones', 'error-condiciones');
 	
-	if (inputnombrec.length == 0 || inputdireccionc.length == 0 || inputlocalidadc.length == 0 ||
+	if (inputnombrec.length == 0 || inputdireccionc.length == 0 || inputlocalidadc.length == 0 || 
 		inputcontactoc .length == 0 || telvalido == false  || correovalido == false || inputcheck==false){
 		alert ("Complete los campos")
 	}
@@ -280,6 +282,22 @@ function valid_tel(identificador,mensaje, diverror){
 	} 
 	error.innerHTML = mensajeError.join(', ');
 }
+
+function valid_time(identificador,mensaje, diverror){
+	var inputtnom = document.getElementById(identificador).value
+	var error = document.getElementById(diverror);
+	error.style.color = "red";
+
+	var mensajeError = [];
+	if (inputtnom == time_min){
+		mensajeError.push("Seleccione duración");
+	}
+	if(inputtnom > time_max){
+		mensajeError.push(mensaje);
+	} 
+	error.innerHTML = mensajeError.join(', ');
+}
+
 function valid_condiciones(identificador,mensaje, diverror){
 	var inputtnom = document.getElementById(identificador).checked
 	var error = document.getElementById(diverror);

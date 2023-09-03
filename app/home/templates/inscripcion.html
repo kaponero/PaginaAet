@@ -92,7 +92,7 @@
                             <div class="modal_wrapper">
                                 <div class="shadow"></div>
                                 <div class="success_wrap">
-                                    <span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
+                                    <span class="modal_icon"><ion-icon name="checkmark-sharp"><small class="AET">AET</small></span>
                                     <div class="row">
                                         <div>
                                             <div class="input_wrap">
@@ -240,8 +240,8 @@
                                 </div>
                                 <div class="cont2">
                                     <label for="input_time" class="form-label">Duración</label>
-                                    <input class="input" type="time" name="duracion" step="1" id="input_time" 
-                                        oninput="valid_input('input_time', 'Ingrese duración', 'error-duracion')">
+                                    <input class="input" type="time" name="duracion" min="00:00" max="04:00" value="00:00" step="60" id="input_time" 
+                                        oninput="valid_time('input_time', 'La duración tiene que ser menor a 4 hs', 'error-duracion')">
                                     <div id="error-duracion"></div>
                                 </div>
                             </div> 
