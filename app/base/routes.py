@@ -18,6 +18,7 @@ Inscription = tryton.pool.get('aet_web.inscription')
 CityCategory = tryton.pool.get('aet_web.city.category')
 Category = tryton.pool.get('aet_web.category')
 Calification = tryton.pool.get('aet_web.calification')
+Partner = tryton.pool.get('aet_web.partner')
 
 #### objetos para testing
 class daata():
@@ -62,6 +63,10 @@ def inscripcion():
     cat_prod_indep = CityCategory.search([('category.type', '=', 'independent')])
     cat_unica = CityCategory.search([('category.type', '=', 'unique')])
     cat_turf = CityCategory.search([('category.type', '=', 'turf')])
+
+    partners = Partner.search([('id', '>', 0)])
+
+    partners_tuple = [(p.number, p.name) for p in partners]
 
     with Transaction().set_context(language='es'):
         categories = Category.fields_get(['type'])['type']['selection']
@@ -108,11 +113,12 @@ def inscripcion():
     else:
         return render_template('/inscripcion.html',
                 categories=categories,
-                    cat_asociados=cat_asociados,
-                    cat_abiertos=cat_abiertos,
-                    cat_prod_indep=cat_prod_indep,
-                    cat_unica=cat_unica,
-                    cat_turf=cat_turf,
+                cat_asociados=cat_asociados,
+                cat_abiertos=cat_abiertos,
+                cat_prod_indep=cat_prod_indep,
+                cat_unica=cat_unica,
+                cat_turf=cat_turf,
+                partners_tuple = partners_tuple,
                 genres=genres)
 
 @blueprint.route('/download_instructivo')
