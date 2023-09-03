@@ -1,4 +1,5 @@
-from flask import render_template, redirect, request, url_for, flash, session, send_file
+from flask import (render_template, redirect, request, url_for,
+            flash, session, send_file, jsonify)
 
 from app import tryton
 from app.base import blueprint
@@ -64,10 +65,6 @@ def inscripcion():
     cat_unica = CityCategory.search([('category.type', '=', 'unique')])
     cat_turf = CityCategory.search([('category.type', '=', 'turf')])
 
-    partners = Partner.search([('id', '>', 0)])
-
-    partners_tuple = [(p.number, p.name) for p in partners]
-
     with Transaction().set_context(language='es'):
         categories = Category.fields_get(['type'])['type']['selection']
         genres = Inscription.fields_get('genre')['genre']['selection']
@@ -118,7 +115,6 @@ def inscripcion():
                 cat_prod_indep=cat_prod_indep,
                 cat_unica=cat_unica,
                 cat_turf=cat_turf,
-                partners_tuple = partners_tuple,
                 genres=genres)
 
 @blueprint.route('/download_instructivo')
@@ -347,3 +343,18 @@ def show_category(categoria=None):
             ])
         #return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
     return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
+
+@blueprint.route("/verificar_socio",  methods=['GET', 'POST'])
+@tryton.transaction()
+def verificar_socio():
+    cuit = request.args.get('cuit', 0, type=int)
+    socio = request.args.get('socio', 0, type=int)
+    partners = Partner.search([
+        ('number', '=', socio),
+        ('cuit', '=', cuit)
+        ])
+    if partners:
+        print('partner hallado')
+    print('Hello')
+    print(cuit, socio)
+    return jsonify(cuit=cuit)

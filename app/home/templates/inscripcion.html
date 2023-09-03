@@ -104,7 +104,10 @@
                                                 <input type="number" class="input" name="n_cuit">
                                             </div>
                                             <div class="btns_wrap row justify-content-between">
-                                                <button class="btn_aceptar" type="button">Verificar</button>
+                                                <a href=# class="btn_aceptar" type="button"
+                                                id="btn_aceptar">
+                                                <!-- onclick="location.href='/verificar_socio'">-->
+                                                Verificar</a>
                                                 <button class="btn_cancel" type="button">Cancelar</button>
                                             </div>
                                         </div>
@@ -451,11 +454,29 @@
             </div>
         </div>
     </main>
-    
+
     <script language="JavaScript">
         <!--
           javascript:window.history.forward(1);
         //-->
-        </script> 
+    </script>
     <script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptform.js') }}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+    <script>
+    $SCRIPT_ROOT = {{ request.script_root|tojson }};
+    </script>
+    <script>
+    $(function() {
+    $('a#btn_aceptar').bind('click', function() {
+        $.getJSON($SCRIPT_ROOT + '/verificar_socio', {
+            cuit: $('input[name="n_cuit"]').val(),
+            socio: $('input[name="n_socio"]').val()
+        }, function(data) {
+            $("#numeroCuit").text('23243');
+        });
+        return false;
+        });
+    });
+    </script>
     {%endblock%}
