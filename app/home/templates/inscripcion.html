@@ -83,10 +83,7 @@
                                 <label for="numeroCuit">Cuit</label>
                                 <input type="numeric" name="cuit" class="input" id="numeroCuit"
                                     oninput="valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit')">
-                                <div id="error-numeroCuit"></div>
-                                <br>
-                                <p><a href=#  class="btn_aceptar" id=verificar_socio>Verificar cuit</a></p>
-                                
+                                <div id="error-numeroCuit"></div>                                
                             </div>
                             <div class="input_wrap" id="es_socio" style="display: none">
                                 <label for="localidadCategoria" class="form-label">Categoria - Localidad</label>
@@ -435,7 +432,7 @@
     </script>
     <script>
     $(function() {
-    $('a#verificar_socio').bind('click', function() {
+    $("input#numeroCuit").change(function(){
       $.getJSON($SCRIPT_ROOT + '/verificar_socio', {
         cuit: $('input[name="cuit"]').val(),
       }, function(data) {
@@ -453,6 +450,7 @@
             console.log('no adentro')
             no_es_socio.style.display = 'block';
             es_socio.style.display = 'none';
+            razonSocial.value = "";
         }
       });
       return false;
