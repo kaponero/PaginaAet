@@ -42,7 +42,6 @@ var time_min = "00:00"
 
 form_1_next_btn.addEventListener("click", function(){
 
-	var selectsos = document.getElementById('socio').value
 	var selectcat = document.getElementById('localidadCategoria').value
 	var selectcat2 = document.getElementById('localidadCategoria2').value
 	var selectgen = document.getElementById('generoPrograma').value
@@ -50,14 +49,13 @@ form_1_next_btn.addEventListener("click", function(){
 	var inputcuit = document.getElementById('numeroCuit').value
 	var cuilvalido = cuil.test(inputcuit);
 
-	valid_input('socio', 'Seleccione una opción', 'error-socioAet');
 	valid_input('localidadCategoria', 'Selecione una categoria', 'error-localidadCategoria');
 	valid_input('localidadCategoria2', 'Selecione una categoria', 'error-localidadCategoria2');
 	valid_input('generoPrograma', 'Seleccione un género', 'error-genero');
 	valid_input('razonSocial', 'ingrese la razon social', 'error-razonSocial');
 	valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit');
 	
-	if (selectsos == 0 || (selectcat  == 0 &&  selectcat2 == 0) || selectgen == 0 || 
+	if ((selectcat  == 0 &&  selectcat2 == 0) || selectgen == 0 || 
 	inputrazons.length == 0 || cuilvalido == false){
 		alert ("Complete los campos")
 	}
