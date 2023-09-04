@@ -80,41 +80,12 @@
                     <h2>Datos de facturación</h2>
                         <div class="form_container">
                             <div class="input_wrap">
-                                <label for="socio" class="form-label">¿Es socio de AET?</label>
-                                <select name="socio" class="input" id="socio" onchange="ver_categoria();"
-                                    oninput="valid_input('socio', 'Seleccione una opción', 'error-socioAet')">
-                                    <option value="" selected="" disabled="">Elegir</option>
-                                    <option value="si">Si</option>
-                                    <option value="no">No</option>
-                                </select>
-                                <div id="error-socioAet"></div>
-                            </div>
-                            <div class="modal_wrapper">
-                                <div class="shadow"></div>
-                                <div class="success_wrap">
-                                    <span class="modal_icon"><ion-icon name="checkmark-sharp"><small class="AET">AET</small></span>
-                                    <div class="row">
-                                        <div>
-                                            <div class="input_wrap">
-                                                <label for="n_socio" class="form-label">N° de socio</label>
-                                                <input type="number" class="input" name="n_socio" id="n_socio">
-                                            </div>
-                                            <div class="input_wrap">
-                                                <label for="n_cuit" class="form-label">CUIT</label>
-                                                <input type="number" class="input" name="n_cuit" id="n_cuit">
-                                                <div id="error_socio"></div>
-                                            </div>
-                                            
-                                            <div class="btns_wrap row justify-content-between">
-                                                <a href=# class="btn_aceptar" type="button"
-                                                id="btn_aceptar">
-                                                <!-- onclick="location.href='/verificar_socio'">-->
-                                                Verificar</a>
-                                                <button class="btn_cancel" type="button">Cancelar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <label for="numeroCuit">Cuit</label>
+                                <input type="text" name="cuit" class="input" id="numeroCuit" pattern="[0-9]{11}" 
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+                                    valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit'),
+                                    verificar_socio()">
+                                <div id="error-numeroCuit"></div>
                             </div>
                             <div class="input_wrap" id="es_socio" style="display: none">
                                 <label for="localidadCategoria" class="form-label">Categoria - Localidad</label>
@@ -204,13 +175,6 @@
                                 <input type="text" name="razonsocial" class="input" id="razonSocial"
                                     oninput="valid_input('razonSocial', 'ingrese la razon social', 'error-razonSocial')">
                                 <div id="error-razonSocial"></div>
-                            </div>
-                            <div class="input_wrap">
-                                <label for="numeroCuit">Cuit</label>
-                                <input type="text" name="cuit" class="input" id="numeroCuit" pattern="[0-9]{11}" 
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
-                                    valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit')">
-                                <div id="error-numeroCuit"></div>
                             </div>
                         </div>
                     </div>
@@ -469,16 +433,18 @@
     $SCRIPT_ROOT = {{ request.script_root|tojson }};
     </script>
     <script>
-    $(function() {
-    $('a#btn_aceptar').bind('click', function() {
+    $(function verificar_socio() {
         $.getJSON($SCRIPT_ROOT + '/verificar_socio', {
-            cuit: $('input[name="n_cuit"]').val(),
-            socio: $('input[name="n_socio"]').val()
-        }, function(data) {
-            $("#numeroCuit").text(data.cuit);
+            cuit: $('input[name="numeroCuit"]').val(),
         });
         return false;
-        });
+
+    var es_socio = document.getElementById("es_socio");
+	var no_es_socio = document.getElementById("no_es_socio");
+	no_es_socio.style.display = 'none';
+	es_socio.style.display = 'none';
+	socio.selectedIndex = "";
+
     });
     </script>
     {%endblock%}
