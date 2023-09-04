@@ -83,7 +83,7 @@
                                 <label for="numeroCuit">Cuit</label>
                                 <input type="numeric" name="cuit" class="input" id="numeroCuit"
                                     oninput="valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit')">
-                                <p><a href=# id=verificar_socio>Verificar socio</a></p>
+                                <p><a href=# id=verificar_socio>Verificar cuit</a></p>
                                 <div id="error-numeroCuit"></div>
                             </div>
                             <div class="input_wrap" id="es_socio" style="display: none">
@@ -438,14 +438,20 @@
         cuit: $('input[name="cuit"]').val(),
       }, function(data) {
         console.log(data['socio'])
+        var es_socio = document.getElementById("es_socio");
+        var no_es_socio = document.getElementById("no_es_socio");
+        var razonSocial = document.getElementById("razonSocial");
         if (data['socio'] == 'si') {
             console.log('si adentro')
+            no_es_socio.style.display = 'none';
+            es_socio.style.display = 'block';
+            razonSocial.value = data['razonSocial'];
         }
         else {
             console.log('no adentro')
+            no_es_socio.style.display = 'block';
+            es_socio.style.display = 'none';
         }
-
-//         $("#razonSocial").value(data['socio']);
       });
       return false;
     });

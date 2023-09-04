@@ -356,5 +356,5 @@ def verificar_socio():
     print(cuit)
     if partners:
         print("jsonify(socio='si')")
-        return jsonify(socio='si')
-    return jsonify(socio='no')
+        return jsonify(socio='si', razonSocial=partners[0].name)
+    return jsonify(socio='no', razonSocial="")
