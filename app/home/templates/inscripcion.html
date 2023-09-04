@@ -81,10 +81,9 @@
                         <div class="form_container">
                             <div class="input_wrap">
                                 <label for="numeroCuit">Cuit</label>
-                                <input type="text" name="cuit" class="input" id="numeroCuit" pattern="[0-9]{11}" 
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
-                                    valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit'),
-                                    verificar_socio()">
+                                <input type="numeric" name="cuit" class="input" id="numeroCuit"
+                                    oninput="valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit')">
+                                <p><a href=# id=verificar_socio>Verificar socio</a></p>
                                 <div id="error-numeroCuit"></div>
                             </div>
                             <div class="input_wrap" id="es_socio" style="display: none">
@@ -433,23 +432,24 @@
     $SCRIPT_ROOT = {{ request.script_root|tojson }};
     </script>
     <script>
-    $(function verificar_socio() {
-        $.getJSON($SCRIPT_ROOT + '/verificar_socio', {
-            cuit: $('input[name="cuit"]').val(),
-        });
-        
-    var es_socio = document.getElementById("es_socio");
-    var no_es_socio = document.getElementById("no_es_socio");
-    
-    if (data.socio == "si"){
-	    no_es_socio.style.display = 'none';
-	    es_socio.style.display = 'display';
-	    
-    }else{
-        no_es_socio.style.display = 'display';
-	    es_socio.style.display = 'none';
-    }
-    return false;
+    $(function() {
+    $('a#verificar_socio').bind('click', function() {
+      $.getJSON($SCRIPT_ROOT + '/verificar_socio', {
+        cuit: $('input[name="cuit"]').val(),
+      }, function(data) {
+        console.log(data['socio'])
+        if (data['socio'] == 'si') {
+            console.log('si adentro')
+        }
+        else {
+            console.log('no adentro')
+        }
+
+//         $("#razonSocial").value(data['socio']);
+      });
+      return false;
     });
+    });
+
     </script>
     {%endblock%}

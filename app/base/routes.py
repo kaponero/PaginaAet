@@ -347,13 +347,13 @@ def show_category(categoria=None):
 @tryton.transaction()
 def verificar_socio():
     cuit = request.args.get('cuit', 0, type=int)
+    print(request.args)
     partners = Partner.search([
         ('cuit', '=', cuit)
         ])
 
     print("holaa asd")
     print(cuit)
-    
     if partners:
         print("jsonify(socio='si')")
         return jsonify(socio='si')
