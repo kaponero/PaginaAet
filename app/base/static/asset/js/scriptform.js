@@ -331,18 +331,30 @@ function ver_categoria(){
 }
 
 btn_cancel.addEventListener("click", function(){
-	var inputtnom = document.getElementById("socio");
+	var socio = document.getElementById("socio");
 	var es_socio = document.getElementById("es_socio");
 	var no_es_socio = document.getElementById("no_es_socio");
 	no_es_socio.style.display = 'none';
 	es_socio.style.display = 'none';
-	inputtnom.selectedIndex = "";
+	socio.selectedIndex = "";
 	modal_wrapper.classList.remove("active");
 
 });
 
 btn_aceptar.addEventListener("click", function(){
+	var n_socio = document.getElementById("n_socio").value;
+	var n_cuit = document.getElementById("n_cuit").value;
+	var error = document.getElementById("error_socio");
+	error.style.color = "red";
+	var mensajeError = [];
+	
+	if (n_socio == "100" && n_cuit == "200")
+	{
+		modal_wrapper.classList.remove("active");
+	}
+	else
+		mensajeError.push("ingrese un N° de socio y cuit valido");
 
-	modal_wrapper.classList.remove("active");
+	error.innerHTML = mensajeError.join(', ');
 
 });
