@@ -350,6 +350,11 @@ def verificar_socio():
     partners = Partner.search([
         ('cuit', '=', cuit)
         ])
+
+    print("holaa asd")
+    print(cuit)
+    
     if partners:
+        print("jsonify(socio='si')")
         return jsonify(socio='si')
     return jsonify(socio='no')

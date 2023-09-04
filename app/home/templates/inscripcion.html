@@ -435,16 +435,21 @@
     <script>
     $(function verificar_socio() {
         $.getJSON($SCRIPT_ROOT + '/verificar_socio', {
-            cuit: $('input[name="numeroCuit"]').val(),
+            cuit: $('input[name="cuit"]').val(),
         });
-        return false;
-
+        
     var es_socio = document.getElementById("es_socio");
-	var no_es_socio = document.getElementById("no_es_socio");
-	no_es_socio.style.display = 'none';
-	es_socio.style.display = 'none';
-	socio.selectedIndex = "";
-
+    var no_es_socio = document.getElementById("no_es_socio");
+    
+    if (data.socio == "si"){
+	    no_es_socio.style.display = 'none';
+	    es_socio.style.display = 'display';
+	    
+    }else{
+        no_es_socio.style.display = 'display';
+	    es_socio.style.display = 'none';
+    }
+    return false;
     });
     </script>
     {%endblock%}
