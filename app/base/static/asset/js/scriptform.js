@@ -48,6 +48,8 @@ form_1_next_btn.addEventListener("click", function(){
 	var inputrazons = document.getElementById('razonSocial').value
 	var inputcuit = document.getElementById('numeroCuit').value
 	var cuilvalido = cuil.test(inputcuit);
+	var no_es_socio = document.getElementById("no_es_socio");
+	var es_socio = document.getElementById("es_socio");
 
 	valid_input('localidadCategoria', 'Selecione una categoria', 'error-localidadCategoria');
 	valid_input('localidadCategoria2', 'Selecione una categoria', 'error-localidadCategoria2');
@@ -55,7 +57,11 @@ form_1_next_btn.addEventListener("click", function(){
 	valid_input('razonSocial', 'ingrese la razon social', 'error-razonSocial');
 	valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit');
 	
-	if ((selectcat  == 0 &&  selectcat2 == 0) || selectgen == 0 || 
+
+	if (es_socio.style.display == 'none'  && no_es_socio.style.display == 'none'){
+		alert ("Verifique el cuit")
+	}
+	else if ((selectcat  == 0 &&  selectcat2 == 0) || selectgen == 0 || 
 	inputrazons.length == 0 || cuilvalido == false){
 		alert ("Complete los campos")
 	}
