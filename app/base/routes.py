@@ -101,7 +101,6 @@ def inscripcion():
             'channel_contact': request.form['contacto'] or None,
             'channel_phone': request.form['telefono'] or None,
             'channel_email': request.form['email'] or None,
-            'aet_partner': request.form['socio'],
             'business_name': request.form['razonsocial'] or None,
             'cuit': request.form['cuit'] and (request.form['cuit']) or None,
             'inscription_date': datetime.now(),
