@@ -475,7 +475,7 @@
             cuit: $('input[name="n_cuit"]').val(),
             socio: $('input[name="n_socio"]').val()
         }, function(data) {
-            $("#numeroCuit").text('23243');
+            $("#numeroCuit").text(data.cuit);
         });
         return false;
         });
