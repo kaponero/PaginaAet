@@ -54,8 +54,8 @@ form_1_next_btn.addEventListener("click", function(){
 	valid_input('localidadCategoria', 'Selecione una categoria', 'error-localidadCategoria');
 	valid_input('localidadCategoria2', 'Selecione una categoria', 'error-localidadCategoria2');
 	valid_input('generoPrograma', 'Seleccione un género', 'error-genero');
-	valid_input('razonSocial', 'ingrese la razon social', 'error-razonSocial');
-	valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit');
+	valid_input('razonSocial', 'Ingrese la razon social', 'error-razonSocial');
+	valid_cuil('numeroCuit', 'Ingrese el cuit sin espacios', 'error-numeroCuit');
 	
 
 	if (es_socio.style.display == 'none'  && no_es_socio.style.display == 'none'){

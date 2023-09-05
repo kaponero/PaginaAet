@@ -82,7 +82,7 @@
                             <div class="input_wrap">
                                 <label for="numeroCuit">Cuit</label>
                                 <input type="numeric" name="cuit" class="input" id="numeroCuit"
-                                    oninput="valid_cuil('numeroCuit', 'ingrese el cuit sin espacios', 'error-numeroCuit')">
+                                    oninput="valid_cuil('numeroCuit', 'Ingrese el cuit sin espacios', 'error-numeroCuit')">
                                 <div id="error-numeroCuit"></div>                                
                             </div>
                             <div class="input_wrap" id="es_socio" style="display: none">
@@ -171,7 +171,7 @@
                             <div class="input_wrap">
                                 <label for="razonSocial">Razón social</label>
                                 <input type="text" name="razonsocial" class="input" id="razonSocial"
-                                    oninput="valid_input('razonSocial', 'ingrese la razon social', 'error-razonSocial')">
+                                    oninput="valid_input('razonSocial', 'Ingrese la razon social', 'error-razonSocial')">
                                 <div id="error-razonSocial"></div>
                             </div>
                         </div>
@@ -445,12 +445,16 @@
             no_es_socio.style.display = 'none';
             es_socio.style.display = 'block';
             razonSocial.value = data['razonSocial'];
+            valid_input('razonSocial', 'Ingrese la razon social', 'error-razonSocial')
         }
         else {
             console.log('no adentro')
             no_es_socio.style.display = 'block';
             es_socio.style.display = 'none';
             razonSocial.value = data['razonSocial'];
+            if (razonSocial.value.length != 0){
+               valid_input('razonSocial', 'Ingrese la razon social', 'error-razonSocial') 
+            }
         }
       });
       return false;
