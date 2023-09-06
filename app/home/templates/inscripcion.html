@@ -85,7 +85,7 @@
                             </div>  
                             <div class="input_wrap">
                                 <label for="numeroCuit">Cuit</label>
-                                <input type="numeric" name="cuit" class="input" id="numeroCuit"
+                                <input type="number" name="cuit" class="input" id="numeroCuit"
                                     oninput="valid_cuil('numeroCuit', 'Ingrese el cuit sin espacios', 'error-numeroCuit')">
                                 <div id="error-numeroCuit"></div>                                
                             </div>                        
@@ -174,7 +174,7 @@
                             </div>
                             <div class="input_wrap">
                                 <label for="razonSocial">Razón social</label>
-                                <input type="text" name="razonsocial" class="input" id="razonSocial"
+                                <input type="text" name="razonsocial" class="input" id="razonSocial" readOnly="true"
                                     oninput="valid_input('razonSocial', 'Ingrese la razon social', 'error-razonSocial')">
                                 <div id="error-razonSocial"></div>
                             </div>
@@ -449,7 +449,7 @@
         var num_socio = document.getElementById("num_socio");
         var genero = document.getElementById("generoPrograma");
         genero.selectedIndex = "";
-        
+        razonSocial.readOnly = false
         socio.value = data['socio']
         if (data['socio'] == 'si') {
             console.log('si adentro')
