@@ -79,14 +79,18 @@
                     <div class="form_1 data_info">
                     <h2>Datos de facturación</h2>
                         <div class="form_container">
+                            <div class="input_wrap" style="display: none">
+                                <input type="text" name="socio" class="input" id="socio">
+                                <input type="text" name="num_socio" class="input" id="num_socio">                               
+                            </div>  
                             <div class="input_wrap">
                                 <label for="numeroCuit">Cuit</label>
                                 <input type="numeric" name="cuit" class="input" id="numeroCuit"
                                     oninput="valid_cuil('numeroCuit', 'Ingrese el cuit sin espacios', 'error-numeroCuit')">
                                 <div id="error-numeroCuit"></div>                                
-                            </div>
+                            </div>                        
                             <div class="input_wrap" id="es_socio" style="display: none">
-                                <label for="localidadCategoria" class="form-label">Categoria - Localidad</label>
+                                <label for="localidadCategoria" class="form-label">Localidad - Categoria</label>
                                 <select name="categoria" class="input" id="localidadCategoria"
                                     oninput="valid_input('localidadCategoria', 'Seleccione una categoría', 'error-localidadCategoria')">
                                     <option value="" disabled="" selected="">Selecciona una categoria</option>
@@ -123,7 +127,7 @@
                                 <div id="error-localidadCategoria"></div>
                             </div>
                             <div class="input_wrap" id="no_es_socio" style="display: none">
-                                <label for="localidadCategoria2" class="form-label">Categoria - Localidad</label>
+                                <label for="localidadCategoria2" class="form-label">Categoria</label>
                                 <select name="categoria" class="input" id="localidadCategoria2"
                                     oninput="valid_input('localidadCategoria2', 'Seleccione una categoría', 'error-localidadCategoria2')">
                                     <option value="" disabled="" selected="">Selecciona una categoria</option>
@@ -133,7 +137,7 @@
                                                 <optgroup label={{ category[1] }}>
                                                     {% if category[0] == 'open' %}
                                                         {% for cat in cat_abiertos %}
-                                                        <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                                        <option value="{{ cat.id }}"> {{ cat.name }} </option>
                                                         {% endfor %}
                                                     {% elif category[0] == 'independent' %}
                                                         {% for cat in cat_prod_indep %}
@@ -397,19 +401,19 @@
             </div>
             <div class="btns_wrap">
                 <div class="common_btns form_1_btns">
-                    <button type="button" class="btn_next">siguiente <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
+                    <button type="button" class="btn_next">Siguiente <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
                 </div>
                 <div class="common_btns form_2_btns" style="display: none;">
                     <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
-                    <button type="button" class="btn_next">siguiente <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
+                    <button type="button" class="btn_next">Siguiente <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
                 </div>
                 <div class="common_btns form_3_btns" style="display: none;">
                     <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
-                    <button type="button" class="btn_next">siguiente</button>
+                    <button type="button" class="btn_next">Siguiente</button>
                 </div>
                 <div class="common_btns form_4_btns" style="display: none;">
                     <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
-                    <button type="button" class="btn_next">siguiente</button>
+                    <button type="button" class="btn_next">Siguiente</button>
                 </div>
                 <div class="common_btns form_5_btns" style="display: none;">
                     <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
@@ -431,6 +435,7 @@
     $SCRIPT_ROOT = {{ request.script_root|tojson }};
     </script>
     <script>
+
     $(function() {
     $("input#numeroCuit").change(function(){
       $.getJSON($SCRIPT_ROOT + '/verificar_socio', {
@@ -440,26 +445,68 @@
         var es_socio = document.getElementById("es_socio");
         var no_es_socio = document.getElementById("no_es_socio");
         var razonSocial = document.getElementById("razonSocial");
+        var socio = document.getElementById("socio").value;
+        var num_socio = document.getElementById("num_socio").value;
+
+        num_socio = data['numero_socio']
+
         if (data['socio'] == 'si') {
             console.log('si adentro')
             no_es_socio.style.display = 'none';
             es_socio.style.display = 'block';
+            socio = "si"
+        }
+        else if(data['socio'] == 'no') {
+            console.log('no adentro')
+            no_es_socio.style.display = 'block';
+            es_socio.style.display = 'none';
             razonSocial.value = data['razonSocial'];
-            valid_input('razonSocial', 'Ingrese la razon social', 'error-razonSocial')
+            razonSocial.readOnly = true;
+            socio = "no"
         }
         else {
             console.log('no adentro')
             no_es_socio.style.display = 'block';
             es_socio.style.display = 'none';
-            razonSocial.value = data['razonSocial'];
-            if (razonSocial.value.length != 0){
-               valid_input('razonSocial', 'Ingrese la razon social', 'error-razonSocial') 
-            }
+            razonSocial.readOnly = false;
+            razonSocial.value="";
+            socio = "no"
         }
       });
       return false;
     });
     });
+
+    $(function() {
+    $("select#localidadCategoria").change(function(){
+      $.getJSON($SCRIPT_ROOT + '/verificar_localidad', {
+        cuit: $('input[name="cuit"]').val(),
+        localidad: $('select[name="categoria"]').val()
+      }, function(data) {
+        console.log(data['razonSocial'])
+        var razonSocial = document.getElementById("razonSocial");
+        if (data['razonSocial'] != "") {
+            razonSocial.value = "";
+            razonSocial.readOnly = true;
+            console.log('si adentro2')
+            razonSocial.value = data['razonSocial'];
+            valid_input('razonSocial', 'Ingrese la razon social', 'error-razonSocial')
+            console.log(razonSocial.value)
+
+        }
+        else {
+            console.log('no adentro2')
+            razonSocial.value = "";
+            razonSocial.value = data['razonSocial'];
+            valid_input('razonSocial', 'Verifique los datos', 'error-razonSocial')
+            razonSocial.readOnly = true; 
+        }
+      });
+      return false;
+    });
+    });
+
+
 
     </script>
     {%endblock%}

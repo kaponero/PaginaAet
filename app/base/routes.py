@@ -71,6 +71,8 @@ def inscripcion():
 
     if request.method == 'POST':
         inscription, = Inscription.create([{
+            'aet_partner': request.form['socio'] or None,
+            'aet_number': request.form['num_socio'] or None,
             'name': request.form['programa'] or None,
             'category': request.form['categoria'] ,
             'genre': request.form['genero'],
@@ -351,14 +353,33 @@ def verificar_socio():
     partners = Partner.search([
         ('cuit', '=', cuit)
         ])
-
     print("holaa asd")
     print(cuit)
     if partners:
         if partners[0].is_partner:
             print("jsonify(socio='si')")
-            return jsonify(socio='si', razonSocial=partners[0].name) 
+            return jsonify(socio='si', razonSocial=partners[0].name, numero_socio = partners[0].number) 
         else:
             print("jsonify(socio='no')")
-            return jsonify(socio='no', razonSocial=partners[0].name)
-    return jsonify(socio='no', razonSocial="")
+            return jsonify(socio='no', razonSocial=partners[0].name, numero_socio = partners[0].number)
+    return jsonify(socio='', razonSocial="")
+
+@blueprint.route("/verificar_localidad",  methods=['GET', 'POST'])
+@tryton.transaction()
+def verificar_localidad():
+    cuit = request.args.get('cuit', 0, type=int)
+    localidad = request.args.get('localidad', 0, type=int)
+    print(request.args)
+    print("antres de buscar tupla")
+    print(cuit)
+    print(localidad)
+    
+    partners = Partner.search([
+        ('cuit', '=', cuit),
+        ('city.id', '=', localidad)
+        ])
+
+    if partners:
+        return jsonify(razonSocial=partners[0].name)
+    return jsonify(razonSocial="")
+    
