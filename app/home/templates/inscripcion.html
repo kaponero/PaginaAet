@@ -141,15 +141,15 @@
                                                         {% endfor %}
                                                     {% elif category[0] == 'independent' %}
                                                         {% for cat in cat_prod_indep %}
-                                                        <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                                        <option value="{{ cat.id }}"> {{ cat.name }} </option>
                                                         {% endfor %}
                                                     {% elif category[0] == 'unique' %}
                                                         {% for cat in cat_unica %}
-                                                        <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                                        <option value="{{ cat.id }}"> {{ cat.name }} </option>
                                                         {% endfor %}
                                                     {% elif category[0] == 'turf' %}
                                                         {% for cat in cat_turf %}
-                                                        <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
+                                                        <option value="{{ cat.id }}"> {{ cat.name }} </option>
                                                         {% endfor %}
                                                     {% endif %}
                                                 </optgroup>
@@ -210,6 +210,7 @@
                                 <div class="cont1">
                                     <label for="input_date" class="form-label">Fecha de emisión</label>
                                     <input class="input" type="date" name="fecha" id="input_date" 
+                                        min="2022-09-01" max="2023-08-31"
                                         oninput="valid_input('input_date', 'Ingrese fecha de emisión', 'error-fecha')">
                                     <div id="error-fecha"></div>
                                 </div>
