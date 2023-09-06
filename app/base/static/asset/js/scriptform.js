@@ -45,7 +45,7 @@ form_1_next_btn.addEventListener("click", function(){
 	var selectcat = document.getElementById('localidadCategoria').value
 	var selectcat2 = document.getElementById('localidadCategoria2').value
 	var selectgen = document.getElementById('generoPrograma').value
-	var inputrazons = document.getElementById('razonSocial').value
+	var inputrazons = document.getElementById('razonSocial')
 	var inputcuit = document.getElementById('numeroCuit').value
 	var cuilvalido = cuil.test(inputcuit);
 	var no_es_socio = document.getElementById("no_es_socio");
@@ -60,9 +60,12 @@ form_1_next_btn.addEventListener("click", function(){
 
 	if (es_socio.style.display == 'none'  && no_es_socio.style.display == 'none'){
 		alert ("Verifique el cuit")
+	}else if(inputrazons.value.length == 0 && inputrazons.readOnly == true){
+		alert ("Verifique el cuit y localidad")
+		valid_input('razonSocial', 'Verifique los datos', 'error-razonSocial');
 	}
 	else if ((selectcat  == 0 &&  selectcat2 == 0) || selectgen == 0 || 
-	inputrazons.length == 0 || cuilvalido == false){
+	inputrazons.value.length == 0 || cuilvalido == false){
 		alert ("Complete los campos")
 	}
 	else{
