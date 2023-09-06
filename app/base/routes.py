@@ -380,6 +380,6 @@ def verificar_localidad():
         ])
 
     if partners:
-        return jsonify(razonSocial=partners[0].name)
-    return jsonify(razonSocial="")
+        return jsonify(razonSocial=partners[0].name, numero_socio = partners[0].number)
+    return jsonify(razonSocial="" , numero_socio = "")
     

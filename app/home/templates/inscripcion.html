@@ -81,7 +81,7 @@
                         <div class="form_container">
                             <div class="input_wrap" style="display: none">
                                 <input type="text" name="socio" class="input" id="socio">
-                                <input type="text" name="num_socio" class="input" id="num_socio">                               
+                                <input type="text" name="num_socio" class="input" id="num_socio">                              
                             </div>  
                             <div class="input_wrap">
                                 <label for="numeroCuit">Cuit</label>
@@ -445,16 +445,14 @@
         var es_socio = document.getElementById("es_socio");
         var no_es_socio = document.getElementById("no_es_socio");
         var razonSocial = document.getElementById("razonSocial");
-        var socio = document.getElementById("socio").value;
-        var num_socio = document.getElementById("num_socio").value;
-
-        num_socio = data['numero_socio']
-
+        var socio = document.getElementById("socio");
+        var num_socio = document.getElementById("num_socio");
+        
+        socio.value = data['socio']
         if (data['socio'] == 'si') {
             console.log('si adentro')
             no_es_socio.style.display = 'none';
             es_socio.style.display = 'block';
-            socio = "si"
         }
         else if(data['socio'] == 'no') {
             console.log('no adentro')
@@ -462,7 +460,8 @@
             es_socio.style.display = 'none';
             razonSocial.value = data['razonSocial'];
             razonSocial.readOnly = true;
-            socio = "no"
+            num_socio.value = data['numero_socio'];
+
         }
         else {
             console.log('no adentro')
@@ -470,7 +469,8 @@
             es_socio.style.display = 'none';
             razonSocial.readOnly = false;
             razonSocial.value="";
-            socio = "no"
+            socio.value = "no";
+            num_socio.value = "";
         }
       });
       return false;
@@ -484,7 +484,11 @@
         localidad: $('select[name="categoria"]').val()
       }, function(data) {
         console.log(data['razonSocial'])
+
         var razonSocial = document.getElementById("razonSocial");
+        var num_socio = document.getElementById("num_socio");
+        
+
         if (data['razonSocial'] != "") {
             razonSocial.value = "";
             razonSocial.readOnly = true;
@@ -492,6 +496,7 @@
             razonSocial.value = data['razonSocial'];
             valid_input('razonSocial', 'Ingrese la razon social', 'error-razonSocial')
             console.log(razonSocial.value)
+            num_socio.value = data['numero_socio']
 
         }
         else {
