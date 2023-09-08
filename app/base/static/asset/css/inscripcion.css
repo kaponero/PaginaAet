@@ -138,12 +138,12 @@ main{
 }
 
 .wrapper .header ul li{
-	margin-right: 10px;
+	margin-right: 6px;
 	position: relative;
 }
 
 .wrapper .header ul li:last-child{
-	margin-right: 40px;
+	margin-right: 34px;
 }
 
 .wrapper .header ul li:before{
@@ -235,15 +235,9 @@ main{
 	padding: 10px;
 	font-size: 16px;
 	transition: 0.5s ease;
-	width: auto;
+	
 }
 
-.flex-container .cont2{
-	text-align: left;
-	display: flex;
-	flex-direction:column;
-	width: 200px;
-}
 
 .flex-container .cont2{
 	text-align: left;
