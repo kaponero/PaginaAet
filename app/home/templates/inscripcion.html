@@ -134,7 +134,7 @@
                                     {% for category in categories %}
                                         {% if category[0]%}
                                             {% if category[0] != 'associated'%}
-                                                <optgroup label={{ category[1] }}>
+                                                
                                                     {% if category[0] == 'open' %}
                                                         {% for cat in cat_abiertos %}
                                                         <option value="{{ cat.id }}"> {{ cat.rec_name }} </option>
@@ -152,7 +152,7 @@
                                                         <option value="{{ cat.id }}"> {{ cat.name }} </option>
                                                         {% endfor %}
                                                     {% endif %}
-                                                </optgroup>
+                                                
                                             {% endif %}
                                         {% endif %}
                                     {% endfor %}
@@ -206,15 +206,15 @@
                                 <div id="error-localidad"></div> 
                             </div>
                             
-                            <div class="flex-container">
-                                <div class="cont1">
+                            <div class="flex-container ">
+                                <div class="cont1 ">
                                     <label for="input_date" class="form-label">Fecha de emisión</label>
                                     <input class="input" type="date" name="fecha" id="input_date" 
                                         min="2022-09-01" max="2023-08-31"
                                         oninput="valid_input('input_date', 'Ingrese fecha de emisión', 'error-fecha')">
                                     <div id="error-fecha"></div>
                                 </div>
-                                <div class="cont2">
+                                <div class="cont2 ">
                                     <label for="input_time" class="form-label">Duración</label>
                                     <input class="input" type="time" name="duracion" min="00:00" max="04:00" value="00:00" step="60" id="input_time" 
                                         oninput="valid_time('input_time', 'La duración tiene que ser menor a 4 hs', 'error-duracion')">
