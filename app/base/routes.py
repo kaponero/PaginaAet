@@ -71,6 +71,7 @@ def inscripcion():
 
     if request.method == 'POST':
         inscription, = Inscription.create([{
+            'inscription_number': '',
             'aet_partner': request.form['socio'] or None,
             'aet_number': request.form['num_socio'] or None,
             'name': request.form['programa'] or None,
