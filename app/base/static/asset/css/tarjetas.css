@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+
+#premios{
+    background: url('../img/award.png') no-repeat center;
+	width: 100%;
+    background-size:cover;
+	display:table;
+}
+
+#text-premios{
+	text-transform: uppercase;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 50px;
+	color: #fff;
+	text-shadow: 0 0 5px #ebeb79 ,0 0 25px #ebeb79 , 0 0 50px #ebeb79 , 0 0 100px #ebeb79;
+	border-color: black;
+}
+
+:root{
+	--primary: #82aff3;
+	--secondary: #bfc0c0;
+	--white: #fff;
+	--text-clr: #5b6475;
+	--header-clr: #25273d;
+	--next-btn-hover: #677cc0;
+	--back-btn-hover: #8b8c8c;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	outline: none;
+	font-family: 'Open Sans', sans-serif;
+}
+
+main{
+	background: linear-gradient(var(--next-btn-hover),var(--primary));
+	color: var(--text-clr);
+	font-size: 16px;
+	position: relative;
+	padding: 20px;
+	text-align: center;
+}
+
+main .contenedor{
+	align-items: center;
+  	display: flex;
+  	justify-content: center;
+}
+
+main .reservar{
+	margin-top: 40px;
+	color: var(--white);
+	text-transform: uppercase;
+	font-family: 'Vina Sans', cursive;
+	font-size: 50px;
+ }
+
+ main .informacion{
+	margin-top: 30px;
+	max-width: 60%;
+	color: var(--white);
+	font-family: 'Vina Sans', cursive;
+ }
+
+ main #tarjetas-boton{
+	margin: 30px;
+	text-transform: uppercase;
+	font-family: 'Vina Sans', cursive;
+	font-size: 40px;
+ }
+ 

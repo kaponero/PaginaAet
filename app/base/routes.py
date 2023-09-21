@@ -47,12 +47,12 @@ data.append(data4)
 
 #####
 
-@blueprint.route('/formulario', methods = ['GET','POST'])
+@blueprint.route('/tarjetas', methods = ['GET','POST'])
 def formulario():
     if request.method == 'POST':
         return "all ok"
     else:
-        return "mal"
+        return render_template('/tarjetas.html')
 
 @blueprint.route('/inscripcion', methods = ['GET','POST'])
 @tryton.transaction(readonly=False, user=1)

@@ -1,0 +1,41 @@
+{% extends 'layouts/base.html'%}
+
+{%block title%}
+    Tarjetas
+{%endblock%}
+
+{% block links %}
+<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/tarjetas.css") }}">
+    {% endblock %}
+
+{%block content%}
+
+<section>
+    <div id="premios" class="text-center">
+        <img src="/static/asset/img/aet_premios.png"  class="img-fluid" alt="">
+        <h1 class= "text-center py-4" id="text-premios">6° edición</h1>
+    </div>
+</section>
+
+<main>
+    <h1 class="text-center reservar">reservar tarjetas</h1>
+    <div class="contenedor">
+        <h2 class="text-center informacion">
+        Para adquirir las tarjetas debe ingresar utilizando el correo con el que registraron los programas y su CUIT
+        </h2>
+    </div>
+    
+    <div class="text-center">
+        <button type="button" class="btn btn-dark" id="tarjetas-boton">Loguearse</button>
+    </div>
+ </main>
+
+    <script language="JavaScript">
+        <!--
+          javascript:window.history.forward(1);
+        //-->
+    </script>
+
+    <script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptform.js') }}"></script>
+    
+    {%endblock%}
