@@ -1,0 +1,204 @@
+{% extends 'layouts/base_admin.html'%}
+
+{%block title%}
+    Reservar tarjeta
+{%endblock%}
+
+{% block links %}
+<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/stylesjurados.css") }}">
+    {% endblock %}
+
+
+{%block content%}
+{{originalidad}}
+
+<div class="container pb-1">
+    <div class="row pb-3">
+        <div class="col-lg-12 pt-3 pb-3">
+            <div class="panel-heading">
+                <i class="fa fa-briefcase fa-fw"></i> ID de USUARIO: {{usuario}}
+                <div style="float:right;display: block">
+                    <a href="/listado" style="margin-top:-6px !important" class=" impre btn btn-sm btn-default">VOLVER AL LISTADO</a>
+                </div>
+            </div>
+        </div>               
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="encabezado">DATOS DEL PROGRAMA</h4>
+                <hr>
+                <div class="row datos" >
+                    <div class="col-md-6">
+                        <b>Programa:</b>
+                        <input readonly type="text" name="programaInscripcion" value="{{programa}}" class="form-control input-sm">
+                        <b>Categoria:</b>
+                        <input readonly type="text" name="categoriaInscripcion" value="{{categoria}}" class="form-control input-sm">
+                        <b>Localidad:</b>
+                        <input readonly type="text" name="localidadInscripcion" value="{{localidad}}" class="form-control input-sm">
+                        <b>Duracion:</b>
+                        <input readonly type="text" name="duracionInscripcion" value="{{duracion}}" class="form-control input-sm">
+                        <b>Coproductor:</b>
+                        <input readonly type="text" name="coproductorInscripcion" value="{{coproductor}}" class="form-control input-sm">
+                        <b>Director:</b>
+                        <input readonly type="text" name="directorInscripcion" value="{{director}}" class="form-control input-sm">
+                        <b>Sonido:</b>
+                        <input readonly type="text" name="sonidoInscripcion" value="{{sonido}}" class="form-control input-sm">
+                        <b>Protagonista:</b>
+                        <input readonly type="text" name="protagonistaInscripcion" value="{{protagonista}}" class="form-control input-sm">
+                    </div>
+                    <div class="col-md-6">
+                        <b>Genero:</b>
+                        <input readonly type="text" name="generoInscripcion" value="{{genero}}" class="form-control input-sm">
+                        <b>Vivo:</b>
+                        <input readonly type="text" name="vivoInscripcion" value="{{vivo}}" class="form-control input-sm">
+                        <b>Emision:</b>
+                        <input readonly type="text" name="emisionInscripcion" value="{{emision}}" class="form-control input-sm">
+                        <b>Productor:</b>
+                        <input readonly type="text" name="productorInscripcion" value="{{productor}}" class="form-control input-sm">
+                        <b>Autor:</b>
+                        <input readonly type="text" name="autorInscripcion" value="{{autor}}" class="form-control input-sm">
+                        <b>Camara:</b>
+                        <input readonly type="text" name="camaraInscripcion" value="{{camara}}" class="form-control input-sm">
+                        <b>Conductor:</b>
+                        <input readonly type="text" name="conductorInscripcion" value="{{conductor}}" class="form-control input-sm">
+                        <b>Cronistas:</b>
+                        <input readonly type="text" name="cronistasInscripcion" value="{{cronistas}}" class="form-control input-sm">
+                    </div>
+                    <div class="col-md-12">
+                        <b>Descripción:</b>
+                        <textarea readonly name="otrosInscripcion" class="form-control input-sm"> {{otros}} </textarea>
+                    </div>
+                </div>
+            </div>            
+            <div class="col-md-6">
+                <h4 class="encabezado">DATOS DEL CANAL</h4>
+                <hr>
+                <b>Nombre:</b>
+                <input readonly type="text" name="nombreInscripcion" value="{{nombre}}" class="form-control input-sm">
+                <b>Direccion:</b>
+                <input readonly type="text" name="direccionInscripcion" value="{{direccion}}" class="form-control input-sm">
+                <b>Localidad:</b>
+                <input readonly type="text" name="localidadInscripcion" value="{{localidad_canal}}" class="form-control input-sm">
+                <b>Contacto:</b>
+                <input readonly type="text" name="contactoInscripcion" value="{{contacto}}" class="form-control input-sm">
+                <b>Telefono:</b>
+                <input readonly type="text" name="telefonoInscripcion" value="{{telefono}}" class="form-control input-sm">
+                <b>Email:</b>
+                <input readonly type="text" name="emailInscripcion" value="{{email}}" class="form-control input-sm">
+                <b>Socio:</b>
+                <input readonly type="text" name="socioInscripcion" value="{{socio}}" class="form-control input-sm">
+                <label id="fecha"><b>Fecha: {{fecha}}</b></label>
+                <h4 class="encabezado">DATOS DEL FACTURACION</h4>
+                <hr>
+                <div class="row">
+                    <div class="col-md-8">
+                        <b>Razon social:</b>
+                        <input readonly type="text" name="Razon social" value="{{razonsocial}}" class="form-control input-sm">
+                    </div>
+                    <div class="col-md-4">
+                        <b>Cuit:</b>
+                        <input readonly type="text" name="cuit" value="{{cuit}}" class="form-control input-sm">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h4 class="encabezado">RUTINA</h4>
+                <hr>
+                <div id="rutina">
+                    <a  href="{{rutina}}" target="_blank" rel="noopener noreferrer">Abrir documento de rutina</a>
+                </div>
+
+                <h4 class="encabezado">MATERIAL DE VIDEO</h4>
+                <hr>
+                {% if cover or programa1 or programa2 or programa3 %}
+                {% if programa1 %}
+                <div class="col-md-3">
+                    <a href="{{programa1}}" class="btn" id="boton-gd">
+                        <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
+                            Programa 1
+                    </a>
+                </div>
+                {% endif %}
+                {% if programa2 %}
+                <div class="col-md-3">
+                    <a href="{{programa2}}" class="btn" id="boton-gd">
+                        <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
+                            Programa 2
+                    </a>
+                </div>
+                {% endif %}
+                {% if programa3 %}
+                <div class="col-md-3">
+                    <a href="{{programa3}}" class="btn" id="boton-gd">
+                        <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
+                            Programa 3
+                    </a>
+                </div>
+                {% endif %}
+                {% if cover %}
+                <div class="col-md-3">
+                    <a href="{{cover}}" class="btn" id="boton-gd">
+                        <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
+                            Cover
+                    </a>
+                </div>
+                {% endif %}
+                <div class="text-center p-3 carrusel">
+                    <div id="carouselExampleCaptions" class="carousel slide">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" ></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            {% if cover %}
+                            <div class="carousel-item active">
+                                <iframe src="{{cover}}" width="640" height="480" allow="autoplay"></iframe>
+                                <div class="carousel-caption d-none d-md-block">
+                                <h6>Cover</h6>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if programa1 %}
+                            <div class="carousel-item">
+                                <iframe src="{{programa1}}" width="640" height="480" allow="autoplay"></iframe>
+                                <div class="carousel-caption d-none d-md-block">
+                                <h6>Programa 1</h6>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {%if programa2 %}
+                            <div class="carousel-item">
+                                <iframe src="{{programa2}}" width="640" height="480" allow="autoplay"></iframe>
+                                <div class="carousel-caption d-none d-md-block">
+                                <h6>Programa 2</h6>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if programa3 %}
+                            <div class="carousel-item">
+                                <iframe src="{{programa3}}" width="640" height="480" allow="autoplay"></iframe>
+                                <div class="carousel-caption d-none d-md-block">
+                                <h6>Programa 3</h6>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                            <img src="/static/asset/img/aleft.svg" alt="" width="40px" height="40px">
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                            <img src="/static/asset/img/aright.svg" alt="" width="40px" height="40px">
+                        </button>
+                    </div>
+                </div>
+                {% else %}
+                <div class="carrusel">No hay material de video</div>
+                {% endif %}
+        </div> 
+    </div>
+</div>
+    
+<script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptjurados.js') }}"></script>
+{%endblock%}
