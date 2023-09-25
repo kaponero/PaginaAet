@@ -1,0 +1,52 @@
+:root{
+	--primary: rgb(0, 122, 173);
+	--secondary: #bfc0c0;
+    --terciary: #989eaa;
+	--white: #fff;
+	--text-clr: #5b6475;
+	--header-clr: #25273d;
+	--next-btn-hover: rgb(0, 84, 119);
+	--back-btn-hover: #8b8b8c;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	outline: none;
+	font-family: 'Open Sans', sans-serif;
+}
+hr{
+    border-width:  2px;
+}
+
+.container .panel-heading{
+    margin-top: 16px;
+}
+
+.container .encabezado{
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.container .datos .col-md-6 .input-sm{ 
+    margin-bottom: 10px;
+}
+
+.container .row .col-md-12 .input-sm{
+    margin-bottom: 10px;
+}
+
+.container .row .col-md-6 .input-sm{
+    margin-bottom: 10px;
+}
+
+#fecha{
+    margin-bottom: 10px;
+}
+
+
+select{
+    background-color: var(--primary);
+}

@@ -5,7 +5,7 @@
 {%endblock%}
 
 {% block links %}
-<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/stylesjurados.css") }}">
+<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/stylesProgramaReserva.css") }}">
     {% endblock %}
 
 
@@ -101,102 +101,19 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <h4 class="encabezado">RUTINA</h4>
-                <hr>
-                <div id="rutina">
-                    <a  href="{{rutina}}" target="_blank" rel="noopener noreferrer">Abrir documento de rutina</a>
+        <section class="text-center">
+            <h1>Reserva de tarjetas</h1>
+            <form action="">
+                <div class="text-center">
+                    <label for="tarjetas" class="form-label">Cantidad de Tarjetas</label>
+                    <select name="tarjetas" class="input" id="tarjetas">
+                        <option value="0" selected="" disabled=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
                 </div>
-
-                <h4 class="encabezado">MATERIAL DE VIDEO</h4>
-                <hr>
-                {% if cover or programa1 or programa2 or programa3 %}
-                {% if programa1 %}
-                <div class="col-md-3">
-                    <a href="{{programa1}}" class="btn" id="boton-gd">
-                        <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
-                            Programa 1
-                    </a>
-                </div>
-                {% endif %}
-                {% if programa2 %}
-                <div class="col-md-3">
-                    <a href="{{programa2}}" class="btn" id="boton-gd">
-                        <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
-                            Programa 2
-                    </a>
-                </div>
-                {% endif %}
-                {% if programa3 %}
-                <div class="col-md-3">
-                    <a href="{{programa3}}" class="btn" id="boton-gd">
-                        <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
-                            Programa 3
-                    </a>
-                </div>
-                {% endif %}
-                {% if cover %}
-                <div class="col-md-3">
-                    <a href="{{cover}}" class="btn" id="boton-gd">
-                        <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
-                            Cover
-                    </a>
-                </div>
-                {% endif %}
-                <div class="text-center p-3 carrusel">
-                    <div id="carouselExampleCaptions" class="carousel slide">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" ></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                        </div>
-                        <div class="carousel-inner">
-                            {% if cover %}
-                            <div class="carousel-item active">
-                                <iframe src="{{cover}}" width="640" height="480" allow="autoplay"></iframe>
-                                <div class="carousel-caption d-none d-md-block">
-                                <h6>Cover</h6>
-                                </div>
-                            </div>
-                            {% endif %}
-                            {% if programa1 %}
-                            <div class="carousel-item">
-                                <iframe src="{{programa1}}" width="640" height="480" allow="autoplay"></iframe>
-                                <div class="carousel-caption d-none d-md-block">
-                                <h6>Programa 1</h6>
-                                </div>
-                            </div>
-                            {% endif %}
-                            {%if programa2 %}
-                            <div class="carousel-item">
-                                <iframe src="{{programa2}}" width="640" height="480" allow="autoplay"></iframe>
-                                <div class="carousel-caption d-none d-md-block">
-                                <h6>Programa 2</h6>
-                                </div>
-                            </div>
-                            {% endif %}
-                            {% if programa3 %}
-                            <div class="carousel-item">
-                                <iframe src="{{programa3}}" width="640" height="480" allow="autoplay"></iframe>
-                                <div class="carousel-caption d-none d-md-block">
-                                <h6>Programa 3</h6>
-                                </div>
-                            </div>
-                            {% endif %}
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                            <img src="/static/asset/img/aleft.svg" alt="" width="40px" height="40px">
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                            <img src="/static/asset/img/aright.svg" alt="" width="40px" height="40px">
-                        </button>
-                    </div>
-                </div>
-                {% else %}
-                <div class="carrusel">No hay material de video</div>
-                {% endif %}
-        </div> 
+            </form>
+        </section>
     </div>
 </div>
     

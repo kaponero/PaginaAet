@@ -68,6 +68,7 @@ main .reservar{
 	max-width: 60%;
 	color: var(--white);
 	font-family: 'Vina Sans', cursive;
+	text-transform: uppercase;
  }
 
  main #tarjetas-boton{
