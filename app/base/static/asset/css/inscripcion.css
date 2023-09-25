@@ -52,6 +52,13 @@
 	border-color: #40b7ad;
 }
 
+#observacion{
+	color: rgba(0, 0, 0, 0.808);
+	font-size: 20px;
+	font-weight:600;
+	text-transform:lowercase;
+}
+
 .guia{
 	background-color: #c22071;
     align-items: center;

@@ -348,34 +348,37 @@
                         </div>
                     </div>
                     <div class="form_5 data_info" style="display: none;">
-                    <h2>Datos del canal emisor del programa</h2>
+                    <h2>
+                        Datos del Canal / Productora
+                        <p id="observacion" class="text-center">Según corresponda</p>
+                    </h2>
                         <div class="form_container">
                             <div class="input_wrap">
-                                <label for="nombreCanal">Nombre Canal</label>
+                                <label for="nombreCanal">Nombre Canal / Productora</label>
                                 <input type="text" name="canal" class="input" id="nombreCanal"
                                     oninput="valid_input('nombreCanal', 'Ingrese el nombre del Canal', 'error-nombreCanal')">
                                 <div id="error-nombreCanal"></div>
                             </div>
                             <div class="input_wrap">
-                                <label for="direccionCanal">Domicilio Canal</label>
+                                <label for="direccionCanal">Domicilio Canal / Productora</label>
                                 <input type="text" name="direccion" class="input" id="direccionCanal"
                                     oninput="valid_input('direccionCanal', 'Ingrese el domicilio del Canal', 'error-direccionCanal')">
                                 <div id="error-direccionCanal"></div>
                             </div>
                             <div class="input_wrap">
-                                <label for="localidadCanal">Localidad canal</label>
+                                <label for="localidadCanal">Localidad canal / Productora</label>
                                 <input type="text" name="localidad_canal" class="input" id="localidadCanal"
                                     oninput="valid_input('localidadCanal', 'Ingrese la localidad del Canal', 'error-localidadCanal')">
                                 <div id="error-localidadCanal"></div>
                             </div>
                             <div class="input_wrap">
-                                <label for="contactoCanal">Contacto canal</label>
+                                <label for="contactoCanal">Contacto canal / Productora</label>
                                 <input type="text" name="contacto" class="input" id="contactoCanal" 
                                     oninput="valid_input('contactoCanal', 'Ingrese un medio de contacto', 'error-contactoCanal')">
                                 <div id="error-contactoCanal"></div>
                             </div>
                             <div class="input_wrap">
-                                <label for="telefonoCanal">Teléfono canal</label>
+                                <label for="telefonoCanal">Teléfono canal / Productora</label>
                                 <input type="tel" name="telefono" class="input" id="telefonoCanal" 
                                     placeholder="(Código de área)Número" pattern="[0-9]{3}[0-9]{7}|[0-9]{7}"  
                                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
@@ -383,7 +386,7 @@
                                 <div id="error-telefonoCanal"></div>
                             </div>
                             <div class="input_wrap">
-                                <label for="emailCanal">Email canal</label>
+                                <label for="emailCanal">Email canal / Productora</label>
                                 <input type="email" name="email" class="input" id="emailCanal" placeholder="ejemplo@ejemplo.com" 
                                     oninput="valid_correo('emailCanal', 'Ingrese un correo valido', 'error-emailCanal')">
                                 <div id="error-emailCanal"></div>
