@@ -10,141 +10,93 @@
 
 
 {%block content%}
-{{originalidad}}
 
 <div class="container pb-1">
     <div class="row pb-3">
         <div class="col-lg-12 pt-3 pb-3">
             <div class="panel-heading">
-                <i class="fa fa-briefcase fa-fw"></i> ID de USUARIO: {{ user.rec_name }}
+                <i class="fa fa-briefcase fa-fw"></i> ID de USUARIO: 
                 <!--<div style="float:right;display: block">
                     <a href="/listado" style="margin-top:-6px !important" class=" impre btn btn-sm btn-default">VOLVER AL LISTADO</a>
                 </div>-->
             </div>
         </div>
-        {% if invitation and invitation.inscription %}
+        
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <h4 class="encabezado">DATOS DEL PROGRAMA</h4>
-                <hr>
+                <br>
                 <div class="row datos" >
-                    <div class="col-md-6">
-                        <b>Programa:</b>
-                        <input readonly type="text" name="programaInscripcion"
-                                value="{{ invitation.inscription.name}}" class="form-control input-sm">
-                        <b>Categoria:</b>
-                        <input readonly type="text" name="categoriaInscripcion"
-                                value="{{invitation.inscription.category.rec_name}}" class="form-control input-sm">
-                        <b>Localidad:</b>
-                        <input readonly type="text" name="localidadInscripcion"
-                            value="{{ invitation.inscription.city_of_emission}}" class="form-control input-sm">
-                        <b>Duracion:</b>
-                        <input readonly type="text" name="duracionInscripcion"
-                            value="{{ invitation.inscription.duration }}" class="form-control input-sm">
-                        <b>Coproductor:</b>
-                        <input readonly type="text" name="coproductorInscripcion"
-                            value="{{ invitation.inscription.co_producer }}" class="form-control input-sm">
-                        <b>Director:</b>
-                        <input readonly type="text" name="directorInscripcion"
-                            value="{{ invitation.inscription.director }}" class="form-control input-sm">
-                        <b>Sonido:</b>
-                        <input readonly type="text" name="sonidoInscripcion"
-                            value="{{ invitation.inscription.musician }}" class="form-control input-sm">
-                        <b>Protagonista:</b>
-                        <input readonly type="text" name="protagonistaInscripcion"
-                            value="{{ invitation.inscription.protagonist }}" class="form-control input-sm">
-                    </div>
-                    <div class="col-md-6">
-                        <b>Genero:</b>
-                        <input readonly type="text" name="generoInscripcion"
-                            value="{{ invitation.inscription.genre_string or ''}}" class="form-control input-sm">
-                        <b>Vivo:</b>
-                        <input readonly type="text" name="vivoInscripcion"
-                            value="{{ invitation.inscription.live or ''}}" class="form-control input-sm">
-                        <b>Emision:</b>
-                        <input readonly type="text" name="emisionInscripcion"
-                            value="{{ invitation.inscription.date_of_emission or '' }}" class="form-control input-sm">
-                        <b>Productor:</b>
-                        <input readonly type="text" name="productorInscripcion"
-                            value="{{ invitation.inscription.producer }}" class="form-control input-sm">
-                        <b>Autor:</b>
-                        <input readonly type="text" name="autorInscripcion"
-                            value="{{invitation.inscription.author}}" class="form-control input-sm">
-                        <b>Camara:</b>
-                        <input readonly type="text" name="camaraInscripcion"
-                            value="{{ invitation.inscription.cameraman}}" class="form-control input-sm">
-                        <b>Conductor:</b>
-                        <input readonly type="text" name="conductorInscripcion"
-                            value="{{ invitation.inscription.host }}" class="form-control input-sm">
-                        <b>Cronistas:</b>
-                        <input readonly type="text" name="cronistasInscripcion"
-                            value="{{ invitation.inscription.chroniclers }}" class="form-control input-sm">
-                    </div>
-                    <div class="col-md-12">
-                        <b>Descripción:</b>
-                        <textarea readonly name="otrosInscripcion" class="form-control input-sm">
-                            {{invitation.inscription.description }}
-                        </textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <h4 class="encabezado">DATOS DEL CANAL</h4>
-                <hr>
-                <b>Nombre:</b>
-                <input readonly type="text" name="nombreInscripcion"
-                    value="{{ invitation.inscription.channel_name }}" class="form-control input-sm">
-                <b>Direccion:</b>
-                <input readonly type="text" name="direccionInscripcion"
-                    value="{{ invitation.inscription.address_channel }}" class="form-control input-sm">
-                <b>Localidad:</b>
-                <input readonly type="text" name="localidadInscripcion"
-                    value="{{ invitation.inscription.channel_town }}" class="form-control input-sm">
-                <b>Contacto:</b>
-                <input readonly type="text" name="contactoInscripcion"
-                    value="{{ invitation.inscription.channel_contact }}" class="form-control input-sm">
-                <b>Telefono:</b>
-                <input readonly type="text" name="telefonoInscripcion"
-                    value="{{ invitation.inscription.channel_phone }}" class="form-control input-sm">
-                <b>Email:</b>
-                <input readonly type="text" name="emailInscripcion"
-                    value="{{ invitation.inscription.channel_email }}" class="form-control input-sm">
-                <b>Socio:</b>
-                <input readonly type="text" name="socioInscripcion"
-                    value="{{ invitation.inscription.aet_partner or '' }}" class="form-control input-sm">
-<!--                 <label id="fecha"><b>Fecha: {{fecha}}</b></label> -->
-                <h4 class="encabezado">DATOS DEL FACTURACION</h4>
-                <hr>
-                <div class="row">
-                    <div class="col-md-8">
-                        <b>Razon social:</b>
-                        <input readonly type="text" name="Razon social"
-                            value="{{ invitation.inscription.business_name }}" class="form-control input-sm">
-                    </div>
-                    <div class="col-md-4">
-                        <b>Cuit:</b>
-                        <input readonly type="text" name="cuit"
-                            value="{{ invitation.inscription.cuit }}" class="form-control input-sm">
+                    <div class="col">
+                        <h5><b>Programa: </b> {programa}</h5>
+                        <br>
+                        <h5><b>Categoria </b> {categoria}</h5>
+                        <hr>
                     </div>
                 </div>
             </div>
         </div>
-        {% endif %}
+      
         <section class="text-center">
-            <h1>Reserva de tarjetas</h1>
-            <form action="">
-                <div class="text-center">
-                    <label for="tarjetas" class="form-label">Cantidad de Tarjetas</label>
-                    <select name="tarjetas" class="input" id="tarjetas">
-                        <option value="0" selected="" disabled=""></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
+            <h1 class="m-3 p-3">Reserva de tarjetas</h1>
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="container text-center">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-4 pb-3">
+                                <select name="tarjetas" class="form-select" id="tarjetas">
+                                    <option value="0" selected disabled>Selecione la cantidad de tarjetas</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <form action="">
+                            <div class="row justify-content-md-center">
+                                <div class="col-md-4 m-4 text-start" style="display: none" id="tarjeta_1">
+                                    <h5 class="m-3 text-center">Tarjeta N°1</h5>
+                                    <label for="nombre_1" class="form-label m-1">Nombre</label>
+                                    <input type="text" class="form-control " id="nombre_1" name="nombre_1">
+                                    <label for="apellido_1" class="form-label m-1">Apellido</label>
+                                    <input type="text" class="form-control " id="apellido_1" name="apellido_1">
+                                    <label for="dni_1" class="form-label m-1">DNI</label>
+                                    <input type="text" class="form-control" id="dni_1" name="dni_1">
+                                    <label for="año_1" class="form-label m-1">Año</label>
+                                    <input type="text" class="form-control" id="año_1" name="año_1">
+                                </div>
+                                <div class="col-md-4 m-4 text-start" style="display: none" id="tarjeta_2">
+                                    <h5 class="m-3 text-center">Tarjeta N°2</h5>
+                                    <label for="nombre_2" class="form-label m-1">Nombre</label>
+                                    <input type="text" class="form-control " id="nombre_2" name="nombre_2">
+                                    <label for="apellido_2" class="form-label m-1">Apellido</label>
+                                    <input type="text" class="form-control " id="apellido_2" name="apellido_2">
+                                    <label for="dni_2" class="form-label m-1">DNI</label>
+                                    <input type="text" class="form-control" id="dni_2" name="dni_2">
+                                    <label for="año_2" class="form-label m-1">Año</label>
+                                    <input type="text" class="form-control" id="año_2" name="año_2">
+                                </div>
+                            </div>
+                            <div class="row justify-content-end" >
+                                <div class="col-md-4 mx-5 justify-content-end" style="display: none" id="boton_comprar">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-3">
+                                            <h4>Total: </h4>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h3 id="precio" style="color: brown;"></h3>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-secondary">Comprar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </form>
+            </div>
+            
         </section>
     </div>
 </div>
-    
-<script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptjurados.js') }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptarjetas.js') }}"></script>
 {%endblock%}

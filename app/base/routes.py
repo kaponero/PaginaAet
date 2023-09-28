@@ -54,6 +54,13 @@ def formulario():
     else:
         return render_template('/tarjetas.html')
 
+@blueprint.route('/reserva', methods = ['GET','POST'])
+def formulario2():
+    if request.method == 'POST':
+        return "all ok"
+    else:
+        return render_template('/programa-reserva.html')
+
 @blueprint.route('/inscripcion', methods = ['GET','POST'])
 @tryton.transaction(readonly=False, user=1)
 def inscripcion():
