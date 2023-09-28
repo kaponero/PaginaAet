@@ -374,7 +374,7 @@ def verificar_localidad():
     print("antres de buscar tupla")
     print(cuit)
     print(localidad)
-    
+
     partners = Partner.search([
         ('cuit', '=', cuit),
         ('city.id', '=', localidad)
@@ -383,4 +383,17 @@ def verificar_localidad():
     if partners:
         return jsonify(razonSocial=partners[0].name, numero_socio = partners[0].number)
     return jsonify(razonSocial="" , numero_socio = "")
-    
+
+@blueprint.route("/programa_reserva", methods=['GET', 'POST'])
+@tryton.transaction()
+@login_required
+def programa_reserva():
+    Invitation = tryton.pool.get('aet_web.invitation')
+    user = Session.get_user(session['session_key'])
+    invitations = Invitation.search([('web_user', '=', user)])
+    invitation = None
+    print(invitations)
+    if invitations:
+        invitation = invitations[0]
+    return render_template("programa-reserva.html",
+        invitation=invitation, user=user)
