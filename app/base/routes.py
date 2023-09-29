@@ -54,13 +54,6 @@ def formulario():
     else:
         return render_template('/tarjetas.html')
 
-@blueprint.route('/reserva', methods = ['GET','POST'])
-def formulario2():
-    if request.method == 'POST':
-        return "all ok"
-    else:
-        return render_template('/programa-reserva.html')
-
 @blueprint.route('/inscripcion', methods = ['GET','POST'])
 @tryton.transaction(readonly=False, user=1)
 def inscripcion():
@@ -391,6 +384,20 @@ def verificar_localidad():
         return jsonify(razonSocial=partners[0].name, numero_socio = partners[0].number)
     return jsonify(razonSocial="" , numero_socio = "")
 
+@blueprint.route("/listado_reserva", methods=['GET', 'POST'])
+@tryton.transaction()
+@login_required
+def listado_reserva():
+    Invitation = tryton.pool.get('aet_web.invitation')
+    user = Session.get_user(session['session_key'])
+    invitations = Invitation.search([('web_user', '=', user)])
+    invitation = None
+    print(invitations)
+    if invitations:
+        invitation = invitations[0]
+    return render_template("listado-reserva.html",
+        invitation=invitation, user=user)
+
 @blueprint.route("/programa_reserva", methods=['GET', 'POST'])
 @tryton.transaction()
 @login_required
@@ -404,3 +411,4 @@ def programa_reserva():
         invitation = invitations[0]
     return render_template("programa-reserva.html",
         invitation=invitation, user=user)
+

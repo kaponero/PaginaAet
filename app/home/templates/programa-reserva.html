@@ -22,8 +22,8 @@
             </div>
         </div>
         
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row justify-content-between" id="portada">
+            <div class="col-md-4 textos">
                 <h4 class="encabezado">DATOS DEL PROGRAMA</h4>
                 <br>
                 <div class="row datos" >
@@ -31,19 +31,27 @@
                         <h5><b>Programa: </b> {programa}</h5>
                         <br>
                         <h5><b>Categoria </b> {categoria}</h5>
-                        <hr>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="/static/asset/img/premios_aet_portada.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">Seleccione la cantidad de tarjetas y complete los datos. El precio de cada tarjeta es de $3.000.</p>
+                    </div>
+                  </div>
             </div>
         </div>
       
         <section class="text-center">
             <h1 class="m-3 p-3">Reserva de tarjetas</h1>
+            <hr>
             <div class="container text-center">
                 <div class="row justify-content-center">
                     <div class="container text-center">
                         <div class="row justify-content-md-center">
-                            <div class="col-md-4 pb-3">
+                            <div class="col-md-4 pb-3 pt-3">
                                 <select name="tarjetas" class="form-select" id="tarjetas">
                                     <option value="0" selected disabled>Selecione la cantidad de tarjetas</option>
                                     <option value="1">1</option>
@@ -86,7 +94,7 @@
                                             <h3 id="precio" style="color: brown;"></h3>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-secondary">Comprar</button>
+                                    <button type="button" class="btn btn-danger">Comprar</button>
                                 </div>
                             </div>
                         </form>

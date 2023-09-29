@@ -44,7 +44,7 @@ def login():
                     return redirect(url_for('base_blueprint.show_category'))
                 ''' Si el usuario es para comprar invitaciones, regresamos a la parte de invitaciones'''
                 if invitation:
-                    return redirect(url_for('base_blueprint.programa_reserva'))
+                    return redirect(url_for('base_blueprint.listado_reserva'))
             flash('Verifique sus credenciales', 'error')
             return render_template( 'login.html', msg='Correo electrónico o contraseña incorrecta', form=login_form)
         except:
