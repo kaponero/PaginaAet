@@ -10,13 +10,13 @@ select.addEventListener("change", function(){
         tarjeta_1.style.display = 'block';
         tarjeta_2.style.display = 'none';
         boton.style.display = 'block';
-        precio.innerHTML = "<h4><b>$3.000</b></h4>";
+        precio.innerHTML = '$' + precio_tarjeta;
     }
     if (select.value  == 2){
         tarjeta_1.style.display = 'block';
         tarjeta_2.style.display = 'block';
         boton.style.display = 'block';
-        precio.innerHTML = "<h4><b>$6.000</b></h4>";
+        precio.innerHTML = '$' + precio_tarjeta*2;
     }
         
 });

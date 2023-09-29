@@ -11,6 +11,12 @@
 
 {%block content%}
 
+<script> 
+    var precio_tarjeta = {{ invitation.inscription.category.category.price |tojson|safe }}; 
+    console.log(precio_tarjeta); 
+</script> 
+
+
 <div class="container pb-1">
     <div class="row pb-3">
         <div class="col-lg-12 pt-3 pb-3">
@@ -100,7 +106,7 @@
                                             <h4>Total: </h4>
                                         </div>
                                         <div class="col-md-3">
-                                            <h3 id="precio" style="color: brown;"></h3>
+                                            <h3 id="precio" style="color: brown; font-weight:bold"></h3>
                                             <h3 id="precio2" style="color: brown;"></h3>
                                         </div>
                                     </div>
