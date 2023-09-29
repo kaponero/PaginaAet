@@ -48,7 +48,7 @@
                     <tr><td>{{ inscripto.name }}</td>
                         <td>{{ inscripto.channel_name if inscripto.channel_name != None else 'No se definio canal de emisión'}}</td>
                         <td>{{ inscripto.channel_town if inscripto.channel_name != None else 'No se definio ciudad de emisión'}}</td>
-                        <td>{{ inscripto.category.rec_name }}</td>
+                        <td>{{ inscripto.category and inscripto.category.rec_name }}</td>
                         <td>{{ inscripto.genre_string }} </td>
                         <td>
                           <div class="row justify-content-between">

@@ -8,18 +8,16 @@
 <link rel="stylesheet" href="{{ url_for("static", filename="asset/css/stylesProgramaReserva.css") }}">
     {% endblock %}
 
-
 {%block content%}
 
 <script>
     var precio_tarjeta = 3000;
-    if ({{ invitation.inscription.category.category.price }}){
+    {% if invitation.inscription and invitation.inscription.category
+        and invitation.inscription.category.category %}
         precio_tarjeta = {{ invitation.inscription.category.category.price |tojson|safe }};
-    }
-       
-    console.log(precio_tarjeta); 
-</script> 
-
+    {% endif %}
+    console.log(precio_tarjeta);
+</script>
 
 <div class="container pb-1">
     <div class="row pb-3">
@@ -126,41 +124,6 @@
 </div>
 
 
-
-<script language="JavaScript">
-    <!--
-        javascript:window.history.forward(1);
-    //-->
-</script>
-
 <script type="text/javascript" src="{{ url_for('static',filename='asset/js/scriptarjetas.js') }}"></script>
 {%endblock%}
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{ url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
-<script>
-    $SCRIPT_ROOT = {{ request.script_root|tojson }};
-</script>
 
-
-<script>
-    $(function() {
-    $document.getElementById("tarjetas").addEventListener("change", function(){
-      $.getJSON($SCRIPT_ROOT + '/calcular_precio_entradas', {
-        cantidad: $('input[name="tarjetas"]').val(),
-//         invitation_id: $('select[name=1]').val()
-        invitation_id: 1
-      }, function(data) {
-        console.log(data['precio'])
-        var precio2 = document.getElementById("precio2");
-        if (data['precio'] != "") {
-            precio2.value = data['precio'];
-            console.log('si adentro2')
-        }
-        else {
-            console.log('no adentro2')
-        }
-      });
-      return false;
-    });
-    });
-</script>
