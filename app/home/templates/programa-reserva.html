@@ -11,8 +11,12 @@
 
 {%block content%}
 
-<script> 
-    var precio_tarjeta = {{ invitation.inscription.category.category.price |tojson|safe }}; 
+<script>
+    var precio_tarjeta = 3000;
+    if ({{ invitation.inscription.category.category.price }}){
+        precio_tarjeta = {{ invitation.inscription.category.category.price |tojson|safe }};
+    }
+       
     console.log(precio_tarjeta); 
 </script> 
 
