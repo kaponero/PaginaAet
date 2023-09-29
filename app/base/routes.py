@@ -407,3 +407,19 @@ def programa_reserva(invitation_id, user_id):
     else:
         return 'No coincide el usuario con la invitacion a reservar'
 
+
+@blueprint.route("/calcular_precio_entradas", methods=['GET', 'POST'])
+@tryton.transaction()
+@login_required
+def calcular_precio_entradas():
+    Invitation = tryton.pool.get('aet_web.invitation')
+    cantidad = request.args.get('cantidad', type=int)
+    invitation_id = request.args.get('invitation_id', type=int)
+    print(5*'\n'+'calculando precio'+5*'\n')
+    invitation = Invitation(invitation_id)
+    precio =3000 * data['cantidad']
+    if invitation.inscription and invitation.inscription.category:
+        precio = invitation.inscription.category.category.price * cantidad
+    elif not cantidad:
+        precio = 0
+    return jsonify(precio=precio)
