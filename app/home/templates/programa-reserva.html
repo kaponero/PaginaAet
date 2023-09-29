@@ -78,18 +78,18 @@
                                 </select>
                             </div>
                         </div>
-                        <form action="">
+                        <form action="" method="POST">
                             <div class="row justify-content-md-center">
                                 <div class="col-md-4 m-4 text-start" style="display: none" id="tarjeta_1">
                                     <h5 class="m-3 text-center">Tarjeta N°1</h5>
                                     <label for="nombre_1" class="form-label m-1">Nombre</label>
-                                    <input type="text" class="form-control " id="nombre_1" name="nombre_1">
+                                    <input type="text" class="form-control " id="nombre_1" name="nombre_1" required>
                                     <label for="apellido_1" class="form-label m-1">Apellido</label>
-                                    <input type="text" class="form-control " id="apellido_1" name="apellido_1">
+                                    <input type="text" class="form-control " id="apellido_1" name="apellido_1" required>
                                     <label for="dni_1" class="form-label m-1">DNI</label>
-                                    <input type="text" class="form-control" id="dni_1" name="dni_1">
+                                    <input type="text" class="form-control" id="dni_1" name="dni_1" required>
                                     <label for="año_1" class="form-label m-1">Año</label>
-                                    <input type="text" class="form-control" id="año_1" name="año_1">
+                                    <input type="text" class="form-control" id="año_1" name="año_1" required>
                                 </div>
                                 <div class="col-md-4 m-4 text-start" style="display: none" id="tarjeta_2">
                                     <h5 class="m-3 text-center">Tarjeta N°2</h5>
@@ -114,7 +114,7 @@
                                             <h3 id="precio2" style="color: brown;"></h3>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-danger">Comprar</button>
+                                    <button type="submit" class="btn btn-danger">Comprar</button>
                                 </div>
                             </div>
                         </form>
