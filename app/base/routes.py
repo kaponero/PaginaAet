@@ -404,7 +404,11 @@ def programa_reserva(invitation_id, user_id):
     
     if request.method == 'POST':
             #request.form['nombre_1'] or None,
-        return "hola"
+        if int(user_id) == user.id:
+            return render_template("programa-reserva.html",
+                invitation=invitation, user=user)
+        else:
+            return 'No coincide el usuario con la invitacion a reservar'
     else:
         if int(user_id) == user.id:
             return render_template("programa-reserva.html",
