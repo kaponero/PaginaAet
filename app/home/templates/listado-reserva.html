@@ -19,7 +19,7 @@
     </div>
   </div>
   <small>
-    {% if (inscriptos) %}
+    {% if (invitations) %}
     <div class="row p-3">
         <div class="col-lg-12 ">
         <div class="table-responsive" id="tabla_1">
@@ -35,14 +35,21 @@
                 </tr>
             </thead>
             <tbody>
-                {% for inscripto in inscriptos %}
-                    <tr><td>{{ inscripto.name }}</td>
-                        <td>{{ inscripto.channel_name if inscripto.channel_name != None else 'No se definio canal de emisión'}}</td>
-                        <td>{{ inscripto.channel_town if inscripto.channel_name != None else 'No se definio ciudad de emisión'}}</td>
-                        <td>{{ inscripto.category.rec_name }}</td>
-                        <td>{{ inscripto.genre_string }} </td>
-                        <td><a class="btn btn-success" href="/reserva-de-tarjetas/{{ inscripto.id}}" role="button">Reservar</a></td>
+                {% for invitation in invitations %}
+                    {% if invitation.inscription %}
+                    <tr><td>{{ invitation.inscription.name }}</td>
+                        <td>{{ invitation.inscription.channel_name or 'No se definio canal de emisión'}}</td>
+                        <td>{{ invitation.inscription.channel_town if invitation.inscription.channel_name or 'No se definio ciudad de emisión'}}</td>
+                        <td>{{ invitation.inscription.category and invitation.inscription.category.rec_name  or 'No se definio categoría'}}</td>
+                        <td>{{ invitation.inscription.genre_string or 'No se definio genero' }} </td>
+                        <td><a class="btn btn-success" href="/programa_reserva/{{ invitation.id }}/{{ user.id }}" role="button">Reservar</a></td>
                     </tr>
+                    {% else %}
+                    <tr>
+                      <td colspan="5"> Invitación sin Programa inscripto </td>
+                      <td><a class="btn btn-success" href="/programa_reserva/{{ invitation.id  }}/{{ user.id}}" role="button">Reservar</a></td>
+                    </tr>
+                    {% endif %}
                 {% endfor %}
             </tbody>
           </table>

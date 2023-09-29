@@ -21,29 +21,38 @@
                 </div>-->
             </div>
         </div>
-        
         <div class="row justify-content-between" id="portada">
             <div class="col-md-4 textos">
+                {% if invitation.inscription %}
                 <h4 class="encabezado">DATOS DEL PROGRAMA</h4>
                 <br>
                 <div class="row datos" >
                     <div class="col">
-                        <h5><b>Programa: </b> {programa}</h5>
+                        <h5><b>Programa: </b> {{ invitation.inscription.rec_name }}</h5>
                         <br>
-                        <h5><b>Categoria </b> {categoria}</h5>
+                        <h5><b>Categoria </b> {{ invitation.inscription.category and invitation.inscription.category.rec_name or 'No se definio categoria' }}</h5>
                     </div>
                 </div>
+                {% else %}
+                <h4 class="encabezado">DATOS DE LA INVITACION</h4>
+                <div class="row datos" >
+                    <h5><b> {{ invitation.web_user.rec_name }} </b></h5>
+                </div>
+                {% endif %}
             </div>
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                     <img src="/static/asset/img/premios_aet_portada.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <p class="card-text">Seleccione la cantidad de tarjetas y complete los datos. El precio de cada tarjeta es de $3.000.</p>
+                    {% if invitation.inscription %}
+                      <p class="card-text">Seleccione la cantidad de tarjetas y complete los datos. El precio de cada tarjeta es de {{ invitation.inscription.category and invitation.inscription.category.category.price }}</p>
+                    {% else %}
+                        <p class="card-text">Seleccione la cantidad de tarjetas y complete los datos. El precio de cada tarjeta es de $3000 </p>
+                    {% endif %}
                     </div>
                   </div>
             </div>
         </div>
-      
         <section class="text-center">
             <h1 class="m-3 p-3">Reserva de tarjetas</h1>
             <hr>
@@ -101,7 +110,6 @@
                     </div>
                 </div>
             </div>
-            
         </section>
     </div>
 </div>

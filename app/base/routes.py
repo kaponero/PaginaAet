@@ -391,24 +391,19 @@ def listado_reserva():
     Invitation = tryton.pool.get('aet_web.invitation')
     user = Session.get_user(session['session_key'])
     invitations = Invitation.search([('web_user', '=', user)])
-    invitation = None
-    print(invitations)
-    if invitations:
-        invitation = invitations[0]
     return render_template("listado-reserva.html",
-        invitation=invitation, user=user)
+        invitations=invitations, user=user)
 
-@blueprint.route("/programa_reserva", methods=['GET', 'POST'])
+@blueprint.route("/programa_reserva/<invitation_id>/<user_id>", methods=['GET', 'POST'])
 @tryton.transaction()
 @login_required
-def programa_reserva():
+def programa_reserva(invitation_id, user_id):
     Invitation = tryton.pool.get('aet_web.invitation')
     user = Session.get_user(session['session_key'])
-    invitations = Invitation.search([('web_user', '=', user)])
-    invitation = None
-    print(invitations)
-    if invitations:
-        invitation = invitations[0]
-    return render_template("programa-reserva.html",
-        invitation=invitation, user=user)
+    invitation = Invitation(invitation_id)
+    if int(user_id) == user.id:
+        return render_template("programa-reserva.html",
+            invitation=invitation, user=user)
+    else:
+        return 'No coincide el usuario con la invitacion a reservar'
 
