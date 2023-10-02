@@ -8,8 +8,6 @@ from jinja2 import TemplateNotFound
 
 from functools import wraps
 
-WebUser = tryton.pool.get('web.user')
-Session = tryton.pool.get('web.user.session')
 
 @blueprint.route('/')
 def index():

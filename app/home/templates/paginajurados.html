@@ -689,44 +689,56 @@
             <h4 class="encabezado">RUTINA</h4>
                 <hr>
                 <div id="rutina">
-                    <a  href="{{rutina}}" target="_blank" rel="noopener noreferrer">Abrir documento de rutina</a>
+                    {% if rutina %}
+                    <a  href="{{ rutina }}" target="_blank" rel="noopener noreferrer">Abrir documento de rutina</a>
+                    {% else %}
+                    El participante no ha subido documento de rutina
+                    {% endif %}
                 </div>
 
                 <h4 class="encabezado">MATERIAL DE VIDEO</h4>
                 <hr>
                 {% if cover or programa1 or programa2 or programa3 %}
-                {% if programa1 %}
                 <div class="col-md-3">
+                    {% if programa1 %}
                     <a href="{{programa1}}" class="btn" id="boton-gd">
                         <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
                             Programa 1
                     </a>
+                    {% else %}
+                        El participante no ha subido video del programa 1
+                    {% endif %}
                 </div>
-                {% endif %}
-                {% if programa2 %}
                 <div class="col-md-3">
+                    {% if programa2 %}
                     <a href="{{programa2}}" class="btn" id="boton-gd">
                         <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
                             Programa 2
                     </a>
+                    {% else %}
+                        El participante no ha subido video del programa 2
+                    {% endif %}
                 </div>
-                {% endif %}
-                {% if programa3 %}
                 <div class="col-md-3">
+                    {% if programa3 %}
                     <a href="{{programa3}}" class="btn" id="boton-gd">
                         <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
                             Programa 3
                     </a>
+                    {% else %}
+                    El participante no ha subido video del programa 3
+                    {% endif %}
                 </div>
-                {% endif %}
-                {% if cover %}
                 <div class="col-md-3">
+                    {% if cover %}
                     <a href="{{cover}}" class="btn" id="boton-gd">
                         <img src="/static/asset/img/play.svg" alt="" width="25px" height="25px">
                             Cover
                     </a>
+                    {% else %}
+                        El participante no ha subido video del resumen del programa
+                    {% endif %}
                 </div>
-                {% endif %}
                 <div class="text-center p-3 carrusel">
                     <div id="carouselExampleCaptions" class="carousel slide">
                         <div class="carousel-indicators">
