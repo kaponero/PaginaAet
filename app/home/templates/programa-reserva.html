@@ -72,33 +72,82 @@
                                 <div class="col-md-4 pb-3 pt-3">
                                     <select name="tarjetas" class="form-select" id="tarjetas">
                                         <option value="0" selected disabled>Selecione la cantidad de tarjetas</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
+                                        <option value="1"
+                                            {% if invitation.guests and invitation.guests|length == 1 %}
+                                                selected
+                                            {% endif%} >1</option>
+                                        <option value="2"
+                                            {% if invitation.guests and invitation.guests|length == 2 %}
+                                                selected
+                                            {% endif%}>2</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row justify-content-md-center">
-                                <div class="col-md-4 m-4 text-start" style="display: none" id="tarjeta_1">
+                                <div class="col-md-4 m-4 text-start"
+                                    {% if invitation.guests and invitation.guests|length > 0%}
+                                        style="display:block"
+                                    {% else%}
+                                        style="display: none"
+                                    {% endif %}
+                                    id="tarjeta_1">
                                     <h5 class="m-3 text-center">Tarjeta N°1</h5>
                                     <label for="nombre_1" class="form-label m-1">Nombre</label>
-                                    <input type="text" class="form-control " id="nombre_1" name="nombre_1" required>
+                                    <input type="text" class="form-control " id="nombre_1" name="nombre_1"
+                                         {% if invitation.guests and invitation.guests|length >0 %}
+                                            value="{{ invitation.guests[0].name}}"
+                                        {% endif %}
+                                         required>
                                     <label for="apellido_1" class="form-label m-1">Apellido</label>
-                                    <input type="text" class="form-control " id="apellido_1" name="apellido_1" required>
+                                    <input type="text" class="form-control " id="apellido_1" name="apellido_1"
+                                        {% if invitation.guests and invitation.guests|length >0 %}
+                                            value="{{ invitation.guests[0].lastname }}"
+                                        {% endif %}
+                                        required>
                                     <label for="dni_1" class="form-label m-1">DNI</label>
-                                    <input type="text" class="form-control" id="dni_1" name="dni_1" required>
+                                    <input type="text" class="form-control" id="dni_1" name="dni_1"
+                                        {% if invitation.guests and invitation.guests|length >0 %}
+                                            value="{{ invitation.guests[0].dni }}"
+                                        {% endif %}
+                                        required>
                                     <label for="año_1" class="form-label m-1">Año</label>
-                                    <input type="text" class="form-control" id="año_1" name="año_1" required>
+                                    <input type="text" class="form-control" id="año_1" name="año_1"
+                                        {% if invitation.guests and invitation.guests|length >0 %}
+                                            value="{{ invitation.guests[0].year }}"
+                                        {% endif %}
+                                    required>
                                 </div>
-                                <div class="col-md-4 m-4 text-start" style="display: none" id="tarjeta_2">
+                                <div class="col-md-4 m-4 text-start"
+                                    {% if invitation.guests and invitation.guests|length == 2 %}
+                                        style="display:block"
+                                    {% else%}
+                                        style="display: none"
+                                    {% endif %}
+                                    id="tarjeta_2">
                                     <h5 class="m-3 text-center">Tarjeta N°2</h5>
                                     <label for="nombre_2" class="form-label m-1">Nombre</label>
-                                    <input type="text" class="form-control " id="nombre_2" name="nombre_2">
+                                    <input type="text" class="form-control " id="nombre_2" name="nombre_2"
+                                        {% if invitation.guests and invitation.guests|length == 2 %}
+                                            value="{{ invitation.guests[1].name }}"
+                                        {% endif %}>
                                     <label for="apellido_2" class="form-label m-1">Apellido</label>
-                                    <input type="text" class="form-control " id="apellido_2" name="apellido_2">
+                                    <input type="text" class="form-control " id="apellido_2" name="apellido_2"
+                                        {% if invitation.guests and invitation.guests|length == 2 %}
+                                            value="{{ invitation.guests[1].lastname}}"
+                                        {% endif %}
+                                        >
                                     <label for="dni_2" class="form-label m-1">DNI</label>
-                                    <input type="text" class="form-control" id="dni_2" name="dni_2">
+                                    <input type="text" class="form-control" id="dni_2" name="dni_2"
+                                        {% if invitation.guests and invitation.guests|length == 2 %}
+                                            value="{{ invitation.guests[1].dni}}"
+                                        {% endif %}
+                                        >
                                     <label for="año_2" class="form-label m-1">Año</label>
-                                    <input type="text" class="form-control" id="año_2" name="año_2">
+                                    <input type="text" class="form-control" id="año_2" name="año_2"
+                                        {% if invitation.guests and invitation.guests|length == 2 %}
+                                            value="{{ invitation.guests[1].year}}"
+                                        {% endif %}
+                                        >
                                 </div>
                             </div>
                             <div class="row justify-content-md-center">

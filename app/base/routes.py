@@ -394,6 +394,26 @@ def listado_reserva():
     return render_template("listado-reserva.html",
         invitations=invitations, user=user)
 
+def _crear_invitacion(invitation, number):
+    Guest = tryton.pool.get('aet_web.invitation.guest')
+    guest = Guest()
+    guest.name = request.form['nombre_' + number]
+    guest.lastname = request.form['apellido_' + number]
+    guest.dni = request.form['dni_' + number]
+    guest.year = request.form['año_' + number]
+    state = 'reserved'
+    guest.invitation = invitation.id
+    guest.save()
+
+def _actualizar_invitacion(invitation, number):
+    guest = invitation.guests[number]
+    guest.name = request.form['nombre_' + str(number+1)]
+    guest.lastname = request.form['apellido_' + str(number+1)]
+    guest.dni = request.form['dni_' + str(number+1)]
+    guest.year = request.form['año_' + str(number+1)]
+    state = 'reserved'
+    guest.save()
+
 @blueprint.route("/programa_reserva/<invitation_id>/<user_id>", methods=['GET', 'POST'])
 @tryton.transaction()
 @login_required
@@ -405,6 +425,16 @@ def programa_reserva(invitation_id, user_id):
     if request.method == 'POST':
             #request.form['nombre_1'] or None,
         if int(user_id) == user.id:
+            if request.form['nombre_1']:
+                if not invitation.guests:
+                    _crear_invitacion(invitation, '1')
+                else:
+                    _actualizar_invitacion(invitation, 0)
+            if request.form['nombre_2']:
+                if len(invitation.guests)<2:
+                    _crear_invitacion(invitation, '2')
+                else:
+                    _actualizar_invitacion(invitation, 1)
             return render_template("programa-reserva.html",
                 invitation=invitation, user=user)
         else:
