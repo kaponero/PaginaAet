@@ -8,10 +8,11 @@ from app.auth.routes import login_required
 
 from trytond.transaction import Transaction
 
+from werkzeug.utils import secure_filename
 from functools import wraps
 from datetime import datetime
 
-from io import BytesIO
+from io import BytesIO, StringIO
 
 WebUser = tryton.pool.get('web.user')
 Session = tryton.pool.get('web.user.session')
@@ -248,7 +249,7 @@ def jurados(id_=None):
             and request.form['adecuacion-contenido'] or None
         calification.save()
     return render_template('/paginajurados.html',
-                           usuario=int(id_),
+                           user = user,
                            programa=inscription.name,
                            genero=inscription.genre_string,
                            categoria=inscription.category.rec_name,
@@ -344,7 +345,10 @@ def show_category(categoria=None):
             ('jurys.jury.web_user', '=', user)
             ])
         #return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
-    return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
+    return render_template("listado.html",
+                inscriptos=inscriptos,
+                usuarios=len(inscriptos),
+                user=user)
 
 @blueprint.route("/verificar_socio",  methods=['GET', 'POST'])
 @tryton.transaction()
@@ -419,6 +423,7 @@ def _actualizar_invitacion(invitation, number):
 @login_required
 def programa_reserva(invitation_id, user_id):
     Invitation = tryton.pool.get('aet_web.invitation')
+    Attachment = tryton.pool.get('ir.attachment')
     user = Session.get_user(session['session_key'])
     invitation = Invitation(invitation_id)
 
@@ -435,6 +440,23 @@ def programa_reserva(invitation_id, user_id):
                     _crear_invitacion(invitation, '2')
                 else:
                     _actualizar_invitacion(invitation, 1)
+            if 'formFile' in request.files and request.files['formFile'].filename != '':
+                print(request.files)
+                file_ = request.files['formFile'].read()
+                file_bytesio = BytesIO(file_)
+                attachment = Attachment()
+                attachment.resource= invitation
+                attachment.type = 'data'
+                attachment.data = file_bytesio.read()
+                attachment.name = secure_filename(request.files['formFile'].filename)
+                #buscamos coincidencias de nombre de archivo
+                similar_file = Attachment.search([
+                    ('name', '=', secure_filename(request.files['formFile'].filename))
+                    ])
+                if not similar_file:
+                # si no encuentra un archivo similar lo guarda
+                    attachment.save()
+
             return render_template("programa-reserva.html",
                 invitation=invitation, user=user)
         else:
