@@ -441,7 +441,6 @@ def programa_reserva(invitation_id, user_id):
                 else:
                     _actualizar_invitacion(invitation, 1)
             if 'formFile' in request.files and request.files['formFile'].filename != '':
-                print(request.files)
                 file_ = request.files['formFile'].read()
                 file_bytesio = BytesIO(file_)
                 attachment = Attachment()
@@ -456,7 +455,6 @@ def programa_reserva(invitation_id, user_id):
                 if not similar_file:
                 # si no encuentra un archivo similar lo guarda
                     attachment.save()
-
             return render_template("programa-reserva.html",
                 invitation=invitation, user=user)
         else:
