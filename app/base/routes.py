@@ -469,15 +469,5 @@ def programa_reserva(invitation_id, user_id):
             return 'No coincide el usuario con la invitacion a reservar'
 
 
-@blueprint.route("/bajar_ticket/<attachment_id>")
-@tryton.transaction()
-@login_required
-def bajar_ticket(attachment_id):
-    Attachment = tryton.pool.get('ir.attachment')
-    attachment, = Attachment.search([('id', '=', attachment_id)])
-    file_bytes = attachment.data
-    file_name = attachment.name
-    return send_file(
-        BytesIO(file_bytes),
-        as_attachment=True,
-        attachment_filename= file_name)
+
+
