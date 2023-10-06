@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 :root{
 	--primary: rgb(0, 122, 173);
 	--secondary: #bfc0c0;
@@ -51,5 +53,28 @@ select{
     background-color: var(--primary);
 }
 
+section{
+	background: linear-gradient(135deg, #71b7e6, #9b59b6);
+	padding: 40px 0;
+}
+
+section .container{
+	background: var(--white);
+	border-radius: 10px;
+}
+
+section .container h1{
+	font-family: 'Poppins', sans-serif;
+}
+
+#barra { 
+	border: 0;
+    height: 5px;
+    background-image: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+section .container select, h5, h4, h3 .form-label, .form-control, button{
+	font-family: 'Poppins', sans-serif;
+}
 
 
