@@ -14,11 +14,7 @@ class Config(object):
 
 
     #tryton config
-<<<<<<< HEAD
-    TRYTON_DATABASE = os.environ.get('diamante','diamante')
-=======
     TRYTON_DATABASE = os.environ.get('prueba','prueba')
->>>>>>> 005398a (problemas de fusion)
     TRYTON_CONFIG = 'trytond.conf'
     TRYTON_USER = 1
 
