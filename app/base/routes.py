@@ -427,6 +427,8 @@ def programa_reserva(invitation_id, user_id):
     user = Session.get_user(session['session_key'])
     invitation = Invitation(invitation_id)
 
+    attachments = Attachment.search([('resource', '=', invitation)])
+
     if request.method == 'POST':
             #request.form['nombre_1'] or None,
         if int(user_id) == user.id:
@@ -456,12 +458,26 @@ def programa_reserva(invitation_id, user_id):
                 # si no encuentra un archivo similar lo guarda
                     attachment.save()
             return render_template("programa-reserva.html",
-                invitation=invitation, user=user)
+                invitation=invitation, user=user, attachments=attachments)
         else:
             return 'No coincide el usuario con la invitacion a reservar'
     else:
         if int(user_id) == user.id:
             return render_template("programa-reserva.html",
-                invitation=invitation, user=user)
+                invitation=invitation, user=user, attachments=attachments)
         else:
             return 'No coincide el usuario con la invitacion a reservar'
+
+
+@blueprint.route("/bajar_ticket/<attachment_id>")
+@tryton.transaction()
+@login_required
+def bajar_ticket(attachment_id):
+    Attachment = tryton.pool.get('ir.attachment')
+    attachment, = Attachment.search([('id', '=', attachment_id)])
+    file_bytes = attachment.data
+    file_name = attachment.name
+    return send_file(
+        BytesIO(file_bytes),
+        as_attachment=True,
+        attachment_filename= file_name)

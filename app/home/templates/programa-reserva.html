@@ -16,6 +16,7 @@
         and invitation.inscription.category.category %}
         precio_tarjeta = {{ invitation.inscription.category.category.price |tojson|safe }};
     {% endif %}
+    precio_tarjeta = 3000;
     console.log(precio_tarjeta);
 </script>
 
@@ -153,11 +154,24 @@
                             <div class="row justify-content-md-center">
                                 <div class="col-md-4 m-4 text-start" style="display: block" id="archivo">
                                     <label for="formFile" class="form-label">Subir ticket de pago</label>
-                                    <input class="form-control form-control-sm" type="file" name="formFile" id="formFile">
+                                    <input class="form-control form-control-sm" type="file" name="formFile" id="formFile" {% if not attachments%} required {% endif%}>
                                 </div>
+                                {% if attachments %}
+                                <div class="col-md-4 m-4 text-start" style="display: block" id="archivo_subidos">
+                                    <label for="form-files-submitted" class="form-label">Tickets subidos</label>
+                                    <table id="table_tickets">
+                                    {% for attachment in attachments %}
+                                        <tr class="row">
+                                            <td> {{ attachment.name }} </td>
+                                            <td> <a href="/bajar_ticket/{{ attachment.id }}">Descargar</a> </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </table>
+                                </div>
+                                {% endif %}
                             </div>
                             <div class="row justify-content-end" >
-                                <div class="col-md-4 mx-5 justify-content-end" style="display: none" id="boton_comprar">
+                                <div class="col-md-4 mx-5 justify-content-end" style="display: none" id="boton_comprar" >
                                     <div class="row justify-content-center">
                                         <div class="col-md-3">
                                             <h4>Total: </h4>
@@ -168,7 +182,14 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-danger">Comprar</button>
+
                                 </div>
+                                {% if invitation.guests and invitation.guests|length != 0 %}
+                                <div class="col-md-4 mx-5 justify-content-end" style="display: block"
+                                        id="boton_actualizar" >
+                                    <button type="submit" class="btn btn-danger">Actualizar datos</button>
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
