@@ -468,6 +468,10 @@ def programa_reserva(invitation_id, user_id):
         else:
             return 'No coincide el usuario con la invitacion a reservar'
 
-
-
-
+@blueprint.route("/lista-o-reserva",)
+@tryton.transaction()
+@login_required
+def lista_o_reserva():
+    user = Session.get_user(session['session_key'])
+    return render_template("lista-o-reserva.html",
+                    user=user)

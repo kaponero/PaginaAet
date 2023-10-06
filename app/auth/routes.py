@@ -40,6 +40,8 @@ def login():
                 ''' Si el usuario es jurado, regresamos la lista de categorias '''
                 jury = Jury.search([('web_user', '=', webuser)])
                 invitation = Invitation.search([('web_user', '=', webuser)])
+                if jury and invitation:
+                    return redirect(url_for('base_blueprint.lista_o_reserva'))
                 if jury:
                     return redirect(url_for('base_blueprint.show_category'))
                 ''' Si el usuario es para comprar invitaciones, regresamos a la parte de invitaciones'''
