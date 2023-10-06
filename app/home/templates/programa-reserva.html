@@ -156,6 +156,7 @@
                                 >
                         </div>
                     </div>
+                    {% if not invitation.guests %}
                     <div class="row justify-content-end mt-4" >
                         <div class="col-md-6 mb-4 justify-content-end" style="display: none" id="boton_comprar" >
                             <div class="row justify-content-center">
@@ -170,8 +171,9 @@
                             <button type="submit" class="btn btn-danger">Comprar</button>
                         </div>
                     </div>
+                    {% endif %}
                     <div class="row justify-content-md-center">
-                        {% if invitation.guests and invitation.guests|length != 0 %}
+                        {% if invitation.guests %}
                         <div class="col-md-4 mb-4 text-start" style="display: block" id="archivo">
                             <label for="formFile" class="form-label">Subir ticket de pago</label>
                             <input class="form-control form-control-sm" type="file" name="formFile" id="formFile">
@@ -192,7 +194,7 @@
                         {% endif %}
                     </div>
                     <div class="row justify-content-end" >
-                    {% if invitation.guests and invitation.guests|length != 0 %}
+                    {% if invitation.guests  %}
                     <div class="col-md-6 mb-4 justify-content-end" style="display: block"
                             id="boton_actualizar" >
                         <p>Para completar la compra debe subir el ticket de pago</p>
