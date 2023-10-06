@@ -32,6 +32,7 @@
                 <th scope="col">Categoria</th>
                 <th scope="col">Genero</th>
                 <th scope="col">Comprar</th>
+                <th scope="col">Invitaciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,11 +44,13 @@
                         <td>{{ invitation.inscription.category and invitation.inscription.category.rec_name  or 'No se definio categoría'}}</td>
                         <td>{{ invitation.inscription.genre_string or 'No se definio genero' }} </td>
                         <td><a class="btn btn-success" href="/programa_reserva/{{ invitation.id }}/{{ user.id }}" role="button">Reservar</a></td>
+                        <td></td>
                     </tr>
                     {% else %}
                     <tr>
                       <td colspan="5"> Invitación sin Programa inscripto </td>
                       <td><a class="btn btn-success" href="/programa_reserva/{{ invitation.id  }}/{{ user.id}}" role="button">Reservar</a></td>
+                      <td></td>
                     </tr>
                     {% endif %}
                 {% endfor %}
