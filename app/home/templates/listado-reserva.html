@@ -43,22 +43,29 @@
                         <td>{{ invitation.inscription.channel_town if invitation.inscription.channel_name or 'No se definio ciudad de emisión'}}</td>
                         <td>{{ invitation.inscription.category and invitation.inscription.category.rec_name  or 'No se definio categoría'}}</td>
                         <td>{{ invitation.inscription.genre_string or 'No se definio genero' }} </td>
-                        <td><a class="btn btn-success" href="/programa_reserva/{{ invitation.id }}/{{ user.id }}" role="button">Reservar</a></td>
+                        <td><a class="btn btn-success" href="/programa_reserva/{{ invitation.id }}/{{ user.id }}" role="button">{% if not invitation.guests%}Reservar{% else %}Actualizar{% endif %}</a></td>
                         <td>
                           <small>
                             <table class="table text-center p-0 m-0">
                               <thead>
                                 <tr>
+                                  {% if invitation.guests %}
                                   <th scope="col">T N°1</th>
+                                  {% endif %}
+                                  {% if invitation.guests|length == 2 %}
                                   <th scope="col">T N°2</th>
+                                  {% endif %}
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr>
-                                  <!--ejemplo de reservado -->
-                                  <td><svg xmlns="http://www.w3.org/2000/svg" height="25px" weight="25px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" fill="#FF8000"/></svg></td>
-                                  <!--ejemplo de pagado -->
-                                  <td><svg xmlns="http://www.w3.org/2000/svg" height="25px" weight="25px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="#008f39"/></svg></td>
+                                  <!--reservado -->
+                                  {% if invitation.state != 'paid' %}
+                                  <td colspan="2"><svg xmlns="http://www.w3.org/2000/svg" height="25px" weight="25px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" fill="#FF8000"/></svg></td>
+                                  {% else %}
+                                  <!-- pagado -->
+                                  <td colspan="2"><svg xmlns="http://www.w3.org/2000/svg" height="25px" weight="25px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="#008f39"/></svg></td>
+                                  {% endif %}
                                 </tr>
                               </tbody>
                             </table>
@@ -68,22 +75,29 @@
                     {% else %}
                     <tr>
                       <td colspan="5"> Invitación sin Programa inscripto </td>
-                      <td><a class="btn btn-success" href="/programa_reserva/{{ invitation.id  }}/{{ user.id}}" role="button">Reservar</a></td>
+                      <td><a class="btn btn-success" href="/programa_reserva/{{ invitation.id  }}/{{ user.id}}" role="button">{% if not invitation.guests %}Reservar{% else %} Actualizar {% endif %}</a></td>
                       <td>
                         <small>
                           <table class="table text-center p-0 m-0">
                             <thead>
                               <tr>
-                                <th scope="col">T N°1</th>
-                                <th scope="col">T N°2</th>
+                                {% if invitation.guests %}
+                                  <th scope="col">T N°1</th>
+                                  {% endif %}
+                                  {% if invitation.guests|length == 2 %}
+                                  <th scope="col">T N°2</th>
+                                  {% endif %}
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <!--ejemplo de reservado -->
-                                <td><svg xmlns="http://www.w3.org/2000/svg" height="25px" weight="25px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" fill="#FF8000"/></svg></td>
-                                <!--ejemplo de pagado -->
-                                <td><svg xmlns="http://www.w3.org/2000/svg" height="25px" weight="25px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="#008f39"/></svg></td>
+                                <!-- reservado -->
+                                {% if invitation.state != 'paid' %}
+                                <td colspan="2"><svg xmlns="http://www.w3.org/2000/svg" height="25px" weight="25px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" fill="#FF8000"/></svg></td>
+                                <!--Pagado -->
+                                {% else %}
+                                <td colspan="2"><svg xmlns="http://www.w3.org/2000/svg" height="25px" weight="25px" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="#008f39"/></svg></td>
+                                {% endif %}
                               </tr>
                             </tbody>
                           </table>
