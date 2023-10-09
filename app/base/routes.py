@@ -167,7 +167,7 @@ def jurados(id_=None):
         calification.schedule = 'cronograma' in campos_calificados \
             and request.form['cronograma'] or None
         calification.management_of_times = 'tiempos-de-aire' in campos_calificados \
-            and request.form['tiempos-de-aire']
+            and request.form['tiempos-de-aire'] or None
         # 'Conceptos de realizacion'
         calification.realization_observations = 'observacion-de-realizacion' in campos_calificados \
             and request.form['observacion-de-realizacion'] or None
