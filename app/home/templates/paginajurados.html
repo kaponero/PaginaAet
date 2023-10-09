@@ -142,7 +142,11 @@
                                                     <b>Conceptos generales</b>
                                                 </div>
                                                 <label for="observacion-general">Observación</label>
+                                                {% if calification.general_observations == None %}
+                                                <textarea name="observacion-general" id="observacion-general" class="form-control tx-tarea"></textarea>
+                                                {% else %}
                                                 <textarea name="observacion-general" id="observacion-general" class="form-control tx-tarea">{{ calification.general_observations}}</textarea>
+                                                {% endif %}
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <label for="originalidad" class="form-label">Originalidad</label>
@@ -245,7 +249,11 @@
                                                     <b>Conceptos de realización</b>
                                                 </div>
                                                 <label for="observacion-de-realizacion">Observación</label>
+                                                {% if calification.realization_observations == None %}
+                                                <textarea name="observacion-de-realizacion" id="observacion-de-realizacion" class="form-control tx-tarea"></textarea>
+                                                {% else %}
                                                 <textarea name="observacion-de-realizacion" id="observacion-de-realizacion" class="form-control tx-tarea">{{ calification.realization_observations }}</textarea>
+                                                {% endif %}
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <label for="encuadres" class="form-label">Encuadres</label>
@@ -339,7 +347,11 @@
                                                     <b>Encuadres</b>
                                                 </div>
                                                 <label for="observacion-de-encuadres">Observación</label>
+                                                {% if calification.frames_observations == None %}
+                                                <textarea name="observacion-de-encuadres" id="observacion-de-encuadres" class="form-control tx-tarea"></textarea>
+                                                {% else %}
                                                 <textarea name="observacion-de-encuadres" id="observacion-de-encuadres" class="form-control tx-tarea">{{ calification.frames_observations}}</textarea>
+                                                {% endif %}
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <label for="imagenes" class="form-label">Imagenes</label>
@@ -385,7 +397,11 @@
                                                     <b>Otros conceptos</b>
                                                 </div>
                                                 <label for="observacion-de-otros-conceptos">Observación</label>
+                                                {% if calification.other_concepts_observations == None %}
+                                                <textarea name="observacion-de-otros-conceptos" id="observacion-de-otros-conceptos" class="form-control tx-tarea"></textarea>
+                                                {% else %}
                                                 <textarea name="observacion-de-otros-conceptos" id="observacion-de-otros-conceptos" class="form-control tx-tarea">{{ calification.other_concepts_observations }}</textarea>
+                                                {% endif %}
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <label for="movimiento-de-camara" class="form-label">Movimientos de cámara</label>
@@ -468,7 +484,11 @@
                                                     <b>Conceptos mejor Editor/a</b>
                                                 </div>
                                                 <label for="observacion-de-mejor-editor">Observación</label>
+                                                {% if calification.editor_observations == None %}
+                                                <textarea name="observacion-de-mejor-editor" id="observacion-de-mejor-editor" class="form-control tx-tarea"></textarea>
+                                                {% else %}
                                                 <textarea name="observacion-de-mejor-editor" id="observacion-de-mejor-editor" class="form-control tx-tarea">{{ calification.editor_observations }}</textarea>
+                                                {% endif %}
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <label for="musicalizacion" class="form-label">Musicalización</label>
@@ -551,7 +571,11 @@
                                                     <b>Conceptos mejor productor</b>
                                                 </div>
                                                 <label for="observacion-mejor-productor">Observación</label>
+                                                {% if calification.producer_observations == None %}
+                                                <textarea name="observacion-mejor-productor" id="observacion-mejor-productor" class="form-control tx-tarea"></textarea>
+                                                {% else %}
                                                 <textarea name="observacion-mejor-productor" id="observacion-mejor-productor" class="form-control tx-tarea">{{ calification.producer_observations }}</textarea>
+                                                {% endif %}
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <label for="preproduccion" class="form-label">Preproducción</label>
