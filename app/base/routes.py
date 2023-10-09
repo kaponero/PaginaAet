@@ -284,7 +284,8 @@ def jurados(id_=None):
                            programa2=inscription.video_long2.replace('view','preview'),
                            programa3=inscription.video_long3.replace('view','preview'),
                            calification=calification,
-                           rango=rango
+                           rango=rango,
+                           fecha=inscription.date_of_emission
                            )
 
 @blueprint.route('/paginajurados')
