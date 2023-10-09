@@ -73,7 +73,7 @@ hr{
 .tab form{
     background-color: var(--primary);
     padding:40px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .conceptos{
@@ -87,20 +87,27 @@ hr{
 	background: var(--white);
 	margin: 0px auto 40px;
 	padding: 15px;
-	border-radius: 5px;
-    border: 1px solid var(--secondary);
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 25%);
-
+	border-radius: 10px;
+    border: 1px solid var(--primary);
 }
 
 .tab .nav-item .nav-link{
-    border-top: 1px solid var(--secondary);
-    border-left: 1px solid var(--secondary);
-    border-right: 1px solid var(--secondary);;
+    border-top: 1px solid var(--primary);
+    border-left: 1px solid var(--primary);
+    border-right: 1px solid var(--primary);;
    }
 
+.tab .nav-tabs{
+    border-bottom: 1px solid;
+    border-color: rgb(0,122, 173);
+}
+
+.tab .nav-tabs2{
+    border-bottom: 0px solid var(--secondary);
+}
+
    .tab .nav-item :hover{
-    border: 2px solid var(--back-btn-hover);
+    border: 1px solid var(--back-btn-hover);
     color: var(--back-btn-hover);
    }   
 
@@ -138,6 +145,12 @@ hr{
 .tab .tx-tarea{
     color: var(--text-clr);
     border: 2px solid var(--secondary);
+}
+
+hr{ 
+	border: 0;
+    height: 2px;
+    background-color: rgb(0,122, 173);
 }
 
 

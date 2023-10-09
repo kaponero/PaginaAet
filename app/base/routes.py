@@ -193,7 +193,7 @@ def jurados(id_=None):
         calification.creativity = 'creatividad' in campos_calificados \
             and request.form['creatividad'] or None
         calification.inserts = 'inserts' in campos_calificados \
-            and request.form['inserts'] or None or None
+            and request.form['inserts'] or None
         # Otros conceptos
         calification.other_concepts_observations = 'observacion-de-otros-conceptos' in campos_calificados \
             and request.form['observacion-de-otros-conceptos'] or None

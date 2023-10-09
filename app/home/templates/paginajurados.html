@@ -19,7 +19,7 @@
                 <i class="fa fa-briefcase fa-fw"></i> ID de USUARIO: {{ user.rec_name }}
                 <div style="float:right;display: block">
                     <input type="button" style="margin-top:-6px !important" class=" impre btn btn-sm btn btn-success" onclick="print()" value="IMPRIMIR">
-                        <a href="/listado" style="margin-top:-6px !important" class=" impre btn btn-sm btn-default">VOLVER AL LISTADO</a>
+                        <a href="/listado" style="margin-top:-6px !important" class=" btn-sm btn btn-secondary">VOLVER AL LISTADO</a>
                 </div>
             </div>
         </div>
@@ -42,43 +42,43 @@
                                 <hr>
                                 <div class="row datos" >
                                     <div class="col-md-6">
-                                        <b>Programa:</b>
+                                        <b class="m-1">Programa:</b>
                                         <input readonly type="text" name="programaInscripcion" value="{{programa}}" class="form-control input-sm">
-                                        <b>Categoria:</b>
+                                        <b class="m-1">Categoria:</b>
                                         <input readonly type="text" name="categoriaInscripcion" value="{{categoria}}" class="form-control input-sm">
-                                        <b>Localidad:</b>
+                                        <b class="m-1">Localidad:</b>
                                         <input readonly type="text" name="localidadInscripcion" value="{{localidad}}" class="form-control input-sm">
-                                        <b>Duracion:</b>
+                                        <b class="m-1">Duracion:</b>
                                         <input readonly type="text" name="duracionInscripcion" value="{{duracion}}" class="form-control input-sm">
-                                        <b>Coproductor:</b>
+                                        <b class="m-1">Coproductor:</b>
                                         <input readonly type="text" name="coproductorInscripcion" value="{{coproductor}}" class="form-control input-sm">
-                                        <b>Director:</b>
+                                        <b class="m-1">Director:</b>
                                         <input readonly type="text" name="directorInscripcion" value="{{director}}" class="form-control input-sm">
-                                        <b>Sonido:</b>
+                                        <b class="m-1">Sonido:</b>
                                         <input readonly type="text" name="sonidoInscripcion" value="{{sonido}}" class="form-control input-sm">
-                                        <b>Protagonista:</b>
+                                        <b class="m-1">Protagonista:</b>
                                         <input readonly type="text" name="protagonistaInscripcion" value="{{protagonista}}" class="form-control input-sm">
                                     </div>
                                     <div class="col-md-6">
-                                        <b>Genero:</b>
+                                        <b class="m-1">Genero:</b>
                                         <input readonly type="text" name="generoInscripcion" value="{{genero}}" class="form-control input-sm">
-                                        <b>Vivo:</b>
+                                        <b class="m-1">Vivo:</b>
                                         <input readonly type="text" name="vivoInscripcion" value="{{vivo}}" class="form-control input-sm">
-                                        <b>Emision:</b>
+                                        <b class="m-1">Emision:</b>
                                         <input readonly type="text" name="emisionInscripcion" value="{{emision}}" class="form-control input-sm">
-                                        <b>Productor:</b>
+                                        <b class="m-1">Productor:</b>
                                         <input readonly type="text" name="productorInscripcion" value="{{productor}}" class="form-control input-sm">
-                                        <b>Autor:</b>
+                                        <b class="m-1">Autor:</b>
                                         <input readonly type="text" name="autorInscripcion" value="{{autor}}" class="form-control input-sm">
-                                        <b>Camara:</b>
+                                        <b class="m-1">Camara:</b>
                                         <input readonly type="text" name="camaraInscripcion" value="{{camara}}" class="form-control input-sm">
-                                        <b>Conductor:</b>
+                                        <b class="m-1">Conductor:</b>
                                         <input readonly type="text" name="conductorInscripcion" value="{{conductor}}" class="form-control input-sm">
-                                        <b>Cronistas:</b>
+                                        <b class="m-1">Cronistas:</b>
                                         <input readonly type="text" name="cronistasInscripcion" value="{{cronistas}}" class="form-control input-sm">
                                     </div>
                                     <div class="col-md-12">
-                                        <b>Descripción:</b>
+                                        <b class="m-1">Descripción:</b>
                                         <textarea readonly name="otrosInscripcion" class="form-control input-sm"> {{otros}} </textarea>
                                     </div>
                                 </div>
@@ -86,30 +86,30 @@
                             <div class="col-md-6">
                                 <h4 class="encabezado">DATOS DEL CANAL</h4>
                                 <hr>
-                                <b>Nombre:</b>
+                                <b class="m-1">Nombre:</b>
                                 <input readonly type="text" name="nombreInscripcion" value="{{nombre}}" class="form-control input-sm">
-                                <b>Direccion:</b>
+                                <b class="m-1">Direccion:</b>
                                 <input readonly type="text" name="direccionInscripcion" value="{{direccion}}" class="form-control input-sm">
-                                <b>Localidad:</b>
+                                <b class="m-1">Localidad:</b>
                                 <input readonly type="text" name="localidadInscripcion" value="{{localidad_canal}}" class="form-control input-sm">
-                                <b>Contacto:</b>
+                                <b class="m-1">Contacto:</b>
                                 <input readonly type="text" name="contactoInscripcion" value="{{contacto}}" class="form-control input-sm">
-                                <b>Telefono:</b>
+                                <b class="m-1">Telefono:</b>
                                 <input readonly type="text" name="telefonoInscripcion" value="{{telefono}}" class="form-control input-sm">
-                                <b>Email:</b>
+                                <b class="m-1">Email:</b>
                                 <input readonly type="text" name="emailInscripcion" value="{{email}}" class="form-control input-sm">
-                                <b>Socio:</b>
+                                <b class="m-1">Socio:</b>
                                 <input readonly type="text" name="socioInscripcion" value="{{socio}}" class="form-control input-sm">
-                                <label id="fecha"><b>Fecha de emisión: {{fecha}}</b></label>
+                                <label id="fecha" class="m-1 mb-3"><b>Fecha de emisión: {{fecha}}</b></label>
                                 <h4 class="encabezado">DATOS DEL FACTURACION</h4>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <b>Razon social:</b>
+                                        <b class="m-1">Razon social:</b>
                                         <input readonly type="text" name="Razon social" value="{{razonsocial}}" class="form-control input-sm">
                                     </div>
                                     <div class="col-md-4">
-                                        <b>Cuit:</b>
+                                        <b class="m-1">Cuit:</b>
                                         <input readonly type="text" name="cuit" value="{{cuit}}" class="form-control input-sm">
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
                        <br>
                         <div class="row tab">
                             <div class=col>
-                                <ul class="nav nav-tabs justify-content-between" id="myTab" role="tablist">
+                                <ul class="nav nav-tabs nav-tabs2 justify-content-between" id="myTab" role="tablist">
                                     <li class="nav-item" role="presentation">
                                       <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general-tab-pane" type="button" role="tab" aria-controls="general-tab-pane" aria-selected="true">Consideraciones generales</button>
                                     </li>
