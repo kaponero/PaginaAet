@@ -18,6 +18,7 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 get_config_mode = 'Debug' if DEBUG else 'Production'
 app_config = config_dict[get_config_mode.capitalize()]
 app.config.from_object(Config)
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 3
 
 
 tryton = Tryton(app, configure_jinja=True)

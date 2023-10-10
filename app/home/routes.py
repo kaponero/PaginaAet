@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 
-from app import tryton
+from app import tryton, app
 from app.home import blueprint
 
 from flask import render_template, redirect, url_for, request, session
@@ -26,6 +26,11 @@ def route_template(template):
         return render_template('page-404.html'), 404
     except:
         return render_template('page-500.html'), 500
+
+
+@app.errorhandler(413)
+def largefile_error(e):
+ return render_template('page-413.html'), 413
 
 # Helper - Extract current page name from request 
 def get_segment( request ): 
