@@ -295,60 +295,57 @@ def jurados(id_=None):
 @tryton.transaction()
 @login_required
 def show_category(categoria=None):
-    inscriptos = []
+    calification = tryton.pool.get('aet_web.calification')
     user = Session.get_user(session['session_key'])
-    #print(5*'\n' + 20*'*',
-          #user,
-          #20*'*' + 5*'\n')
+    califications = []
     if categoria == "a":
-        inscriptos = Inscription.search([
-            ('category.category.name','=', "CATEGORÍA A"),
-            ('jurys.jury.web_user', '=', user)
+        califications = Calification.search([
+            ('program.category.category.name', '=', "CATEGORÍA A"),
+            ('jury.web_user', '=', user)
             ])
     elif categoria == "b":
-        inscriptos = Inscription.search([
-            ('category.category.name','=', "CATEGORÍA B"),
-            ('jurys.jury.web_user', '=', user)
+        califications = Calification.search([
+            ('program.category.category.name', '=', "CATEGORÍA B"),
+            ('jury.web_user', '=', user)
             ])
     elif categoria == "c":
-        inscriptos = Inscription.search([
-            ('category.category.name','=', "CATEGORÍA C"),
-            ('jurys.jury.web_user', '=', user)
+        califications = Calification.search([
+            ('program.category.category.name', '=', "CATEGORÍA C"),
+            ('jury.web_user', '=', user)
             ])
     elif categoria == "d":
-        inscriptos = Inscription.search([
-            ('category.category.name','=', "CATEGORÍA D"),
-            ('jurys.jury.web_user', '=', user)
+        califications = Calification.search([
+            ('program.category.category.name', '=', "CATEGORÍA D"),
+            ('jury.web_user', '=', user)
             ])
     elif categoria == "e":
-        inscriptos = Inscription.search([
-            ('category.category.name','=', "CATEGORÍA E"),
-            ('jurys.jury.web_user', '=', user)
+        califications = Calification.search([
+            ('program.category.category.name', '=', "CATEGORÍA E"),
+            ('jury.web_user', '=', user)
             ])
     elif categoria == "f":
-        inscriptos = Inscription.search([
-            ('category.category.name','=', "CATEGORÍA F"),
-            ('jurys.jury.web_user', '=', user)
+        califications = Calification.search([
+            ('program.category.category.name', '=', "CATEGORÍA F"),
+            ('jury.web_user', '=', user)
             ])
     elif categoria == "vivo":
-        inscriptos = Inscription.search([
-            ('category.category.name','=', "TRANSMISIONES EN VIVO"),
-            ('jurys.jury.web_user', '=', user)
+        califications = Calification.search([
+            ('program.category.category.name', '=', "TRANSMISIONES EN VIVO"),
+            ('jury.web_user', '=', user)
             ])
     elif categoria == "turf":
-        inscriptos = Inscription.search([
-            ('category.category.name','=', "TURF"),
-            ('jurys.jury.web_user', '=', user)
+        califications = Calification.search([
+            ('program.category.category.name', '=', "TURF"),
+            ('jury.web_user', '=', user)
             ])
     else:
-        inscriptos = Inscription.search([
-            ('id','>',0),
-            ('jurys.jury.web_user', '=', user)
+        califications = Calification.search([
+            ('id', '>', 0),
+            ('jury.web_user', '=', user)
             ])
-        #return render_template("listado.html", inscriptos=inscriptos, usuarios=len(inscriptos))
     return render_template("listado.html",
-                inscriptos=inscriptos,
-                usuarios=len(inscriptos),
+                califications=califications,
+                usuarios=len(califications),
                 user=user)
 
 @blueprint.route("/verificar_socio",  methods=['GET', 'POST'])
