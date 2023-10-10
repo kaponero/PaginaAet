@@ -12,25 +12,24 @@
 <div class="container p-4">
     <div class="row">
         <div class="col">
-            <h2>Bienvenido  -  {{ user.rec_name }}</h2>
+            <h2 class="bienvenida">Bienvenido  -  {{ user.rec_name }}</h2>
         </div>
         <div class="col text-end">
-            <h2 id="current_date"></h2>
+            <h2 class="bienvenida" id="current_date"></h2>
         </div>
     </div>
     <div class="row pt-5 pb-5 justify-content-around">
-        <div class="col-md-4 p-1">
+        <div class="col-md-4 ">
             <div class="card text-center justify-content-center" style="width: 18rem;">
                 
-                    <img src="/static/asset/img/set.jpg"  style="width: 286px; height: 170px;" class="card-img-top" alt="...">
-                
+                <img src="/static/asset/img/set.jpg"  style="width: 286px; height: 170px;" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text">Ir al listado de programas </p>
                     <a href="/listado" class="btn btn-success" style="margin-top:-6px !important" class=" impre btn btn-sm btn-default">Inscripciones</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 p-1">
+        <div class="col-md-4 ">
             <div class="card text-center justify-content-center" style="width: 18rem;">
                 <img src="/static/asset/img/tarjeta.jpg" style="width: 286px; height: 170px;" class="card-img-top" alt="...">
                 <div class="card-body">

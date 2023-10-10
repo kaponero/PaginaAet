@@ -168,6 +168,13 @@ input:focus, select:focus,  select,  .form-select, .form-select:focus, .form-con
     -webkit-box-shadow: none;
 }
 
+.bienvenida{
+	font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    background: linear-gradient(var(--primary),var(--header-clr));
+    -webkit-background-clip: text;
+    color: transparent;
+}
 
 
 

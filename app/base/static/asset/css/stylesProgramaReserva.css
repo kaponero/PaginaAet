@@ -77,4 +77,7 @@ section .container select, h5, h4, h3 .form-label, .form-control, button{
 	font-family: 'Poppins', sans-serif;
 }
 
+.inscriptos{
+    color: var(--primary);
+}
 
