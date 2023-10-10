@@ -8,6 +8,10 @@ var dni_2= document.getElementById("dni_2");
 var año_1= document.getElementById("año_1");
 var año_2= document.getElementById("año_2");
 
+let fileInput = document.getElementById("formFile");
+let fileResult = document.getElementById("file-result");
+let fileSubmit = document.getElementById("file-submit");
+
 date = new Date();
 year = date.getFullYear();
  
@@ -44,5 +48,21 @@ select.addEventListener("change", function(){
     }
         
 });
+
+fileInput.addEventListener("change", function () {  
+    if (fileInput.files.length > 0) {
+      const fileSize = fileInput.files.item(0).size;
+      const fileMb = fileSize / 1024 ** 2;
+      if (fileMb >= 3) {
+        fileResult.style.color = 'red'
+        fileResult.innerHTML = "Por favor seleccionar un archivo de menos de 3MB";
+        fileSubmit.disabled = true;
+      } else {
+        fileResult.style.color = 'green'
+        fileResult.innerHTML = "Su archivo es de " + fileMb.toFixed(1) + "MB.";
+        fileSubmit.disabled = false;
+      }
+    }
+  });
 
 

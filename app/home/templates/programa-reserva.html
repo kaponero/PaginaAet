@@ -174,13 +174,14 @@
                     {% endif %}
                     <div class="row justify-content-md-center">
                         {% if invitation.guests %}
-                        <div class="col-md-4 mb-4 text-start" style="display: block" id="archivo">
-                            <label for="formFile" class="form-label">Subir ticket de pago</label>
-                            <input class="form-control form-control-sm" type="file" name="formFile" id="formFile">
+                        <div class="col-md-4 mb-4 mt-3 pb-3 text-start" style="display: block" id="archivo">
+                            <label for="formFile" class="form-label m-1">Subir ticket de pago</label>
+                            <input class="form-control form-control-sm mb-1" type="file" name="formFile" id="formFile">
+                            <small><p class="text-center mt-2" id="file-result"></p></small>
                         </div>
                         {% endif %}
                         {% if attachments %}
-                        <div class="col-md-4  text-start" style="display: block" id="archivo_subidos">
+                        <div class="col-md-4 mt-3 text-start" style="display: block" id="archivo_subidos">
                             <label for="form-files-submitted" class="form-label">Tickets subidos</label>
                             <table id="table_tickets">
                             {% for attachment in attachments %}
@@ -195,10 +196,10 @@
                     </div>
                     <div class="row justify-content-end" >
                     {% if invitation.guests  %}
-                    <div class="col-md-6 mb-4 justify-content-end" style="display: block"
+                    <div class="col-md-6 mb-4 mt-3 justify-content-end" style="display: block"
                             id="boton_actualizar" >
                         <p>Para completar la compra debe subir el ticket de pago</p>
-                        <button type="submit" class="btn btn-danger">Actualizar datos</button>
+                        <button type="submit" class="btn btn-danger" id="file-submit">Actualizar datos</button>
                     </div>
                     {% endif %}
                 </div>
