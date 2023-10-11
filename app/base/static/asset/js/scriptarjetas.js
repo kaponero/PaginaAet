@@ -21,22 +21,19 @@ select.addEventListener("change", function(){
 
     if (select.value  == 1){
         tarjeta_1.style.display = 'block';
-        tarjeta_2.style.display = 'none';
-        boton.style.display = 'block';
-        precio.innerHTML = '$' + precio_tarjeta;
-        nombre_2.removeAttribute("required");
-        apellido_2.removeAttribute("required");
-        dni_2.removeAttribute("required");
         año_1.value = year;
         año_2.value = '';
         año_1.readOnly ='true'
-        
+        tarjeta_2.style.display = 'none';
+        nombre_2.removeAttribute("required");
+        apellido_2.removeAttribute("required");
+        dni_2.removeAttribute("required");
+        boton.style.display = 'block';
+        precio.innerHTML = '$' + precio_tarjeta;
     }
     if (select.value  == 2){
         tarjeta_1.style.display = 'block';
         tarjeta_2.style.display = 'block';
-        boton.style.display = 'block';
-        precio.innerHTML = '$' + precio_tarjeta*2;
         nombre_2.required = 'true';
         apellido_2.required = 'true';
         dni_2.required = 'true';
@@ -44,7 +41,8 @@ select.addEventListener("change", function(){
         año_2.value = year;
         año_1.readOnly ='true'
         año_2.readOnly ='true'
-        
+        boton.style.display = 'block';
+        precio.innerHTML = '$' + precio_tarjeta*2;
     }
         
 });
