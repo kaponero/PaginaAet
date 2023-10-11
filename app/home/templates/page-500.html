@@ -3,7 +3,9 @@
 {% block title %} 500 Error {% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block links %}
+<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/errors.css") }}">
+{% endblock %}
 
 {% block content %}
 
@@ -25,11 +27,15 @@
                     </li>
                 </ul>
             </div>-->
-            <div class="page-category">
-                <h2>Error 500</h2>
-                <h3 class="font-weight-light">
+            <div class="row page-category p-5">
+                <div class="col text-center">
+                    <h1 class="mb-4">Error 500</h1>
+                <img class="mb-4" src="/static/asset/img/servidor.png" width="150" height="150" alt="..." class="img-thumbnail">
+                <h2 class="mb-2 class="font-weight-light">
                     Error del servidor - Contacte al administrador de la página
-                </h3>
+                </h2>
+                <a href="https://www.flaticon.es/iconos-gratis/sin-internet" title="sin internet iconos">Sin internet iconos creados por Freepik - Flaticon</a>
+                </div>
             </div>
         </div>
     </div>

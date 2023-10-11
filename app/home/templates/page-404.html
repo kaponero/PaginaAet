@@ -3,7 +3,9 @@
 {% block title %} 404 Error {% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block links %}
+<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/errors.css") }}">
+{% endblock %}
 
 {% block content %}
 
@@ -25,11 +27,16 @@
                     </li>
                 </ul>
             </div>-->
-            <div class="page-category">
-                <h2>Error 404</h2>
-                <h3 class="font-weight-light">
+            <div class="row page-category p-5">
+                <div class="col text-center">
+                    <h1 class="mb-4">Error 404</h1>
+                <img class="mb-4" src="/static/asset/img/error-404.png" width="150" height="150" alt="..." class="img-thumbnail">
+                <h2 class="mb-2 class="font-weight-light">
                     La página que estabas buscando no existe
-                </h3>
+                </h2>
+                <a href="https://www.flaticon.es/iconos-gratis/error-404" title="error 404 iconos">Error 404 iconos creados por Freepik - Flaticon</a>
+                </div>
+                
             </div>
         </div>
     </div>

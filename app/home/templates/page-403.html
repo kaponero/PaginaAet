@@ -3,7 +3,9 @@
 {% block title %} 403 Error {% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block links %}
+<link rel="stylesheet" href="{{ url_for("static", filename="asset/css/errors.css") }}">
+{% endblock %}
 
 {% block content %}
 
@@ -25,11 +27,15 @@
                     </li>
                 </ul>
             </div>-->
-            <div class="page-category">
-                <h2>Error 403</h2>
-                <h3 class="font-weight-light">
-                    Acceso denegado - Please <a href="{{ url_for('auth_blueprint.login') }}">authenticate</a>.
-                </h3>
+            <div class="row page-category p-5">
+                <div class="col text-center">
+                    <h1 class="mb-4">Error 403</h1>
+                <img class="mb-4" src="/static/asset/img/bajo-construccion.png" width="150" height="150" alt="..." class="img-thumbnail">
+                <h2 class="mb-2 class="font-weight-light">
+                    Acceso denegado - Por favor <a href="{{ url_for('auth_blueprint.login') }}">autenticarse</a>.
+                </h2>
+                <a href="https://www.flaticon.es/iconos-gratis/en-construccion" title="en construcción iconos">En construcción iconos creados por Freepik - Flaticon</a>
+                </div>
             </div>
         </div>
     </div>
