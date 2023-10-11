@@ -27,6 +27,9 @@ def route_template(template):
     except:
         return render_template('page-500.html'), 500
 
+@app.errorhandler(400)
+def bad_request(e):
+    return render_template('page-400.html')
 
 @app.errorhandler(413)
 def largefile_error(e):
