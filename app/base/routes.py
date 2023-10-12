@@ -58,7 +58,8 @@ def formulario():
 @blueprint.route('/inscripcion', methods = ['GET','POST'])
 @tryton.transaction(readonly=False, user=1)
 def inscripcion():
-    genres = []
+    return redirect("/paginajurados")
+    """ genres = []
     categories = []
     cat_asociados = CityCategory.search([('category.type', '=', 'associated')])
     cat_abiertos = CityCategory.search([('category.type', '=', 'open')])
@@ -118,7 +119,7 @@ def inscripcion():
                 cat_prod_indep=cat_prod_indep,
                 cat_unica=cat_unica,
                 cat_turf=cat_turf,
-                genres=genres)
+                genres=genres) """
 
 @blueprint.route('/download_instructivo')
 @tryton.transaction()
