@@ -425,3 +425,47 @@ input::-webkit-datetime-edit-year-field:focus {
 .modal_wrapper.active .success_wrap{
 	transform: translate(-50%,-50%);
 }
+
+.tarjetas{
+	background-color: rgba(189, 201, 238, 0.3);
+	margin: 30px
+}
+
+main .contenedor{
+	align-items: center;
+  	display: flex;
+  	justify-content: center;
+}
+
+main .reservar{
+	margin-top: 40px;
+	padding-top: 10px;
+	color: var(--white);
+	text-transform: uppercase;
+	font-family: 'Vina Sans', cursive;
+	font-size: 50px;
+	text-shadow: 1px  0px 0px black,
+               0px  1px 0px black,
+              -1px  0px 0px black,
+               0px -1px 0px black;
+ }
+
+ main .informacion{
+	margin-top: 30px;
+	max-width: 650px;
+	color: var(--white);
+	font-family: 'Vina Sans', cursive;
+	text-transform: uppercase;
+	text-shadow: 1px  0px 0px black,
+               0px  1px 0px black,
+              -1px  0px 0px black,
+               0px -1px 0px black;
+
+ }
+
+ main #tarjetas-boton{
+	margin: 30px 0 30px 0;
+	text-transform: uppercase;
+	font-family: 'Vina Sans', cursive;
+	font-size: 40px;
+ }
